@@ -66,3 +66,40 @@ Pending
 ## Sprint Status
 
 🟢 In Progress
+# Sprint 3
+
+## Day 1
+
+Status:
+
+Completed
+
+---
+
+### Completed
+
+- Homepage Prototype
+
+- Header
+
+- Hero
+
+- Features
+
+- CTA
+
+- Footer
+
+- Component Architecture
+
+- Layout Verification
+
+- Theme System Planning
+
+---
+
+### Next
+
+Sprint 3 Day 2
+
+Theme System
