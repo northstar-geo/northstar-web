@@ -1,43 +1,15 @@
-# Database Design
+# 数据模型与导入
 
-## Current Status
+源事实：官方批量下载文件；版本化发布工件：`data/geography.json.gz` 与 `data/import-receipt.json`。网站仅通过 `lib/geo/repository.ts` 查询该快照，无浏览器直连供应商。快照约 6.4 MB，服务端一次解压并建立标识、路径与关系索引。
 
-Database implementation has not started.
+`lib/geo/model.ts` 区分国家、州、县、普查地点、统计邮编区域、邮政编码与邮政映射。邮政表当前为空；编号相同不自动创建映射。观测包含数值、误差、变量、来源、统计期与局限。缺失／抑制／负哨兵值保留空值。
 
----
+`data/migrations/001-geography.sql` 定义本地 SQLite（嵌入式数据库）适配；州、县、地点、统计邮编区域通过类型化实体与视图表达，避免重复模型。来源、导入、版本、观测、土地重叠关系、邮政编码与映射均有约束。`npm run data:database` 将当前快照事务性装载为可重建查询数据库，执行外键和完整性验证；该数据库不是第二套独立编辑权威。
 
-## Planned Database
+`002-observation-bounds.sql` 增补中位数上下限类型和原始数值编码，迁移按版本只执行一次。统计页、对照表与比较页使用统一格式化规则；例如租金编码 3501 显示为至少 3,500 美元，人口计数 3501 则仍是精确发布的计数估计。
 
-PostgreSQL
+导入保存原始下载哈希与时间，检查列名、全国覆盖下限；对同名地点路径添加稳定地理标识；相同输入及回执产生相同压缩快照。快照通过临时文件完成后替换。`data/raw` 为忽略的可重取缓存，不提交约 130 MB 原始文件。
 
-Reason:
+关系使用 2020 年土地重叠数据，连接 2025 年实体。678 条旧标识关系被排除并记录；浏览州按最大县土地重叠选取，不能理解为邮政归属。没有地域人口加权。数据库未来可替换为已授权托管适配，不预先引入外部账号。
 
-- Mature
-- Stable
-- Excellent GIS support
-
----
-
-## Core Tables
-
-- states
-- counties
-- cities
-- zip_codes
-- addresses
-- area_codes
-
----
-
-## Future Tables
-
-- businesses
-- users
-- favorites
-- subscriptions
-
----
-
-## GIS Support
-
-Future versions will integrate PostGIS for geographic queries.
+旧设计：[历史记录](history/2026-07/DATABASE.md)。
