@@ -42,6 +42,8 @@ npm run data:database
 
 下载器仅访问明确列出的美国人口普查局公开批量文件，缓存至 `data/raw/`；约 130 MB。Windows（视窗系统）使用系统下载客户端，其他系统使用原生网络接口。文件哈希、下载时间、实体计数及已知连接缺口记录于 `data/import-receipt.json`。相同输入重导入产生相同快照；原始缓存不提交。
 
+年度更新须明确修改下载清单；缓存命中不会检测官方同名文件修订。修订导入前归档相应缓存及回执，再下载并执行完整验证。网站本身运行不依赖原始下载接口。
+
 来源与数据许可见 `data/sources.json`；第三方软件见 `docs/THIRD_PARTY.md`。代码许可证不覆盖第三方数据、软件或商标。没有抓取竞争对手数据库。
 
 ## 发布配置与边界
@@ -55,6 +57,7 @@ npm run data:database
 ## 工程文档
 
 - [当前状态](docs/PROJECT_STATE.md)
+- [生产前工程证据](docs/LAUNCH_EVIDENCE.md)
 - [工程执行基线](docs/PROGRAM-NORTHSTAR-WEBSITE-LAUNCH-001.md)
 - [数据模型](docs/DATABASE.md)
 - [当前路线图](docs/ROADMAP.md)

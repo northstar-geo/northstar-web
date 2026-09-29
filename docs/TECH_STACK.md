@@ -1,6 +1,6 @@
 # 当前技术栈
 
-- Next.js（网站框架）第 16.3.6 版，React（界面库）第 19.2.4 版，TypeScript（类型语言）与 Tailwind CSS（样式工具）第 4 版。
+- Next.js（网站框架）第 16.3.6 版，React（界面库）第 19.2.4 版，TypeScript（类型语言）第 5 版与 Tailwind CSS（样式工具）第 4 版。
 - Node.js（运行时）第 24 版，npm（包管理器）及 `package-lock.json`。
 - 框架原生服务端页面、动态参数、元数据与路由；前端交互只覆盖主题与地图缩放。
 - `fflate`：开放许可压缩归档读取，仅导入脚本使用。
