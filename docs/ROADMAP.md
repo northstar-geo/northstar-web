@@ -1,113 +1,14 @@
-# Product Roadmap
+# 当前路线图
 
-## Phase 1 — Foundation
+本路线图绑定 `PROGRAM-NORTHSTAR-WEBSITE-LAUNCH-001`。
 
-- Project initialization
-- Documentation
-- Git workflow
-- Development environment
+1. 阶段 0：真实工程与产品状态重新基线，保留历史。
+2. 阶段 1–3：信息架构、数据许可、地理模型、公开数据导入与本地适配。
+3. 阶段 4–6：全国地理查询、详情、聚合、比较、定位图与人口历史。
+4. 阶段 7–8：页面价值门槛、元数据与站点地图、工程／浏览器／移动端验证。
+5. 阶段 9：提交生产前证据与上线清单，返回产品核心对话独立评审。
+6. 后续发布：只有取得有效授权后才配置真实域名、公开索引、生产托管与发布。
 
----
+后续候选：更细地图边界、当前邮政目录、教育／就业指标、非重叠历史期、受验证的获客与商业化。候选不是已批准新使命。
 
-## Phase 2 — Zipora Web
-
-- Landing Page
-- ZIP Search
-- City Search
-- State Search
-- County Search
-- SEO Optimization
-- Google Search Console
-- Google AdSense
-
-Target:
-Launch the first public website.
-
----
-
-## Phase 3 — NorthStar API
-
-- Public API
-- Search API
-- Geocoding API
-- Developer Documentation
-- Rate Limiting
-- Authentication
-
-Target:
-Provide APIs for web, mobile, and developers.
-
----
-
-## Phase 4 — Mobile Platform
-
-- Android App
-- iPhone App
-- Favorites
-- Offline Cache
-- User Accounts
-- Notifications
-
-Target:
-Cross-platform experience.
-
----
-
-## Phase 5 — AI Platform
-
-- AI Location Assistant
-- Smart Recommendations
-- City Comparison
-- Relocation Planner
-- School Analysis
-
-Target:
-Become an intelligent location platform.
-
----
-
-## Phase 6 — Business Platform
-
-- Premium Membership
-- Enterprise API
-- Bulk Search
-- Data Export
-- White-label Solutions
-
-Target:
-Build sustainable recurring revenue.
-
----
-
-## Phase 7 — Crypto Integration
-
-Crypto is an optional capability rather than the core business.
-
-Possible integrations:
-
-- Bitcoin Payment
-- Ethereum Payment
-- Solana Payment
-- Stablecoin Subscription
-- Wallet Authentication
-
-Target:
-Support global payments while keeping the core platform independent.
-
----
-
-## Phase 8 — NorthStar Platform
-
-The long-term vision is to transform NorthStar into a complete location intelligence ecosystem.
-
-Products:
-
-- Zipora Web
-- Zipora Mobile
-- NorthStar API
-- AI Platform
-- Enterprise Platform
-- Developer Platform
-
-Target:
-A platform capable of operating for decades and supporting acquisition, investment, or independent growth.
+旧路线图：[历史记录](history/2026-07/ROADMAP.md)。
