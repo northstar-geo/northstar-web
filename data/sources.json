@@ -1,0 +1,102 @@
+{
+  "reviewedAt": "2026-09-29",
+  "license": {
+    "id": "US-GOVERNMENT-PUBLIC-DATA",
+    "name": "U.S. federal government public statistical and geographic data",
+    "commercial_use": "Permitted for the selected federal public datasets; no third-party imagery or marks included",
+    "redistribution": "Permitted with clear source and modification attribution",
+    "attribution": "U.S. Census Bureau; identify dataset, vintage, retrieval date and Zipora transformations; no endorsement",
+    "permanent_storage": "Permitted",
+    "derived_data": "Permitted; derived conclusions are Zipora's responsibility",
+    "evidence": [
+      "https://www.census.gov/about/policies/citation.html",
+      "https://www2.census.gov/foia/ds_policies/ds027.pdf"
+    ],
+    "limitation": "Assessment covers public Census data only, not Census multimedia, logos, third-party materials or restricted microdata."
+  },
+  "active": [
+    {
+      "id": "acs2024",
+      "name": "American Community Survey 2020–2024 five-year estimates",
+      "vintage": "2020–2024",
+      "url": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/5YRData/",
+      "coverage": "United States and Puerto Rico; available nation, state, county, place and ZCTA records",
+      "update_frequency": "Annual",
+      "cost": "Free public bulk download",
+      "vendor_lock_in": "Low; portable delimited files",
+      "geography_type": "Census statistical geographies",
+      "license": "US-GOVERNMENT-PUBLIC-DATA"
+    },
+    {
+      "id": "acs2023",
+      "name": "American Community Survey 2019–2023 five-year population estimates",
+      "vintage": "2019–2023",
+      "url": "https://www2.census.gov/programs-surveys/acs/summary_file/2023/table-based-SF/data/5YRData/",
+      "coverage": "Available Census geographies",
+      "update_frequency": "Annual",
+      "cost": "Free",
+      "vendor_lock_in": "Low",
+      "geography_type": "Census statistical geographies",
+      "license": "US-GOVERNMENT-PUBLIC-DATA"
+    },
+    {
+      "id": "gazetteer2025",
+      "name": "2025 Census Gazetteer",
+      "vintage": "2025 (2020 ZCTA definitions)",
+      "url": "https://www.census.gov/geographies/reference-files/time-series/geo/gazetteer-files.2025.html",
+      "coverage": "States, counties, places and ZCTAs",
+      "update_frequency": "Annual",
+      "cost": "Free",
+      "vendor_lock_in": "Low",
+      "geography_type": "Internal representative points and land areas; not postal boundaries",
+      "license": "US-GOVERNMENT-PUBLIC-DATA"
+    },
+    {
+      "id": "relationships2020",
+      "name": "2020 ZCTA–county and ZCTA–place relationship files",
+      "vintage": "2020",
+      "url": "https://www.census.gov/geographies/reference-files/time-series/geo/relationship-files.2020.html",
+      "coverage": "Land overlaps; changed or removed geographies excluded from joins",
+      "update_frequency": "Decennial",
+      "cost": "Free",
+      "vendor_lock_in": "Low",
+      "geography_type": "Census area overlaps, not USPS service associations",
+      "license": "US-GOVERNMENT-PUBLIC-DATA"
+    }
+  ],
+  "deferred_policy": {
+    "applies_to": "Every deferred candidate below; no candidate is authorized for ingestion by this registry",
+    "license": "UNKNOWN; source-specific review required",
+    "commercial_use": "UNKNOWN; not approved",
+    "redistribution": "UNKNOWN; not approved",
+    "attribution": "UNKNOWN; retain provider-specific requirements if later admitted",
+    "permanent_storage": "UNKNOWN; not approved",
+    "derived_data": "UNKNOWN; not approved",
+    "update_frequency": "UNKNOWN; verify before admission",
+    "coverage": "UNKNOWN; no coverage promised",
+    "cost": "UNKNOWN; no accounts or purchases authorized",
+    "vendor_lock_in": "Not adopted; future adapter must isolate provider data and terms"
+  },
+  "deferred": [
+    {
+      "name": "USPS address and ZIP products",
+      "status": "Not ingested",
+      "reason": "Account, key and product-specific redistribution terms require review; no delivery verification claimed."
+    },
+    {
+      "name": "National Address Database",
+      "status": "Not ingested",
+      "reason": "Address-level scope is not necessary for first launch; coverage and contributing jurisdiction terms need separate review."
+    },
+    {
+      "name": "TIGER/Line boundaries",
+      "status": "Not ingested",
+      "reason": "First release uses Gazetteer reference points. Polygon processing and generalized boundaries are a future data adapter."
+    },
+    {
+      "name": "Google Maps / Mapbox / Simplemaps / Geocodio / Smarty",
+      "status": "Not ingested",
+      "reason": "Commercial terms, credentials, storage and redistribution require source-specific approval. No proprietary data copied."
+    }
+  ]
+}

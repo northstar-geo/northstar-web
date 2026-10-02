@@ -1,50 +1,38 @@
 export default function Features() {
-    const features = [
-      {
-        title: "ZIP Codes",
-        description:
-          "Instant access to ZIP Code information across the United States.",
-      },
-      {
-        title: "Cities",
-        description:
-          "Explore cities with geographic, demographic and regional data.",
-      },
-      {
-        title: "Developer API",
-        description:
-          "Integrate reliable location intelligence into your applications.",
-      },
-    ];
-  
-    return (
-      <section className="mx-auto max-w-7xl px-6 py-24">
-        <div className="mb-16 text-center">
-          <h2 className="text-5xl font-bold text-slate-900">
-            Powerful Features
-          </h2>
-  
-          <p className="mt-4 text-xl text-slate-600">
-            Everything needed to search and explore geographic information.
-          </p>
+  return (
+    <section className="wrap section">
+      <div className="section-heading">
+        <div>
+          <p className="eyebrow">BUILT FOR CURIOSITY</p>
+          <h2>More context. Better questions.</h2>
         </div>
-  
-        <div className="grid gap-8 md:grid-cols-3">
-          {features.map((feature) => (
-            <div
-              key={feature.title}
-              className="rounded-3xl border border-slate-200 bg-white p-10 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
-            >
-              <h3 className="mb-4 text-2xl font-bold">
-                {feature.title}
-              </h3>
-  
-              <p className="leading-relaxed text-slate-600">
-                {feature.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-    );
-  }
+        <p>Useful numbers, with the story behind them.</p>
+      </div>
+      <div className="three-grid">
+        {[
+          {
+            n: "01",
+            title: "Understand a place",
+            body: "Find population, household income, home values and rent. See how an area compares with its state and the nation.",
+          },
+          {
+            n: "02",
+            title: "Compare your possibilities",
+            body: "Put two ZIP areas side by side. Explore trade-offs without a mysterious score telling you where to live.",
+          },
+          {
+            n: "03",
+            title: "Know where it comes from",
+            body: "Every statistic links to its Census dataset, period and margin of error. Missing data stays missing.",
+          },
+        ].map((f) => (
+          <article className="feature" key={f.n}>
+            <span className="feature-number">{f.n}</span>
+            <h3>{f.title}</h3>
+            <p>{f.body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}

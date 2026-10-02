@@ -1,0 +1,17 @@
+PRAGMA foreign_keys = ON;
+CREATE TABLE IF NOT EXISTS schema_migrations (version INTEGER PRIMARY KEY);
+CREATE TABLE IF NOT EXISTS data_sources (id TEXT PRIMARY KEY, url TEXT NOT NULL, license TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS data_imports (sha256 TEXT PRIMARY KEY, imported_at TEXT NOT NULL, source_id TEXT NOT NULL REFERENCES data_sources(id));
+CREATE TABLE IF NOT EXISTS data_vintages (source_id TEXT NOT NULL REFERENCES data_sources(id), vintage INTEGER NOT NULL, PRIMARY KEY(source_id,vintage));
+CREATE TABLE IF NOT EXISTS geographies (id TEXT PRIMARY KEY, kind TEXT NOT NULL CHECK(kind IN ('nation','state','county','city','zcta')), code TEXT NOT NULL, name TEXT NOT NULL, state TEXT, latitude REAL NOT NULL CHECK(latitude BETWEEN -90 AND 90), longitude REAL NOT NULL CHECK(longitude BETWEEN -180 AND 180), land_sqmi REAL NOT NULL CHECK(land_sqmi >= 0), UNIQUE(kind,code));
+CREATE TABLE IF NOT EXISTS observations (geography_id TEXT NOT NULL REFERENCES geographies(id), metric TEXT NOT NULL, vintage INTEGER NOT NULL, estimate REAL, moe REAL, source_id TEXT NOT NULL REFERENCES data_sources(id), variable TEXT NOT NULL, limitation TEXT, PRIMARY KEY(geography_id,metric,vintage), CHECK(estimate IS NULL OR estimate >= 0), CHECK(moe IS NULL OR moe >= 0));
+CREATE TABLE IF NOT EXISTS geographic_relationships (from_id TEXT NOT NULL REFERENCES geographies(id), to_id TEXT NOT NULL REFERENCES geographies(id), source_id TEXT NOT NULL REFERENCES data_sources(id), vintage INTEGER NOT NULL, land_overlap_sqm REAL NOT NULL CHECK(land_overlap_sqm > 0), PRIMARY KEY(from_id,to_id,source_id));
+CREATE TABLE IF NOT EXISTS postal_codes (zip TEXT PRIMARY KEY CHECK(length(zip)=5 AND zip NOT GLOB '*[^0-9]*'), source_id TEXT NOT NULL REFERENCES data_sources(id), delivery_status TEXT NOT NULL CHECK(delivery_status IN ('verified','unknown')));
+CREATE TABLE IF NOT EXISTS postal_code_zcta_mapping (zip TEXT NOT NULL REFERENCES postal_codes(zip), zcta_id TEXT NOT NULL REFERENCES geographies(id), source_id TEXT NOT NULL REFERENCES data_sources(id), method TEXT NOT NULL, PRIMARY KEY(zip,zcta_id,source_id));
+CREATE INDEX IF NOT EXISTS geography_state_kind ON geographies(state,kind);
+CREATE INDEX IF NOT EXISTS relationship_target ON geographic_relationships(to_id);
+CREATE VIEW IF NOT EXISTS states AS SELECT * FROM geographies WHERE kind='state';
+CREATE VIEW IF NOT EXISTS counties AS SELECT * FROM geographies WHERE kind='county';
+CREATE VIEW IF NOT EXISTS places AS SELECT * FROM geographies WHERE kind='city';
+CREATE VIEW IF NOT EXISTS zctas AS SELECT * FROM geographies WHERE kind='zcta';
+INSERT OR IGNORE INTO schema_migrations VALUES (1);

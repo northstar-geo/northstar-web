@@ -1,28 +1,14 @@
-# Technology Stack
+# 当前技术栈
 
-## Frontend
+- Next.js（网站框架）第 16.3.6 版，React（界面库）第 19.2.4 版，TypeScript（类型语言）第 5 版与 Tailwind CSS（样式工具）第 4 版。
+- Node.js（运行时）第 24 版，npm（包管理器）及 `package-lock.json`。
+- 框架原生服务端页面、动态参数、元数据与路由；前端交互只覆盖主题与地图缩放。
+- `fflate`：开放许可压缩归档读取，仅导入脚本使用。
+- `tsx` 与原生测试运行器：领域、数据、搜索和索引验证。
+- Playwright（浏览器测试工具）与 axe-core（可访问性检查工具）：桌面和移动端验证。
+- SQLite（嵌入式数据库）：Node.js（运行时）原生适配，用于本地事务性导入与模式验证；网站发布使用压缩快照。
+- 定位图使用浏览器原生矢量绘制，数据与渲染组件分离。MapLibre（开放地图渲染器）作为未来多边形／瓦片渲染候选；当前无瓦片供应商、密钥或外部地图请求。
 
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
+不采用运行时外部字体，以保证断网构建与访问隐私。生产托管尚未绑定，支持标准服务器运行。没有强加账号、支付或模型调用。
 
-## Backend
-
-(To be determined)
-
-## Database
-
-PostgreSQL + PostGIS
-
-## Deployment
-
-Vercel (initial)
-
-## Mobile
-
-React Native (planned)
-
-## AI
-
-OpenAI API
+历史技术设想：[记录](history/2026-07/TECH_STACK.md)。

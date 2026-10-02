@@ -1,15 +1,29 @@
+import Link from "next/link";
 export default function Footer() {
-    return (
-      <footer className="mt-24 border-t bg-white">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-8 py-10 text-center text-slate-500 md:flex-row">
-          <p>© 2026 Zipora. Powered by NorthStar.</p>
-  
-          <div className="flex gap-6">
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
-            <a href="#">Contact</a>
-          </div>
+  return (
+    <footer className="footer">
+      <div className="wrap footer-grid">
+        <div>
+          <Link href="/" className="brand">
+            zipora.
+          </Link>
+          <p>
+            A clearer picture of place.
+            <br />A Northstar product.
+          </p>
         </div>
-      </footer>
-    );
-  }
+        <nav aria-label="Footer navigation">
+          <Link href="/methodology">Methodology</Link>
+          <Link href="/data-sources">Data sources</Link>
+          <Link href="/about">About & privacy</Link>
+        </nav>
+        <p className="small">
+          Independent geographic research.
+          <br />
+          Not affiliated with USPS or the U.S. Census Bureau.
+          <br />© {new Date().getFullYear()} Zipora
+        </p>
+      </div>
+    </footer>
+  );
+}

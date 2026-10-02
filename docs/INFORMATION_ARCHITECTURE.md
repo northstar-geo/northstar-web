@@ -1,69 +1,20 @@
-# Information Architecture
+# 当前网站结构
 
-## Platform Structure
+| 路由 | 用途 |
+| --- | --- |
+| `/` | 统一查询、州入口与数据口径 |
+| `/search` | 按名称、编号、州缩写查询；类别筛选与分页 |
+| `/zip/[zip]` | 明确标记为统计邮编区域的资料页 |
+| `/state/[state]` | 州资料、县市目录、相关邮编区域入口 |
+| `/city/[state]/[city]` | 普查地点资料和土地重叠区域 |
+| `/county/[state]/[county]` | 县资料和土地重叠区域 |
+| `/compare` | 两个统计邮编区域的同口径比较 |
+| `/methodology` | 概念区别、误差、关系、地图与局限 |
+| `/data-sources` | 来源、许可、统计期与下载证据 |
+| `/about` | 产品说明与当前隐私行为 |
 
-NorthStar
+地名路径来自官方名称；同州同名地点追加地理标识以避免覆盖。地理实体始终以来源标识查询，不以路径代替身份。
 
-├── Zipora Web
+国家 → 州 → 城市／县 → 统计邮编区域 → 附近区域。搜索和比较不索引，地理资料需达到可验证价值门槛；站点地图每片最多 10,000 条。预览默认禁止索引，真实域名与公开索引作为发布配置。
 
-├── Zipora Mobile
-
-├── API Platform
-
-└── AI Services
-
----
-
-## Web
-
-Home
-
-Search
-
-ZIP Codes
-
-Cities
-
-States
-
-Counties
-
-Area Codes
-
-Blog
-
-About
-
----
-
-## Mobile
-
-Home
-
-Search
-
-Nearby
-
-Favorites
-
-Profile
-
----
-
-## API
-
-Authentication
-
-Search
-
-Location
-
-Statistics
-
-Business Data
-
----
-
-## Documentation
-
-All architecture decisions are recorded in DECISION_LOG.md.
+历史结构：[记录](history/2026-07/INFORMATION_ARCHITECTURE.md)。

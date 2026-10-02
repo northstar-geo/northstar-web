@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "importedAt": "2026-09-28T23:43:32.475Z",
+  "sha256": "2e100f671f3a84997b30627ababbfc94e049f7c2d2cf8d328c42c6006a2778c5",
+  "counts": {
+    "state": 52,
+    "county": 3222,
+    "city": 32350,
+    "zcta": 33791
+  },
+  "relationships": 99406,
+  "unmatchedRelationships": 678,
+  "sources": [
+    {
+      "id": "gaz-state.zip",
+      "url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_state_national.zip",
+      "fetchedAt": "2026-09-28T23:38:51.470Z",
+      "bytes": 2863,
+      "sha256": "5c0bb56f4824af366538d73bffd229e790d301356624302eeca24d09cf27ba30"
+    },
+    {
+      "id": "gaz-counties.zip",
+      "url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_counties_national.zip",
+      "fetchedAt": "2026-09-28T23:38:52.482Z",
+      "bytes": 138993,
+      "sha256": "4c90d0f805779923b5958ab13d0c1e9b99fe4932b786bfcf75dd739bb2dcb4ea"
+    },
+    {
+      "id": "gaz-place.zip",
+      "url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_place_national.zip",
+      "fetchedAt": "2026-09-28T23:38:54.549Z",
+      "bytes": 1214053,
+      "sha256": "49644173a453469d9bd77fb7a493b027f87567e209edaf2078aac7543ac2ee29"
+    },
+    {
+      "id": "gaz-zcta.zip",
+      "url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_zcta_national.zip",
+      "fetchedAt": "2026-09-28T23:38:56.160Z",
+      "bytes": 952026,
+      "sha256": "51516a4283bab5cd2376eec75609ddc4b363a18297e8adeeaac7b03cf7c84dbe"
+    },
+    {
+      "id": "relationship-county.txt",
+      "url": "https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_county20_natl.txt",
+      "fetchedAt": "2026-09-28T23:39:01.352Z",
+      "bytes": 6821287,
+      "sha256": "3ed41278d637dc249e0323306f68be8a6c234e3090f4de88ef328dee71aeaaaf"
+    },
+    {
+      "id": "relationship-place.txt",
+      "url": "https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_place20_natl.txt",
+      "fetchedAt": "2026-09-28T23:39:08.581Z",
+      "bytes": 9811563,
+      "sha256": "698a5dad71ed419411677d0ffd8ecd9331067f59c472cdd239b92c12f698285d"
+    },
+    {
+      "id": "acs2024-b01003.dat",
+      "url": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/5YRData/acsdt5y2024-b01003.dat",
+      "fetchedAt": "2026-09-28T23:39:33.753Z",
+      "bytes": 18313708,
+      "sha256": "38d1a992bb058d184009b10b9b34987279aee575e4323165cfb5706c69b6ca90"
+    },
+    {
+      "id": "acs2024-b19013.dat",
+      "url": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/5YRData/acsdt5y2024-b19013.dat",
+      "fetchedAt": "2026-09-28T23:40:00.854Z",
+      "bytes": 17917916,
+      "sha256": "b25a176b0e6c339b6f3a2a0d3d8446bf06f5f080b4395993ec9a8313efb1c229"
+    },
+    {
+      "id": "acs2024-b25077.dat",
+      "url": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/5YRData/acsdt5y2024-b25077.dat",
+      "fetchedAt": "2026-09-28T23:40:14.671Z",
+      "bytes": 18496426,
+      "sha256": "89eb2153764a2330b23959d8bbc29b3a8f3016f087b990f2a8ea0d5096d9a816"
+    },
+    {
+      "id": "acs2024-b25064.dat",
+      "url": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/5YRData/acsdt5y2024-b25064.dat",
+      "fetchedAt": "2026-09-28T23:40:25.181Z",
+      "bytes": 17272062,
+      "sha256": "b36e6dc1fcef36b8b307d31b37517b64c80d8b9c70d48c9b1894242860f42eb0"
+    },
+    {
+      "id": "acs2024-b01002.dat",
+      "url": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/5YRData/acsdt5y2024-b01002.dat",
+      "fetchedAt": "2026-09-28T23:39:49.435Z",
+      "bytes": 26666521,
+      "sha256": "04784637609550868d9da7321e7a947b34e0a10b654dbf6d344599f97f8de7f8"
+    },
+    {
+      "id": "acs2023-b01003.dat",
+      "url": "https://www2.census.gov/programs-surveys/acs/summary_file/2023/table-based-SF/data/5YRData/acsdt5y2023-b01003.dat",
+      "fetchedAt": "2026-09-28T23:43:32.475Z",
+      "bytes": 18311997,
+      "sha256": "24ae3f523b4c54332ce0a71ba534569685a8a729056f975915d860d1eb943565"
+    }
+  ],
+  "postalVerification": "UNAVAILABLE",
+  "warnings": [
+    "2020 relationships joined to 2025 gazetteer: unmatched changed geographies excluded.",
+    "2023 and 2024 ACS five-year windows overlap; trend is descriptive, not a significance test."
+  ]
+}
