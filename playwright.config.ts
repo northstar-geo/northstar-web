@@ -1,4 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
+
+const firefoxValidationEnabled = process.env.PLAYWRIGHT_FIREFOX === "true";
+
 export default defineConfig({
   testDir: "./tests/browser",
   fullyParallel: false,
@@ -19,6 +22,13 @@ export default defineConfig({
         defaultBrowserType: "chromium",
         channel: "msedge",
       },
+    },
+    {
+      name: "firefox",
+      use: { ...devices["Desktop Firefox"] },
+      // The browser binary is intentionally opt-in so the standard local
+      // suite stays runnable on machines that have not installed Firefox.
+      testMatch: firefoxValidationEnabled ? undefined : /$^/,
     },
   ],
   webServer: {
