@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { siteOrigin, indexingEnabled } from "@/lib/seo";
+import { configuredSiteOrigin, indexingEnabled } from "@/lib/seo";
 import "./globals.css";
+const configuredOrigin = configuredSiteOrigin();
 export const metadata: Metadata = {
-  metadataBase: new URL(siteOrigin()),
+  metadataBase: configuredOrigin ? new URL(configuredOrigin) : undefined,
   title: {
     default: "Zipora — A clearer picture of place",
     template: "%s | Zipora",
