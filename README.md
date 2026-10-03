@@ -54,6 +54,8 @@ npm run data:database
 
 生产域名、托管、隐私日志保留策略、支持联系方式及发布审批见 `docs/LAUNCH_CHECKLIST.md`。本项目没有开启账号、分析、广告或支付。
 
+预发布环境必须遵守[预发布环境契约](docs/release/STAGING_ENVIRONMENT_CONTRACT.md)和[预发布验证清单](docs/release/STAGING_VALIDATION_CHECKLIST.md)：由环境注入站点来源、默认禁止索引并保持访问保护。当前没有已部署的预发布环境。
+
 ## 工程文档
 
 - [当前状态](docs/PROJECT_STATE.md)
