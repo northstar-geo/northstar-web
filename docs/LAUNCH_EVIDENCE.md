@@ -10,6 +10,12 @@ PR #1 已合并到 `develop`。合并提交及当前 `develop` 基线为 `0b589e
 
 GitHub（代码托管平台）持续集成最终独立验证运行 `37076110183` 在精确产品提交 `598244bd6777c8e5592a54b878666ca003f55033` 上成功完成：安装、代码检查、类型检查、12 项领域测试、生产构建、数据库完整性检查和高风险依赖审计均通过。持续集成启动修复 PR #2 已合并至 `main`，其工作流文件对象哈希 `8a05bb35b812c003de85b2a28d3869b0d1d69230` 与产品分支版本一致。
 
+### 当前依赖审计状态
+
+上述审计是其原始运行时的历史事实，不可替代当前依赖风险判断。2026-10-03 的发布准备复核中，`npm audit --audit-level=high` 返回 5 个高严重度告警：`eslint-config-next@16.3.6 → @next/eslint-plugin-next → fast-glob → micromatch → braces@3.0.3`。公告将 `braces <=3.0.3` 标记为深度嵌套模式导致的拒绝服务风险；npm 注册表当前没有可用修复版 `braces`。自动修复建议把 Next.js（网站框架）相关配置降至 14.x，属于不安全的破坏性回退。
+
+现有质量工作流会以高风险审计失败结束，因此本发布准备分支不得进行最终远端推送或声称 GitHub 持续集成可通过，直到由产品核心对话确定兼容的依赖修复或合规豁免路径。
+
 ## 实际运行环境与范围
 
 工作区 `E:\Projects\northstar\northstar-web`；仓库 `northstar-geo/northstar-web`；分支 `codex/northstar-website-launch-001`；原基线 `e884c2c57571d1192a92c75f66de69dedbf800b6`。Node.js（运行时）24.18.0、npm（包管理器）11.16.0、Next.js（网站框架）16.3.6。没有修改生产分支、仓库可见性、真实域名或部署。
@@ -50,7 +56,7 @@ GitHub（代码托管平台）持续集成最终独立验证运行 `37076110183`
 | `npm run data:fetch` | 12 个已验证缓存命中；首次官方下载已执行 |
 | `npm run data:import` | 重复导入哈希一致 |
 | `npm run data:database` | 重复执行通过；完整性与外键检查通过 |
-| `npm audit --audit-level=high` | 官方公告查询成功，0 个已知漏洞 |
+| `npm audit --audit-level=high` | 原始 CI 运行时为 0；当前发布准备复核为 5 个高严重度传递依赖告警，见“当前依赖审计状态” |
 | `git diff --check` | 通过 |
 | 常见凭据模式扫描 | 未发现匹配；未获取或写入真实服务密钥 |
 
