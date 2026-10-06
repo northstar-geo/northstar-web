@@ -1,0 +1,51 @@
+{
+  "schema": "northstar-security-exception.v1",
+  "status": "ACTIVE_TEMPORARY_EXCEPTION",
+  "advisory": "GHSA-vfj7-8cjw-p6xm",
+  "cve": "CVE-2026-93687",
+  "package": "braces",
+  "version": "3.0.3",
+  "severity": "HIGH",
+  "patchAvailable": false,
+  "dependencyPath": [
+    "eslint-config-next@16.3.6",
+    "@next/eslint-plugin-next@16.3.6",
+    "fast-glob@3.3.1",
+    "micromatch@4.0.8",
+    "braces@3.0.3"
+  ],
+  "scope": "DEV_TOOLING_ONLY",
+  "productionRuntimeExposure": "NO_EVIDENCE",
+  "untrustedPatternInput": "NO_EVIDENCE",
+  "rawAuditDigest": "sha256:12c2668947a2e90e05e3673e84354a9cb832803ce51e87ea98b12bc24d630233",
+  "productionAuditDigest": "sha256:d3c060be74cf75e456b2f6cc0d3e26401f94dbc43da402675047501a18039168",
+  "owner": "Atlas Compliance Governance",
+  "approvedBy": "Atlas Company Center",
+  "approvedDecisionClass": "B",
+  "reviewDate": "2026-10-13",
+  "expiresAt": "2026-10-13T23:59:00+08:00",
+  "autoRenew": false,
+  "permanentException": false,
+  "upstreamRecheckRequired": true,
+  "compensatingControls": [
+    "EXACT_ADVISORY_MATCH",
+    "DEV_ONLY_DEPENDENCY_PATH",
+    "ZERO_PRODUCTION_HIGH_CRITICAL",
+    "NO_RUNTIME_IMPORTS",
+    "TIME_BOUNDED_FAIL_CLOSED"
+  ],
+  "revocationConditions": [
+    "EXPIRY_REACHED",
+    "COMPATIBLE_PATCH_AVAILABLE_REQUIRES_REVIEW",
+    "ADVISORY_CHANGED",
+    "SEVERITY_CHANGED",
+    "PACKAGE_VERSION_CHANGED",
+    "DEPENDENCY_PATH_CHANGED",
+    "DEV_ONLY_CLASSIFICATION_CHANGED",
+    "PRODUCTION_AUDIT_NONZERO",
+    "RUNTIME_EXPOSURE_FOUND",
+    "UNTRUSTED_PATTERN_INPUT_FOUND",
+    "AUDIT_EVIDENCE_DIGEST_CHANGED",
+    "LOCKFILE_CHAIN_CHANGED"
+  ]
+}

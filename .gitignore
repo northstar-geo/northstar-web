@@ -42,4 +42,5 @@ yarn-error.log*
 /data/*.sqlite*
 /test-results/
 /playwright-report/
+/.artifacts/
 next-env.d.ts
