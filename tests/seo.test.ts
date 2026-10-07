@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { siteOrigin, pageMetadata } from "../lib/seo";
+import { configuredSiteOrigin, siteOrigin, pageMetadata } from "../lib/seo";
 import robots from "../app/robots";
 import { GET as index } from "../app/sitemap.xml/route";
 import { GET as shard } from "../app/sitemaps/[id]/route";
@@ -63,6 +63,34 @@ test("production opt-in emits qualified sitemap shards and indexable metadata", 
       process.env.SITE_URL = invalid;
       assert.throws(siteOrigin);
     }
+  } finally {
+    if (previousUrl === undefined) delete process.env.SITE_URL;
+    else process.env.SITE_URL = previousUrl;
+    if (previousFlag === undefined) delete process.env.INDEXING_ENABLED;
+    else process.env.INDEXING_ENABLED = previousFlag;
+  }
+});
+
+test("preview has no synthetic public origin and public indexing requires HTTPS", () => {
+  const previousUrl = process.env.SITE_URL;
+  const previousFlag = process.env.INDEXING_ENABLED;
+  try {
+    delete process.env.SITE_URL;
+    process.env.INDEXING_ENABLED = "true";
+    assert.equal(configuredSiteOrigin(), undefined);
+    assert.equal(
+      (pageMetadata("Title", "Description", "/zip/10001").robots as {
+        index: boolean;
+      }).index,
+      false,
+    );
+    assert.equal(
+      pageMetadata("Title", "Description", "/zip/10001").openGraph?.images,
+      undefined,
+    );
+    process.env.SITE_URL = "http://zipora.example";
+    assert.equal(configuredSiteOrigin(), "http://zipora.example");
+    assert.throws(siteOrigin, /HTTPS/);
   } finally {
     if (previousUrl === undefined) delete process.env.SITE_URL;
     else process.env.SITE_URL = previousUrl;

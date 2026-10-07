@@ -13,7 +13,7 @@ import {
   routeFor,
 } from "@/lib/geo/model";
 import type { Geography, MetricKey } from "@/lib/geo/model";
-import { jsonLd, siteOrigin } from "@/lib/seo";
+import { geographyJsonLd } from "@/lib/geo/page";
 import MetricCard from "./MetricCard";
 import PointMap from "./PointMap";
 
@@ -49,6 +49,7 @@ export default function GeographyPage({
     },
   ];
   const population = geo.metrics.population?.value;
+  const structuredData = geographyJsonLd(breadcrumbs);
   const history = [...geo.populationHistory].sort(
     (a, b) => a.vintage - b.vintage,
   );
@@ -67,21 +68,12 @@ export default function GeographyPage({
           </span>
         ))}
       </nav>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: jsonLd({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: breadcrumbs.map((b, i) => ({
-              "@type": "ListItem",
-              position: i + 1,
-              name: b.name,
-              item: `${siteOrigin()}${b.url}`,
-            })),
-          }),
-        }}
-      />
+      {structuredData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: structuredData }}
+        />
+      )}
       <div className="page-heading">
         <p className="eyebrow">
           {geo.kind === "zcta" ? "CENSUS ZIP AREA" : geo.kind.toUpperCase()} ·{" "}

@@ -11,6 +11,8 @@
     "typecheck": "next typegen && tsc --noEmit",
     "test": "tsx --test tests/*.test.ts",
     "test:e2e": "playwright test",
+    "release:lab": "node scripts/release-lab.mjs",
+    "release:web-vitals": "node scripts/release-web-vitals.mjs",
     "data:fetch": "node scripts/fetch-data.mjs",
     "data:import": "tsx scripts/import-data.ts",
     "data:database": "tsx scripts/build-database.ts",

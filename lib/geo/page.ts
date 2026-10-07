@@ -1,5 +1,22 @@
 import { geographyByRoute, indexable } from "./repository";
-import { pageMetadata } from "../seo";
+import { indexingEnabled, jsonLd, pageMetadata, siteOrigin } from "../seo";
+
+export function geographyJsonLd(
+  breadcrumbs: Array<{ name: string; url: string }>,
+) {
+  if (!indexingEnabled()) return undefined;
+  return jsonLd({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbs.map((breadcrumb, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: breadcrumb.name,
+      item: `${siteOrigin()}${breadcrumb.url}`,
+    })),
+  });
+}
+
 export function geographyMetadata(route: string) {
   const g = geographyByRoute(route);
   return g

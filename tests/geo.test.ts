@@ -21,6 +21,7 @@ import {
 } from "../lib/geo/model";
 import { sitemapEntries, sitemapShard } from "../lib/sitemap";
 import { indexingEnabled, jsonLd } from "../lib/seo";
+import { geographyJsonLd } from "../lib/geo/page";
 test("Census sentinels, blanks and nonnumbers never become zero", () => {
   for (const value of ["", " ", "-666666666", "null", "NaN", undefined])
     assert.equal(numericCell(value), null);
@@ -197,6 +198,17 @@ test("indexing gate rejects low-value profiles and preview indexing", () => {
   if (old !== undefined) process.env.INDEXING_ENABLED = old;
   assert.ok(!sitemapEntries().includes("/search"));
   assert.ok(!sitemapEntries().includes("/compare"));
-  assert.ok((sitemapShard(0).match(/<url>/g) ?? []).length <= 10000);
+  assert.equal(
+    geographyJsonLd([{ name: "United States", url: "/" }]),
+    undefined,
+  );
+  const oldUrl = process.env.SITE_URL;
+  process.env.SITE_URL = "https://zipora.example";
+  try {
+    assert.ok((sitemapShard(0).match(/<url>/g) ?? []).length <= 10000);
+  } finally {
+    if (oldUrl === undefined) delete process.env.SITE_URL;
+    else process.env.SITE_URL = oldUrl;
+  }
   assert.ok(!jsonLd({ name: "</script>" }).includes("</script>"));
 });
