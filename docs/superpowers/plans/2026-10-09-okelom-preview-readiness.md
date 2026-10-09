@@ -26,15 +26,15 @@ SCHEDULE_DELIVERY = VERIFIED_SINGLE_HEARTBEAT
 LAST_OBSERVED_HEARTBEAT_AT = 2026-10-09T07:49:13.636Z
 CURRENT_STAGE = LOCAL_CHECKPOINT_VALIDATION_BEFORE_CLOUDFLARE_ADAPTATION
 CURRENT_BLOCKER = ONLINE_AUDIT_METADATA_TRANSFER_AUTHORIZATION_PENDING
-LAST_REVIEWED_AT = 2026-10-09 16:18 +08:00
+LAST_REVIEWED_AT = 2026-10-09 16:28 +08:00
 REPOSITORY = northstar-geo/northstar-web
 WORKSPACE = E:\Projects\northstar\.worktrees\northstar-release-preparation-001
 CURRENT_BRANCH = codex/okelom-identity-preview-readiness-001
-CURRENT_HEAD = ed7b2355ab931ec2d66080da012dced600aaa12e
-LAST_VALIDATED_HEAD = ed7b2355ab931ec2d66080da012dced600aaa12e
-LAST_VALIDATED_HEAD_SCOPE = SOURCE_IDENTITY_ONLY
-WORKTREE_STATUS = UNCOMMITTED_MISSION_CHANGES_PRESERVED
-CURRENT_EVIDENCE_BINDING = WORKTREE_NOT_HEAD_COMMIT
+IMPLEMENTATION_HEAD = 307cb06a5e918fef5763e72fb7b8ee7ff000a689
+LAST_VALIDATED_HEAD = 307cb06a5e918fef5763e72fb7b8ee7ff000a689
+LAST_VALIDATED_HEAD_SCOPE = LOCAL_CHECKPOINT_ONLY_NOT_CLOUDFLARE_OR_RELEASE
+WORKTREE_STATUS = IMPLEMENTATION_COMMITTED_LOCAL_ONLY
+CURRENT_EVIDENCE_BINDING = EXACT_IMPLEMENTATION_COMMIT
 FINAL_REQUIRED_VALIDATION_BINDING = EXACT_HEAD_COMMIT
 LAUNCH_READINESS = NOT_READY
 SECURITY_GATE = PASS_WITH_EXISTING_TIME_BOUNDED_EXCEPTION
@@ -47,7 +47,7 @@ ROLLBACK_READY = NO_EXACT_CANDIDATE_OR_DEPLOYMENT_BINDING
 NEXT_HIGHEST_VALUE_ACTION = AUTHORIZE_FRESH_AUDIT_THEN_VALIDATE_ADAPTER_DEPENDENCY_EVIDENCE
 ```
 
-本块是本使命唯一当前门禁状态，后文历史记录和矩阵不得另行覆盖它。15:14的原生目标受阻状态属于正式恢复前历史；本轮正式回执到达后工具返回 `active`，实施恢复。`ACTIVE_BLOCKED` 表示目标保留且等待真实门禁，不是完成。`LAST_VALIDATED_HEAD` 当前仍仅标识源提交身份，工作树验证须在检查点提交后重新绑定；不能冒充最终云端候选验收。
+本块是本使命唯一当前门禁状态，后文历史记录和矩阵不得另行覆盖它。15:14的原生目标受阻状态属于正式恢复前历史；本轮正式回执到达后工具返回 `active`，实施恢复。`ACTIVE_BLOCKED` 表示目标保留且等待真实门禁，不是完成。实现与匹配本地验证已固定于上列检查点；后续仅记录证据的提交不能被误认作新的产品实现。运行时当前头提交始终以 `git rev-parse HEAD` 为准；最终回执另给实际头提交，不在自身文档中制造自引用哈希。当前证据不能冒充云端候选验收。
 
 核心对话：`6aa2eb14-4608-83e8-ac1e-476956bb6c82`。15:34提交及15:49复核均是批准前历史。创始人随后在本对话正式提供 `FORMAL_RESUME_RECEIPT`（附件 `81dae718-7599-4393-8a13-4869fd871030`），明确批准以下两个摘要及现有范围/期限；不是请求模板中的条件示例。只改例外记录两个摘要后，原验证函数对获批对象返回 `PASS_WITH_EXACT_TIME_BOUNDED_EXCEPTION`。输入未变化：
 
@@ -122,6 +122,7 @@ NEXT_HIGHEST_VALUE_ACTION = AUTHORIZE_FRESH_AUDIT_THEN_VALIDATE_ADAPTER_DEPENDEN
 ### 正式恢复后的本地检查点
 
 - 提交前验证：代码规范、类型、生产构建通过；23/23单元/分片/数据测试通过；34/34桌面与移动仿真浏览器测试通过；26/26安全变异测试通过；原安全函数对获批审计对象通过有时限例外。真实设备、Firefox、实际云端验证和最新在线审计未执行。检查点提交后再复验精确提交，不声明整个目标完成。
+- 实现检查点：`307cb06a5e918fef5763e72fb7b8ee7ff000a689`，52个文件，包含已保留的分片工作、已授权补丁、例外摘要重绑定及本轮身份/索引修复。提交后工作树干净；此记录是纯文档跟进。最终回执必须给出之后实际执行的验证结果，不以本条预先声明通过。Founder原 checkout 的 `AGENTS.md` 18行原修改未触碰，暂存区为空。没有远端推送、合并、部署或索引激活。
 
 - 身份迁移与预发布索引测试先失败、再实现、再通过；覆盖首页/搜索/各层详情/比较/方法/来源/关于、社交元数据、旧主题偏好迁移、配置缺失/误配、空站点地图、无结构化数据及直接图片/图标/数据资产响应头。生产配置仅在隔离测试进程中验证，未部署或开启索引。
 - 只读整分支评审发现缺失人口被投影为0，当前60个实体受影响；新增失败测试复现 `Falls Run CDP`，保留 `null` 后修复。排序仍可把缺失值按0排序，但显示不再编造0；全国全字段投影验证同步覆盖。评审未发现其他严重项，允许作为本地检查点，不代表产品审批。
