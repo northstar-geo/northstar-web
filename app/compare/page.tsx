@@ -21,8 +21,8 @@ export default async function Page({
   const p = await searchParams;
   const left = typeof p.left === "string" ? p.left.slice(0, 100) : "";
   const right = typeof p.right === "string" ? p.right.slice(0, 100) : "";
-  const a = /^\d{5}$/.test(left) ? geography(`zcta:${left}`) : undefined,
-    b = /^\d{5}$/.test(right) ? geography(`zcta:${right}`) : undefined;
+  const a = /^\d{5}$/.test(left) ? await geography(`zcta:${left}`) : undefined,
+    b = /^\d{5}$/.test(right) ? await geography(`zcta:${right}`) : undefined;
   return (
     <div className="wrap page">
       <div className="page-heading">

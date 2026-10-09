@@ -3,7 +3,7 @@ import {
   data,
   geography,
   nearby,
-  related,
+  relatedPage,
   stateFor,
 } from "@/lib/geo/repository";
 import {
@@ -18,25 +18,20 @@ import MetricCard from "./MetricCard";
 import PointMap from "./PointMap";
 
 const keys = Object.keys(metricDefinitions) as MetricKey[];
-export default function GeographyPage({
+export default async function GeographyPage({
   geo,
   page = 1,
 }: {
   geo: Geography;
   page?: number;
 }) {
-  const state = stateFor(geo),
-    nation = geography("nation:US");
-  const neighbors = geo.kind === "zcta" ? nearby(geo) : [];
-  const relations = related(geo);
-  const children = relations.filter((g) =>
-    geo.kind === "state" ? g.kind !== "zcta" : true,
-  );
-  const pages = Math.max(1, Math.ceil(children.length / 30));
-  const current = Math.max(
-    1,
-    Math.min(Number.isFinite(page) ? Math.floor(page) : 1, pages),
-  );
+  const state = await stateFor(geo),
+    nation = await geography("nation:US");
+  const neighbors = geo.kind === "zcta" ? await nearby(geo) : [];
+  const relations = await relatedPage(geo, page);
+  const children = relations.results;
+  const pages = relations.pages;
+  const current = relations.page;
   const title = geo.kind === "zcta" ? `${geo.code}: a closer look` : geo.name;
   const breadcrumbs = [
     { name: "United States", url: "/" },
@@ -255,7 +250,7 @@ export default function GeographyPage({
             : "2020 Census land overlaps, joined to 2025 geography identifiers. These are not postal service associations. Changed or unmatched geographies are omitted."}
         </p>
         <div className="link-grid" style={{ marginTop: 18 }}>
-          {children.slice((current - 1) * 30, current * 30).map((g) => (
+          {children.map((g) => (
             <Link key={g.id} className="link-card" href={routeFor(g)}>
               <span className="badge">
                 {g.kind === "zcta" ? "Census ZIP area" : g.kind}
@@ -307,8 +302,8 @@ export default function GeographyPage({
         <p>
           U.S. Census Bureau, ACS 2020–2024 and 2019–2023 five-year estimates;
           2025 Gazetteer reference points and land areas; 2020 geography
-          relationships. Imported {data().importedAt.slice(0, 10)}. Data is
-          public federal statistical information. Zipora is responsible for
+          relationships. Imported {(await data()).importedAt.slice(0, 10)}. Data
+          is public federal statistical information. OKELOM is responsible for
           derived calculations and does not imply Census endorsement.
         </p>
         <p>

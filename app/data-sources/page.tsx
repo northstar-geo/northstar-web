@@ -6,8 +6,8 @@ export const metadata = pageMetadata(
   "Inspect Census datasets, vintages, download receipts, coverage and public-data usage terms.",
   "/data-sources",
 );
-export default function Page() {
-  const snapshot = data();
+export default async function Page() {
+  const snapshot = await data();
   return (
     <article className="wrap page prose">
       <div className="page-heading">
@@ -21,10 +21,8 @@ export default function Page() {
       <aside className="notice">
         Snapshot imported {snapshot.importedAt.slice(0, 10)}. Statistical
         period: 2020–2024, not live 2026 measurements.{" "}
-        {snapshot.geographies
-          .filter((g) => g.kind === "zcta")
-          .length.toLocaleString("en-US")}{" "}
-        Census ZIP areas. USPS delivery verification is not included.
+        {snapshot.counts.zcta.toLocaleString("en-US")} Census ZIP areas. USPS
+        delivery verification is not included.
       </aside>
       {registry.active.map((s) => (
         <section className="content-section" key={s.id}>

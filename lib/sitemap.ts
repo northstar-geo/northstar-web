@@ -1,15 +1,8 @@
-import { allIndexable, data } from "./geo/repository";
-import { routeFor } from "./geo/model";
+import { asset, data } from "./geo/repository";
 import { siteOrigin } from "./seo";
 export const SITEMAP_SIZE = 10000;
-export function sitemapEntries() {
-  return [
-    "/",
-    "/about",
-    "/methodology",
-    "/data-sources",
-    ...allIndexable().map(routeFor),
-  ];
+export async function sitemapCount() {
+  return (await data()).sitemapParts.length;
 }
 export function escapeXml(text: string) {
   return text
@@ -19,14 +12,17 @@ export function escapeXml(text: string) {
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&apos;");
 }
-export function sitemapShard(id: number) {
+export async function sitemapShard(id: number) {
+  const manifest = await data();
+  const paths = manifest.sitemapParts[id]
+    ? await asset<string[]>(manifest.sitemapParts[id])
+    : [];
   return (
     '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' +
-    sitemapEntries()
-      .slice(id * SITEMAP_SIZE, (id + 1) * SITEMAP_SIZE)
+    paths
       .map(
         (p) =>
-          `<url><loc>${escapeXml(siteOrigin() + p)}</loc><lastmod>${data().importedAt.slice(0, 10)}</lastmod></url>`,
+          `<url><loc>${escapeXml(siteOrigin() + p)}</loc><lastmod>${manifest.importedAt.slice(0, 10)}</lastmod></url>`,
       )
       .join("") +
     "</urlset>"

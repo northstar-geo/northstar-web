@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-export const alt = "Zipora — A clearer picture of place";
+export const alt = "OKELOM — A clearer picture of place";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export default function Image() {
@@ -16,7 +16,7 @@ export default function Image() {
         justifyContent: "space-between",
       }}
     >
-      <span style={{ fontSize: 45 }}>zipora.</span>
+      <span style={{ fontSize: 45 }}>OKELOM.</span>
       <span
         style={{
           fontSize: 80,

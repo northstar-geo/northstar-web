@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: Props) {
   return geographyMetadata(`/state/${(await params).state}`);
 }
 export default async function Page({ params, searchParams }: Props) {
-  const geo = geographyByRoute(`/state/${(await params).state}`);
+  const geo = await geographyByRoute(`/state/${(await params).state}`);
   if (!geo) notFound();
   return (
     <GeographyPage geo={geo} page={Number((await searchParams).page || 1)} />

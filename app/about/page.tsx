@@ -1,18 +1,18 @@
 import Link from "next/link";
 import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata(
-  "About Zipora",
-  "Zipora helps people understand places through transparent public geographic data.",
+  "About OKELOM",
+  "OKELOM helps people understand places through transparent public geographic data.",
   "/about",
 );
 export default function Page() {
   return (
     <article className="wrap page prose">
       <div className="page-heading">
-        <p className="eyebrow">A NORTHSTAR PRODUCT</p>
+        <p className="eyebrow">ABOUT OKELOM</p>
         <h1>A clearer picture of place.</h1>
         <p>
-          Zipora turns public geographic statistics into a useful starting point
+          OKELOM turns public geographic statistics into a useful starting point
           for understanding an area.
         </p>
       </div>
@@ -23,9 +23,9 @@ export default function Page() {
         questions, with the source and uncertainty close at hand.
       </p>
       <p>
-        Zipora is an independent product of Northstar. It is not affiliated
-        with, endorsed by or operated by USPS or the U.S. Census Bureau. It does
-        not provide official postal verification.{" "}
+        OKELOM is an independent geographic research product. It is not
+        affiliated with, endorsed by or operated by USPS or the U.S. Census
+        Bureau. It does not provide official postal verification.{" "}
         <Link href="/methodology">Our methodology</Link> describes what the data
         can and cannot tell you.
       </p>

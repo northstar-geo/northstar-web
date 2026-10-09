@@ -1,5 +1,40 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
+
+test("search distinguishes missing population from zero", async ({ page }) => {
+  await page.goto("/search?q=5127252");
+  const result = page.locator(".result").filter({ hasText: "Falls Run CDP" });
+  await expect(result).toContainText("Population Not available");
+  await expect(result).not.toContainText("Population 0");
+});
+test("OKELOM identity and saved legacy theme survive navigation and reload", async ({
+  page,
+}) => {
+  await page.addInitScript(() => {
+    if (!localStorage.getItem("okelom-theme"))
+      localStorage.setItem("zipora-theme", "dark");
+  });
+  await page.goto("/");
+  await expect(page.getByRole("link", { name: "OKELOM home" })).toBeVisible();
+  await expect(page).toHaveTitle(/OKELOM/);
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  expect(await page.evaluate(() => localStorage.getItem("okelom-theme"))).toBe(
+    "dark",
+  );
+  await page.getByLabel("Color theme").selectOption("light");
+  await page.reload();
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+  await page.goto("/about");
+  await expect(page.locator("body")).not.toContainText(/zipora|northstar/i);
+  await expect(page.locator('meta[property="og:site_name"]')).toHaveAttribute(
+    "content",
+    "OKELOM",
+  );
+  await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute(
+    "content",
+    /OKELOM/,
+  );
+});
 test("large related-geography lists can reach their second page", async ({
   page,
 }) => {
@@ -67,6 +102,22 @@ for (const route of [
   test(`page and accessibility: ${route}`, async ({ page }, testInfo) => {
     const response = await page.goto(route);
     expect(response?.status()).toBe(200);
+    expect(response?.headers()["x-robots-tag"]).toBe("noindex, nofollow");
+    await expect(page).toHaveTitle(/OKELOM/);
+    await expect(page.locator("body")).not.toContainText(/zipora|northstar/i);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
+      "content",
+      "noindex, nofollow",
+    );
+    const canonical = await page
+      .locator('link[rel="canonical"]')
+      .getAttribute("href");
+    expect(new URL(canonical!).href).toBe(
+      new URL(route.split("?")[0], "http://localhost:43177").href,
+    );
+    await expect(
+      page.locator('script[type="application/ld+json"]'),
+    ).toHaveCount(0);
     await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
     expect(
       await page.evaluate(
@@ -166,6 +217,15 @@ test("empty results, 404, themes and preview indexing", async ({
   expect(await (await request.get("/sitemap.xml")).text()).not.toContain(
     "<sitemap>",
   );
+  for (const asset of [
+    "/_geo/manifest.json",
+    "/icon.svg",
+    "/opengraph-image",
+  ]) {
+    const response = await request.get(asset);
+    expect(response.status()).toBe(200);
+    expect(response.headers()["x-robots-tag"]).toBe("noindex, nofollow");
+  }
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
     "content",
     /noindex/,

@@ -17,14 +17,14 @@ export function geographyJsonLd(
   });
 }
 
-export function geographyMetadata(route: string) {
-  const g = geographyByRoute(route);
+export async function geographyMetadata(route: string) {
+  const g = await geographyByRoute(route);
   return g
     ? pageMetadata(
         `${g.name} — population, income & housing`,
         `Explore ${g.name}${g.state ? `, ${g.state}` : ""}: Census population, income, rent, home values, related areas and transparent data sources.`,
         route,
-        indexable(g),
+        await indexable(g),
       )
     : pageMetadata(
         "Geography not found",

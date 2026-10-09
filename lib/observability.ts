@@ -7,7 +7,7 @@ export type ServerErrorContext = {
 };
 
 type ServerErrorEvent = {
-  event: "zipora.server_error";
+  event: "okelom.server_error";
   errorName: string;
   digest?: string;
   method?: string;
@@ -15,9 +15,11 @@ type ServerErrorEvent = {
   routeType?: string;
 };
 
-export function serverErrorEvent(context: ServerErrorContext): ServerErrorEvent {
+export function serverErrorEvent(
+  context: ServerErrorContext,
+): ServerErrorEvent {
   return {
-    event: "zipora.server_error",
+    event: "okelom.server_error",
     errorName: context.error instanceof Error ? context.error.name : "NonError",
     ...(context.digest ? { digest: context.digest.slice(0, 128) } : {}),
     ...(context.method ? { method: context.method } : {}),

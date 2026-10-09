@@ -10,8 +10,8 @@ export const metadata = pageMetadata(
   "Search U.S. ZIP areas, cities, counties and states. Explore Census population, income and housing with transparent sources.",
   "/",
 );
-export default function HomePage() {
-  const states = data().geographies.filter((g) => g.kind === "state");
+export default async function HomePage() {
+  const states = (await data()).states;
   return (
     <>
       <Hero />
@@ -47,7 +47,7 @@ export default function HomePage() {
         <h2>One important distinction.</h2>
         <p>
           A USPS ZIP code describes mail delivery. A Census ZIP Code Tabulation
-          Area (ZCTA) describes a statistical area. Zipora uses ZCTAs to provide
+          Area (ZCTA) describes a statistical area. OKELOM uses ZCTAs to provide
           geographic context; it does not verify postal addresses or current
           delivery service.
         </p>

@@ -168,7 +168,9 @@ export function formatObservation(
         : "";
   return prefix + formatMetric(value?.value, key);
 }
-export function routeFor(g: Geography): string {
+export function routeFor(
+  g: Pick<Geography, "kind" | "code" | "state" | "slug">,
+): string {
   if (g.kind === "nation") return "/";
   if (g.kind === "zcta") return `/zip/${g.code}`;
   if (g.kind === "state") return `/state/${g.state?.toLowerCase()}`;

@@ -5,7 +5,7 @@ import {
 } from "@/lib/geo/model";
 import type { MetricKey, Observation } from "@/lib/geo/model";
 import { data } from "@/lib/geo/repository";
-export default function MetricCard({
+export default async function MetricCard({
   metric,
   value,
 }: {
@@ -13,7 +13,7 @@ export default function MetricCard({
   value?: Observation;
 }) {
   const definition = metricDefinitions[metric];
-  const source = data().sources.find((s) => s.id === value?.source);
+  const source = (await data()).sources.find((s) => s.id === value?.source);
   return (
     <article className="metric">
       <h3>{definition.label}</h3>

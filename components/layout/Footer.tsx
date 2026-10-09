@@ -5,12 +5,9 @@ export default function Footer() {
       <div className="wrap footer-grid">
         <div>
           <Link href="/" className="brand">
-            zipora.
+            OKELOM.
           </Link>
-          <p>
-            A clearer picture of place.
-            <br />A Northstar product.
-          </p>
+          <p>A clearer picture of place.</p>
         </div>
         <nav aria-label="Footer navigation">
           <Link href="/methodology">Methodology</Link>
@@ -21,7 +18,7 @@ export default function Footer() {
           Independent geographic research.
           <br />
           Not affiliated with USPS or the U.S. Census Bureau.
-          <br />© {new Date().getFullYear()} Zipora
+          <br />© {new Date().getFullYear()} OKELOM
         </p>
       </div>
     </footer>

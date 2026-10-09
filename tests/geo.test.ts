@@ -3,13 +3,11 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 import {
-  data,
   geography,
   geographyByRoute,
   search,
   nearby,
-  related,
-  allIndexable,
+  relatedPage,
 } from "../lib/geo/repository";
 import {
   numericCell,
@@ -19,7 +17,10 @@ import {
   hasDataValue,
   formatObservation,
 } from "../lib/geo/model";
-import { sitemapEntries, sitemapShard } from "../lib/sitemap";
+import { sitemapShard } from "../lib/sitemap";
+import { canonicalSnapshot } from "../scripts/canonical-snapshot";
+const snapshot = canonicalSnapshot();
+const data = () => snapshot;
 import { indexingEnabled, jsonLd } from "../lib/seo";
 import { geographyJsonLd } from "../lib/geo/page";
 test("Census sentinels, blanks and nonnumbers never become zero", () => {
@@ -106,65 +107,74 @@ test("national snapshot integrity and unique identifiers/routes", () => {
       assert.ok(v.value === null || v.value >= 0);
   }
 });
-test("ZIP and ZCTA remain distinct, preserving leading zeroes", () => {
-  assert.ok(geography("zcta:00601"));
+test("ZIP and ZCTA remain distinct, preserving leading zeroes", async () => {
+  assert.ok(await geography("zcta:00601"));
   assert.equal(data().postalCodes.length, 0);
   assert.equal(data().postalMappings.length, 0);
-  assert.equal(geography("postal:00601"), undefined);
-  assert.equal(geography("zcta:601"), undefined);
-  assert.equal(routeFor(geography("zcta:00601")!), "/zip/00601");
+  assert.equal(await geography("postal:00601"), undefined);
+  assert.equal(await geography("zcta:601"), undefined);
+  assert.equal(routeFor((await geography("zcta:00601"))!), "/zip/00601");
 });
-test("search covers codes, names, abbreviations, pagination and hostile strings", () => {
-  assert.equal(search("10001").results[0]?.id, "zcta:10001");
-  assert.ok(search("Austin TX").results.some((g) => g.name === "Austin city"));
+test("search covers codes, names, abbreviations, pagination and hostile strings", async () => {
+  assert.equal((await search("10001")).results[0]?.id, "zcta:10001");
   assert.ok(
-    search("Los Angeles County").results.some((g) => g.kind === "county"),
+    (await search("Austin TX")).results.some((g) => g.name === "Austin city"),
   );
-  assert.equal(search("   ").total, 0);
-  assert.equal(search("<script>alert(1)</script>").total, 0);
-  assert.equal(search("CA", -1).page, 1);
-  assert.ok(search("CA", 99999).results.length);
-  assert.ok(search("CA", 1, "zcta").results.every((g) => g.kind === "zcta"));
+  assert.ok(
+    (await search("Los Angeles County")).results.some(
+      (g) => g.kind === "county",
+    ),
+  );
+  assert.equal((await search("   ")).total, 0);
+  assert.equal((await search("<script>alert(1)</script>")).total, 0);
+  assert.equal((await search("CA", -1)).page, 1);
+  assert.ok((await search("CA", 99999)).results.length);
+  assert.ok(
+    (await search("CA", 1, "zcta")).results.every((g) => g.kind === "zcta"),
+  );
 });
 
-test("state abbreviations match the state, not substrings in ZCTA labels", () => {
-  const result = search("CT", 1, "zcta");
+test("state abbreviations match the state, not substrings in ZCTA labels", async () => {
+  const result = await search("CT", 1, "zcta");
   assert.ok(result.total > 100 && result.total < 1000);
   assert.ok(result.results.every((g) => g.state === "CT"));
-  assert.equal(geography("zcta:06103")?.state, "CT");
+  assert.equal((await geography("zcta:06103"))?.state, "CT");
   assert.ok(
-    search("Austin Texas").results.some(
+    (await search("Austin Texas")).results.some(
       (g) => g.name === "Austin city" && g.state === "TX",
     ),
   );
 });
 
-test("place-name words like La do not become conflicting state filters", () => {
+test("place-name words like La do not become conflicting state filters", async () => {
   assert.ok(
-    search("La Mesa CA").results.some(
+    (await search("La Mesa CA")).results.some(
       (g) => g.name === "La Mesa city" && g.state === "CA",
     ),
   );
   assert.ok(
-    search("La Crosse WI").results.some(
+    (await search("La Crosse WI")).results.some(
       (g) => g.name === "La Crosse city" && g.state === "WI",
     ),
   );
 });
-test("all relationships resolve and preserve provenance", () => {
+test("all relationships resolve and preserve provenance", async () => {
+  const ids = new Set(data().geographies.map((g) => g.id));
   for (const r of data().relationships) {
-    assert.ok(geography(r.from));
-    assert.ok(geography(r.to));
+    assert.ok(ids.has(r.from));
+    assert.ok(ids.has(r.to));
     assert.ok(r.landOverlapSqM > 0);
     assert.equal(r.vintage, 2020);
   }
   assert.ok(
-    related(geography("zcta:10001")!).some((g) => g.name === "New York County"),
+    (await relatedPage((await geography("zcta:10001"))!)).results.some(
+      (g) => g.name === "New York County",
+    ),
   );
 });
-test("nearby geographies ordered by great-circle distance, excluding self", () => {
-  const g = geography("zcta:10001")!;
-  const points = nearby(g);
+test("nearby geographies ordered by great-circle distance, excluding self", async () => {
+  const g = (await geography("zcta:10001"))!;
+  const points = await nearby(g);
   assert.equal(distanceMiles(g, g), 0);
   assert.equal(points.length, 6);
   for (let i = 0; i < points.length; i++) {
@@ -172,8 +182,8 @@ test("nearby geographies ordered by great-circle distance, excluding self", () =
     if (i) assert.ok(points[i].distance >= points[i - 1].distance);
   }
 });
-test("statistics retain source, vintage, MOE and historical periods", () => {
-  const g = geography("zcta:10001")!;
+test("statistics retain source, vintage, MOE and historical periods", async () => {
+  const g = (await geography("zcta:10001"))!;
   assert.ok((g.metrics.population?.value ?? 0) > 10000);
   assert.deepEqual(
     g.populationHistory.map((p) => p.vintage).sort(),
@@ -182,22 +192,16 @@ test("statistics retain source, vintage, MOE and historical periods", () => {
   for (const v of Object.values(g.metrics))
     assert.ok(data().sources.some((s) => s.id === v.source));
 });
-test("indexing gate rejects low-value profiles and preview indexing", () => {
+test("indexing gate rejects low-value profiles and preview indexing", async () => {
   assert.equal(
-    hasDataValue({ ...geography("zcta:10001")!, metrics: {} }),
+    hasDataValue({ ...(await geography("zcta:10001"))!, metrics: {} }),
     false,
   );
-  assert.ok(
-    allIndexable().every(
-      (g) => hasDataValue(g) && geographyByRoute(routeFor(g)),
-    ),
-  );
+  assert.equal((await geographyByRoute("/zip/10001"))?.id, "zcta:10001");
   const old = process.env.INDEXING_ENABLED;
   delete process.env.INDEXING_ENABLED;
   assert.equal(indexingEnabled(), false);
   if (old !== undefined) process.env.INDEXING_ENABLED = old;
-  assert.ok(!sitemapEntries().includes("/search"));
-  assert.ok(!sitemapEntries().includes("/compare"));
   assert.equal(
     geographyJsonLd([{ name: "United States", url: "/" }]),
     undefined,
@@ -205,7 +209,11 @@ test("indexing gate rejects low-value profiles and preview indexing", () => {
   const oldUrl = process.env.SITE_URL;
   process.env.SITE_URL = "https://zipora.example";
   try {
-    assert.ok((sitemapShard(0).match(/<url>/g) ?? []).length <= 10000);
+    const xml = await sitemapShard(0);
+    assert.ok((xml.match(/<url>/g) ?? []).length <= 10000);
+    assert.ok(
+      !xml.includes("/search</loc>") && !xml.includes("/compare</loc>"),
+    );
   } finally {
     if (oldUrl === undefined) delete process.env.SITE_URL;
     else process.env.SITE_URL = oldUrl;

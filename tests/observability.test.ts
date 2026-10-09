@@ -4,7 +4,9 @@ import { serverErrorEvent } from "../lib/observability";
 
 test("server error events preserve route diagnostics without query, credentials, or error text", () => {
   const event = serverErrorEvent({
-    error: new Error("fetch https://alice:password@example.test/profile?token=secret failed"),
+    error: new Error(
+      "fetch https://alice:password@example.test/profile?token=secret failed",
+    ),
     digest: "digest-42",
     method: "GET",
     routePath: "/zip/[zip]",
@@ -12,7 +14,7 @@ test("server error events preserve route diagnostics without query, credentials,
   });
 
   assert.deepEqual(event, {
-    event: "zipora.server_error",
+    event: "okelom.server_error",
     errorName: "Error",
     digest: "digest-42",
     method: "GET",
@@ -26,9 +28,13 @@ test("server error events preserve route diagnostics without query, credentials,
 
 test("server error events use only stable diagnostics for non-Error values", () => {
   assert.deepEqual(
-    serverErrorEvent({ error: "user-provided search text", routePath: "/search", routeType: "render" }),
+    serverErrorEvent({
+      error: "user-provided search text",
+      routePath: "/search",
+      routeType: "render",
+    }),
     {
-      event: "zipora.server_error",
+      event: "okelom.server_error",
       errorName: "NonError",
       routePath: "/search",
       routeType: "render",

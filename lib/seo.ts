@@ -24,7 +24,16 @@ export function siteOrigin() {
   return origin;
 }
 export function indexingEnabled() {
-  return process.env.INDEXING_ENABLED === "true" && !!configuredSiteOrigin()?.startsWith("https://");
+  if (
+    process.env.RELEASE_STAGE !== "production" ||
+    process.env.INDEXING_ENABLED !== "true"
+  )
+    return false;
+  try {
+    return configuredSiteOrigin() === "https://okelom.com";
+  } catch {
+    return false;
+  }
 }
 export function pageMetadata(
   title: string,
@@ -33,20 +42,27 @@ export function pageMetadata(
   valuable = true,
 ): Metadata {
   const configuredOrigin = configuredSiteOrigin();
+  const enabled = indexingEnabled();
   return {
     title,
     description,
     alternates: { canonical: route },
-    robots: { index: indexingEnabled() && valuable, follow: true },
+    robots: { index: enabled && valuable, follow: enabled },
     openGraph: {
-      title: `${title} | Zipora`,
+      title: `${title} | OKELOM`,
       description,
       url: route,
       type: "website",
-      siteName: "Zipora",
+      siteName: "OKELOM",
       ...(configuredOrigin
         ? { images: [{ url: "/opengraph-image", width: 1200, height: 630 }] }
         : {}),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | OKELOM`,
+      description,
+      ...(configuredOrigin ? { images: ["/opengraph-image"] } : {}),
     },
   };
 }

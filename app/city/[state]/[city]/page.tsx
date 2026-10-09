@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: Props) {
 }
 export default async function Page({ params, searchParams }: Props) {
   const p = await params;
-  const geo = geographyByRoute(`/city/${p.state}/${p.city}`);
+  const geo = await geographyByRoute(`/city/${p.state}/${p.city}`);
   if (!geo) notFound();
   return (
     <GeographyPage geo={geo} page={Number((await searchParams).page || 1)} />

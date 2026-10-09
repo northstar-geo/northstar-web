@@ -10,7 +10,8 @@ export default function ErrorPage({
   useEffect(() => {
     // The digest is a framework-generated correlation value; never expose the
     // raw error, query, stack, or user-entered input to the client.
-    if (error.digest) console.error("zipora.client_view_error", { digest: error.digest });
+    if (error.digest)
+      console.error("okelom.client_view_error", { digest: error.digest });
   }, [error]);
   return (
     <div className="wrap page">

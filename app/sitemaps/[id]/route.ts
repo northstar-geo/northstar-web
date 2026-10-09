@@ -1,4 +1,4 @@
-import { sitemapShard, sitemapEntries, SITEMAP_SIZE } from "@/lib/sitemap";
+import { sitemapShard, sitemapCount } from "@/lib/sitemap";
 import { indexingEnabled } from "@/lib/seo";
 export const dynamic = "force-dynamic";
 export async function GET(
@@ -9,9 +9,9 @@ export async function GET(
   if (!indexingEnabled() || !/^\d+\.xml$/.test(id))
     return new Response("Not found", { status: 404 });
   const n = Number(id.slice(0, -4));
-  if (n >= Math.ceil(sitemapEntries().length / SITEMAP_SIZE))
+  if (n >= (await sitemapCount()))
     return new Response("Not found", { status: 404 });
-  return new Response(sitemapShard(n), {
+  return new Response(await sitemapShard(n), {
     headers: {
       "Content-Type": "application/xml",
       "Cache-Control": "public, max-age=3600",

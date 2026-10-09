@@ -1,10 +1,8 @@
-import { sitemapEntries, SITEMAP_SIZE, escapeXml } from "@/lib/sitemap";
+import { sitemapCount, escapeXml } from "@/lib/sitemap";
 import { indexingEnabled, siteOrigin } from "@/lib/seo";
 export const dynamic = "force-dynamic";
-export function GET() {
-  const count = indexingEnabled()
-    ? Math.ceil(sitemapEntries().length / SITEMAP_SIZE)
-    : 0;
+export async function GET() {
+  const count = indexingEnabled() ? await sitemapCount() : 0;
   const xml =
     '<?xml version="1.0" encoding="UTF-8"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' +
     Array.from(

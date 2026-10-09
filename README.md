@@ -1,8 +1,8 @@
-# Zipora（邮编地理智能产品）
+# OKELOM（地理智能产品）
 
-Northstar（北极星产品）旗下的来源透明地理查询网站，由 Polaris（北极星）负责。搜索美国统计邮编区域、州、城市和县，查看人口、收入、住房、人口历史与同口径比较。
+来源透明的地理查询网站，由 Polaris（北极星）负责。搜索美国统计邮编区域、州、城市和县，查看人口、收入、住房、人口历史与同口径比较。历史项目、使命、仓库和安全证据标识保持原值。
 
-**当前是发布准备中的生产前候选版本，尚未公开发布。** PR #1 已合并至 `develop`，GitHub 持续集成最终独立验证已通过；这不构成生产部署、公开索引或公开发布批准。`ZIP` 邮政投递编码与 `ZCTA` 人口普查统计区域分开建模；当前真实数据为人口普查区域，未接入邮政投递验证。完整口径见 `/methodology`。
+**当前是发布准备中的生产前候选版本，尚未公开发布。** PR #1、#3 的历史验证不代表本次 OKELOM 改动已经远端验收；当前门禁以[持续计划](docs/superpowers/plans/2026-10-09-okelom-preview-readiness.md)为准。`ZIP` 邮政投递编码与 `ZCTA` 人口普查统计区域分开建模；当前真实数据为人口普查区域，未接入邮政投递验证。完整口径见 `/methodology`。
 
 ## 本地启动
 
@@ -48,9 +48,9 @@ npm run data:database
 
 ## 发布配置与边界
 
-默认全站禁止索引。生产目标确认并批准后，配置 `SITE_URL` 为真实 HTTPS（安全超文本传输协议）源站，且 `INDEXING_ENABLED=true`，然后重新构建。不要把这两个变量设为未获授权域名。预览保持未设置或 `INDEXING_ENABLED=false`。
+默认全站禁止索引和跟随链接。预览固定 `RELEASE_STAGE=preview`、`INDEXING_ENABLED=false`；`SITE_URL` 使用获授权的真实预览源站。只有未来取得创始人正式索引授权后，才可同时配置 `RELEASE_STAGE=production`、`SITE_URL=https://okelom.com`、`INDEXING_ENABLED=true` 并重新构建。任何条件缺失、异常或非正式域名均不开放索引；此说明不授权部署、域名操作或索引启用。
 
-支持标准服务器运行；运行目录须包含 `data/geography.json.gz`，框架文件追踪配置包含该快照。`/sitemap.xml` 为索引，`/sitemaps/0.xml` 等为每片最多 10,000 条的有价值地理页面；搜索和比较查询页不进入索引。
+当前支持本地标准服务器验证；构建前从 `data/geography.json.gz` 生成 `public/_geo/`，运行时仅读取这些分片，不加载完整快照。派生资产不提交，部署构建必须运行数据生成步骤并随产物携带完整资产集。Cloudflare（云平台）适配和实际运行验证尚未完成。`/sitemap.xml` 为索引，`/sitemaps/0.xml` 等为每片最多 10,000 条的有价值地理页面；搜索和比较查询页不进入索引。
 
 生产域名、托管、隐私日志保留策略、支持联系方式及发布审批见 `docs/LAUNCH_CHECKLIST.md`。本项目没有开启账号、分析、广告或支付。
 

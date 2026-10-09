@@ -4,10 +4,12 @@ export default function ThemeControl() {
   const select = useRef<HTMLSelectElement>(null);
   useEffect(() => {
     try {
-      const t = localStorage.getItem("zipora-theme");
+      const current = localStorage.getItem("okelom-theme");
+      const t = current ?? localStorage.getItem("zipora-theme");
       if (t && ["light", "dark", "system"].includes(t)) {
         document.documentElement.dataset.theme = t;
         if (select.current) select.current.value = t;
+        if (current === null) localStorage.setItem("okelom-theme", t);
       }
     } catch {}
   }, []);
@@ -21,7 +23,7 @@ export default function ThemeControl() {
           const value = event.target.value;
           document.documentElement.dataset.theme = value;
           try {
-            localStorage.setItem("zipora-theme", value);
+            localStorage.setItem("okelom-theme", value);
           } catch {}
         }}
       >

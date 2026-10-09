@@ -5,9 +5,9 @@
     "name": "U.S. federal government public statistical and geographic data",
     "commercial_use": "Permitted for the selected federal public datasets; no third-party imagery or marks included",
     "redistribution": "Permitted with clear source and modification attribution",
-    "attribution": "U.S. Census Bureau; identify dataset, vintage, retrieval date and Zipora transformations; no endorsement",
+    "attribution": "U.S. Census Bureau; identify dataset, vintage, retrieval date and OKELOM transformations; no endorsement",
     "permanent_storage": "Permitted",
-    "derived_data": "Permitted; derived conclusions are Zipora's responsibility",
+    "derived_data": "Permitted; derived conclusions are OKELOM's responsibility",
     "evidence": [
       "https://www.census.gov/about/policies/citation.html",
       "https://www2.census.gov/foia/ds_policies/ds027.pdf"

@@ -21,7 +21,7 @@ export default async function Page({
     ["zcta", "city", "county", "state"].includes(p.kind)
       ? p.kind
       : "";
-  const result = search(query, Number(p.page || 1), kind);
+  const result = await search(query, Number(p.page || 1), kind);
   const url = (page: number, type = kind) =>
     `/search?${new URLSearchParams({ q: query, page: String(page), ...(type ? { kind: type } : {}) })}`;
   return (
@@ -87,9 +87,8 @@ export default async function Page({
                   </span>
                   <h2>{g.name}</h2>
                   <p>
-                    Population{" "}
-                    {formatMetric(g.metrics.population?.value, "population")} ·
-                    ACS 2020–2024
+                    Population {formatMetric(g.population, "population")} · ACS
+                    2020–2024
                   </p>
                 </div>
                 <span aria-hidden="true">↗</span>

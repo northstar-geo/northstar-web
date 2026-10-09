@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: Props) {
 export default async function Page({ params, searchParams }: Props) {
   const { zip } = await params;
   if (!/^\d{5}$/.test(zip)) notFound();
-  const geo = geography(`zcta:${zip}`);
+  const geo = await geography(`zcta:${zip}`);
   if (!geo) notFound();
   return (
     <GeographyPage geo={geo} page={Number((await searchParams).page || 1)} />

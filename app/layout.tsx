@@ -7,12 +7,12 @@ const configuredOrigin = configuredSiteOrigin();
 export const metadata: Metadata = {
   metadataBase: configuredOrigin ? new URL(configuredOrigin) : undefined,
   title: {
-    default: "Zipora — A clearer picture of place",
-    template: "%s | Zipora",
+    default: "OKELOM — A clearer picture of place",
+    template: "%s | OKELOM",
   },
   description:
     "Explore U.S. ZIP-area statistics with transparent Census sources.",
-  robots: { index: indexingEnabled(), follow: true },
+  robots: { index: indexingEnabled(), follow: indexingEnabled() },
 };
 export default function RootLayout({
   children,

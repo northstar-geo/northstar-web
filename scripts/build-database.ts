@@ -1,6 +1,6 @@
 import { DatabaseSync } from "node:sqlite";
 import { readFileSync } from "node:fs";
-import { data } from "../lib/geo/repository";
+import { canonicalSnapshot as data } from "./canonical-snapshot";
 const db = new DatabaseSync("data/geography.sqlite");
 db.exec(readFileSync("data/migrations/001-geography.sql", "utf8"));
 if (

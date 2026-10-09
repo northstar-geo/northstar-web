@@ -8,8 +8,10 @@ import { GET as shard } from "../app/sitemaps/[id]/route";
 test("production opt-in emits qualified sitemap shards and indexable metadata", async () => {
   const previousUrl = process.env.SITE_URL;
   const previousFlag = process.env.INDEXING_ENABLED;
+  const previousStage = process.env.RELEASE_STAGE;
   try {
-    process.env.SITE_URL = "https://zipora.example";
+    process.env.RELEASE_STAGE = "production";
+    process.env.SITE_URL = "https://okelom.com";
     process.env.INDEXING_ENABLED = "true";
     assert.equal(
       pageMetadata("Title", "Description", "/zip/10001").robots &&
@@ -28,15 +30,15 @@ test("production opt-in emits qualified sitemap shards and indexable metadata", 
       ).index,
       false,
     );
-    assert.equal(robots().sitemap, "https://zipora.example/sitemap.xml");
-    const xml = await index().text();
+    assert.equal(robots().sitemap, "https://okelom.com/sitemap.xml");
+    const xml = await (await index()).text();
     const links = [...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1]);
     assert.ok(links.length > 1);
     const first = await shard(new Request("http://localhost"), {
       params: Promise.resolve({ id: "0.xml" }),
     });
     assert.equal(first.status, 200);
-    assert.ok((await first.text()).includes("https://zipora.example/city/"));
+    assert.ok((await first.text()).includes("https://okelom.com/city/"));
     assert.equal(
       (
         await shard(new Request("http://localhost"), {
@@ -64,6 +66,8 @@ test("production opt-in emits qualified sitemap shards and indexable metadata", 
       assert.throws(siteOrigin);
     }
   } finally {
+    if (previousStage === undefined) delete process.env.RELEASE_STAGE;
+    else process.env.RELEASE_STAGE = previousStage;
     if (previousUrl === undefined) delete process.env.SITE_URL;
     else process.env.SITE_URL = previousUrl;
     if (previousFlag === undefined) delete process.env.INDEXING_ENABLED;
@@ -79,9 +83,11 @@ test("preview has no synthetic public origin and public indexing requires HTTPS"
     process.env.INDEXING_ENABLED = "true";
     assert.equal(configuredSiteOrigin(), undefined);
     assert.equal(
-      (pageMetadata("Title", "Description", "/zip/10001").robots as {
-        index: boolean;
-      }).index,
+      (
+        pageMetadata("Title", "Description", "/zip/10001").robots as {
+          index: boolean;
+        }
+      ).index,
       false,
     );
     assert.equal(
