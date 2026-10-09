@@ -1,5 +1,153 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, type Locator, type Page } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
+
+const representativeRoutes = [
+  "/",
+  "/search?q=Austin+TX",
+  "/zip/10001",
+  "/state/ca",
+  "/city/tx/austin-city",
+  "/county/ny/new-york-county",
+  "/compare?left=10001&right=90210",
+  "/methodology",
+  "/data-sources",
+  "/about",
+];
+
+async function tabTo(page: Page, target: Locator) {
+  for (let step = 0; step < 60; step++) {
+    if (await target.evaluate((element) => element === document.activeElement))
+      return;
+    await page.keyboard.press("Tab");
+  }
+  await expect(target).toBeFocused();
+}
+
+// Removing the skip destination, keyboard reachability, form action, or ZIP
+// leading-zero preservation must break this real browser journey.
+test("keyboard-only search and compare preserve leading-zero ZIP areas", async ({
+  page,
+}) => {
+  const errors: string[] = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+  await page.goto("/");
+  await page.keyboard.press("Tab");
+  await expect(
+    page.getByRole("link", { name: "Skip to content" }),
+  ).toBeFocused();
+  await page.keyboard.press("Enter");
+  await page.keyboard.press("Tab");
+  await expect(page.getByRole("searchbox")).toBeFocused();
+  await page.keyboard.type("00601");
+  await page.keyboard.press("Enter");
+  const result = page.getByRole("link", { name: /ZCTA 00601/ });
+  await expect(result).toBeVisible();
+  await tabTo(page, result);
+  await page.keyboard.press("Enter");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("00601");
+  await tabTo(page, page.getByRole("link", { name: "Compare this ZIP area" }));
+  await page.keyboard.press("Enter");
+  await expect(page.getByLabel("First ZIP area")).toHaveValue("00601");
+  await tabTo(page, page.getByLabel("Second ZIP area"));
+  await page.keyboard.type("10001");
+  await page.keyboard.press("Enter");
+  const table = page.getByRole("region", { name: "ZIP area comparison table" });
+  await expect(table).toBeVisible();
+  await tabTo(page, table);
+  await expect(table).toBeFocused();
+  await expect(table.getByRole("columnheader")).toHaveText([
+    "Measure",
+    "00601 ↗",
+    "10001 ↗",
+  ]);
+  expect(errors).toEqual([]);
+});
+
+test("missing geography and invalid compare recover without fabricated data", async ({
+  page,
+  request,
+}) => {
+  // Unmatched routes return HTTP 404. A data miss below loading.tsx streams
+  // HTTP 200 by Next.js contract, so verify its actual not-found/noindex state.
+  expect((await request.get("/not-a-real-route")).status()).toBe(404);
+  const response = await page.goto("/zip/99999");
+  expect(response?.status()).toBe(200);
+  expect(response?.headers()["x-robots-tag"]).toBe("noindex, nofollow");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+    "Let's find another place.",
+  );
+  await expect(
+    page.locator('meta[name="robots"][content*="noindex"]').first(),
+  ).toBeAttached();
+  await expect(page.getByRole("table")).toHaveCount(0);
+  await tabTo(page, page.getByRole("link", { name: "Search places" }));
+  await page.keyboard.press("Enter");
+  await expect(page.getByRole("searchbox")).toBeVisible();
+  await tabTo(page, page.getByRole("searchbox"));
+  await page.keyboard.type("nonexistentxyz");
+  await page.keyboard.press("Enter");
+  await expect(
+    page.getByRole("heading", { name: "No matching geography" }),
+  ).toBeVisible();
+  await page.getByRole("searchbox").fill("00601");
+  await page.getByRole("searchbox").press("Enter");
+  await expect(page.getByRole("link", { name: /ZCTA 00601/ })).toBeVisible();
+  await page.goto("/compare?left=99999&right=00601");
+  await expect(page.getByRole("table")).toHaveCount(0);
+  await expect(
+    page.getByRole("heading", {
+      name: "One of these areas is not in our dataset.",
+    }),
+  ).toBeVisible();
+  await page.getByLabel("First ZIP area").fill("10001");
+  await page.getByLabel("First ZIP area").press("Enter");
+  await expect(page.getByRole("table")).toBeVisible();
+  await expect(page.getByRole("columnheader")).toHaveText([
+    "Measure",
+    "10001 ↗",
+    "00601 ↗",
+  ]);
+});
+
+test("small-screen and tablet dark layouts keep long content and controls usable", async ({
+  page,
+}, testInfo) => {
+  for (const width of [320, 768]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/");
+    await page.getByLabel("Color theme").selectOption("dark");
+    for (const route of [
+      "/compare?left=00601&right=10001",
+      "/county/ny/new-york-county",
+      `/search?q=${"a".repeat(100)}`,
+    ]) {
+      await page.goto(route);
+      await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+      expect(
+        await page.evaluate(
+          () => document.documentElement.scrollWidth <= innerWidth,
+        ),
+        `${width}px ${route}`,
+      ).toBe(true);
+      const issues = await new AxeBuilder({ page })
+        .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+        .analyze();
+      expect(issues.violations, `${width}px ${route}`).toEqual([]);
+    }
+    const searchbox = page.getByRole("searchbox");
+    await expect(searchbox).toBeInViewport();
+    await expect(
+      page.getByRole("button", { name: "Explore" }),
+    ).toBeInViewport();
+    await searchbox.fill("00601");
+    await searchbox.press("Enter");
+    await expect(page.getByRole("link", { name: /ZCTA 00601/ })).toBeVisible();
+    await page.screenshot({
+      path: testInfo.outputPath(`dark-search-${width}.png`),
+      fullPage: true,
+    });
+  }
+});
 
 test("search distinguishes missing population from zero", async ({ page }) => {
   await page.goto("/search?q=5127252");
@@ -87,18 +235,7 @@ test("home search, leading-zero ZIP, detail and compare work", async ({
   await expect(page.getByRole("table")).toBeVisible();
   expect(errors).toEqual([]);
 });
-for (const route of [
-  "/",
-  "/search?q=Austin+TX",
-  "/zip/10001",
-  "/state/ca",
-  "/city/tx/austin-city",
-  "/county/ny/new-york-county",
-  "/compare?left=10001&right=90210",
-  "/methodology",
-  "/data-sources",
-  "/about",
-]) {
+for (const route of representativeRoutes) {
   test(`page and accessibility: ${route}`, async ({ page }, testInfo) => {
     const response = await page.goto(route);
     expect(response?.status()).toBe(200);
@@ -156,6 +293,73 @@ for (const route of [
     }
   });
 }
+
+// Broken shipped JS/CSS, hydration errors, or a broken advertised local link
+// must fail this real navigation check; intentional cancellation stays visible.
+test("representative navigation and linked destinations have no browser or asset errors", async ({
+  page,
+}, testInfo) => {
+  const errors: string[] = [];
+  const cancellations: Array<{ path: string; prefetch: boolean }> = [];
+  const linkedDestinations = new Set<string>();
+  page.on("pageerror", (error) => errors.push(error.message));
+  page.on("console", (message) => {
+    if (message.type() === "error") errors.push(message.text());
+  });
+  page.on("response", (response) => {
+    if (response.status() >= 400)
+      errors.push(`${response.status()} ${new URL(response.url()).pathname}`);
+  });
+  page.on("requestfailed", (request) => {
+    const path = new URL(request.url()).pathname;
+    const reason = request.failure()?.errorText;
+    if (
+      reason === "net::ERR_ABORTED" &&
+      request.headers()["next-router-prefetch"] === "1"
+    ) {
+      cancellations.push({
+        path,
+        prefetch: request.headers()["next-router-prefetch"] === "1",
+      });
+    } else errors.push(`${reason} ${path}`);
+  });
+  for (const route of representativeRoutes) {
+    await page.goto(route);
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+    await expect(page.locator("main")).not.toContainText(
+      "404 · NOT IN THIS VIEW",
+    );
+    // Sample advertised main-content links as well as every primary/footer link.
+    const hrefs = await page
+      .locator("nav a[href]")
+      .evaluateAll((links) => links.map((link) => link.getAttribute("href")));
+    hrefs.push(
+      ...(await page
+        .locator("main a[href]")
+        .evaluateAll((links) =>
+          links.slice(0, 5).map((link) => link.getAttribute("href")),
+        )),
+    );
+    for (const href of hrefs.filter((href) => href?.startsWith("/")))
+      linkedDestinations.add(href!);
+  }
+  for (const href of linkedDestinations) {
+    await page.goto(href);
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+    await expect(page.locator("main")).not.toContainText(
+      "404 · NOT IN THIS VIEW",
+    );
+  }
+  await testInfo.attach("navigation-network-evidence", {
+    body: JSON.stringify({
+      linkedDestinations: [...linkedDestinations],
+      cancellations,
+      errors,
+    }),
+    contentType: "application/json",
+  });
+  expect(errors).toEqual([]);
+});
 
 test("locator zoom, keyboard-accessible tables and dark detail page", async ({
   page,
