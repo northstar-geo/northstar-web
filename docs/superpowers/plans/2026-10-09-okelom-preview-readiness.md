@@ -17,7 +17,7 @@ GOAL_ID = GOAL-OKELOM-LAUNCH-READINESS-001
 CURRENT_GOAL = GOAL-OKELOM-LAUNCH-READINESS-001
 MISSION_ID = MISSION-OKELOM-PRODUCT-IDENTITY-PREVIEW-READINESS-001
 GOAL_STATUS = ACTIVE
-EXECUTION_STATUS = RESUME_AUTHORIZED
+EXECUTION_STATUS = IMPLEMENTING_AUTHORIZED_LOCAL_RUNTIME_ADAPTATION
 GOAL_RUNTIME_TYPE = PERSISTENT
 RUNTIME_GOAL_STATUS = active
 MISSION_STANDING_AUTHORITY = RECEIVED_FROM_FOUNDER
@@ -26,29 +26,30 @@ AUTO_RESUME_CAPABILITY = UNKNOWN
 SCHEDULE_REGISTRATION = VERIFIED
 SCHEDULE_DELIVERY = VERIFIED_SINGLE_HEARTBEAT
 LAST_OBSERVED_HEARTBEAT_AT = 2026-10-09T07:49:13.636Z
-CURRENT_STAGE = G03_APPROVED_ADAPTER_INSTALL_AND_SECURITY_RECHECK
-CURRENT_BLOCKER = NONE_PENDING_POST_INSTALL_SECURITY_VALIDATION
-LAST_REVIEWED_AT = 2026-10-09 22:28 +08:00
+CURRENT_STAGE = G03_LOCAL_CLOUDFLARE_RUNTIME_ADAPTATION
+CURRENT_BLOCKER = NONE_FOR_AUTHORIZED_LOCAL_IMPLEMENTATION
+LAST_REVIEWED_AT = 2026-10-09 23:42 +08:00
 REPOSITORY = northstar-geo/northstar-web
 WORKSPACE = E:\Projects\northstar\.worktrees\northstar-release-preparation-001
 CURRENT_BRANCH = codex/okelom-identity-preview-readiness-001
 IMPLEMENTATION_HEAD = 307cb06a5e918fef5763e72fb7b8ee7ff000a689
 LAST_VALIDATED_HEAD = e9fc1b9756755193ce81c25a272a105fb96d972c
 LAST_VALIDATED_HEAD_SCOPE = LOCAL_CHECKPOINT_ONLY_NOT_CLOUDFLARE_OR_RELEASE
-WORKTREE_STATUS = SEE_GIT_STATUS_DOCUMENTATION_FOLLOWUP_ONLY
-CURRENT_EVIDENCE_BINDING = EXACT_BROWSER_TEST_CHECKPOINT_COMMIT
+WORKTREE_STATUS = UNCOMMITTED_APPROVED_PACKAGE_LOCK_CHANGES_AND_SECURITY_EVIDENCE
+CURRENT_EVIDENCE_BINDING = POST_INSTALL_PACKAGE_AND_LOCK_SHA256_NOT_VALIDATED_CANDIDATE_COMMIT
 BROWSER_TEST_CHECKPOINT = e9fc1b9756755193ce81c25a272a105fb96d972c
 FINAL_REQUIRED_VALIDATION_BINDING = EXACT_HEAD_COMMIT
 LAUNCH_READINESS = NOT_READY
-SECURITY_GATE = PASS_WITH_EXISTING_TIME_BOUNDED_EXCEPTION
-SECURITY_VALIDATION_SCOPE = FRESH_OFFICIAL_NPM_AUDIT_MATCHES_APPROVED_DIGESTS
+SECURITY_GATE = PASS_WITH_EXACT_TIME_BOUNDED_EXCEPTION
+PRODUCTION_SECURITY_GATE = PASS
+SECURITY_VALIDATION_SCOPE = APPROVED_EXACT_AUDITS_AND_GRAPH_ORIGINAL_VALIDATOR_PASS_26_MUTATION_TESTS_PASS
 NPM_READ_ONLY_AUDIT_AUTHORIZATION = GRANTED_FOR_THIS_MISSION
-COMPLIANCE_EVIDENCE_REBIND = APPROVED
-EVIDENCE_REBIND_DECISION = APPROVED
-NEXT_RESUME_CONDITION = NOT_APPLICABLE_EXECUTION_RESUMED
+COMPLIANCE_EVIDENCE_REBIND = APPROVED_AND_APPLIED_TWO_DIGEST_FIELDS_ONLY
+EVIDENCE_REBIND_DECISION = APPROVED_FOR_EXACT_4_149_0_CANDIDATE
+NEXT_RESUME_CONDITION = SATISFIED_CONTINUE_WITHIN_EXISTING_AUTHORITY
 EXACT_PREVIEW_URL = NOT_CREATED_OR_VERIFIED
 ROLLBACK_READY = NO_EXACT_CANDIDATE_OR_DEPLOYMENT_BINDING
-NEXT_HIGHEST_VALUE_ACTION = EXACT_ADAPTER_INSTALL_THEN_IMMEDIATE_FULL_AND_PRODUCTION_AUDIT
+NEXT_HIGHEST_VALUE_ACTION = G03_INTERNAL_ASSET_BINDING_AND_LOCAL_WORKER_VALIDATION
 ```
 
 本块是本使命唯一当前门禁状态，后文历史记录和矩阵不得另行覆盖它。15:14的原生目标受阻状态属于正式恢复前历史；本轮正式回执到达后工具返回 `active`，实施恢复。`ACTIVE_BLOCKED` 表示目标保留且等待真实门禁，不是完成。实现与匹配本地验证已固定于上列检查点；后续仅记录证据的提交不能被误认作新的产品实现。运行时当前头提交始终以 `git rev-parse HEAD` 为准；最终回执另给实际头提交，不在自身文档中制造自引用哈希。当前证据不能冒充云端候选验收。
@@ -65,6 +66,26 @@ NEXT_HIGHEST_VALUE_ACTION = EXACT_ADAPTER_INSTALL_THEN_IMMEDIATE_FULL_AND_PRODUC
 - 现有生产审计对象摘要：`sha256:6a813559958e16d81c2973e6a54512f0dcfa122b7dd0d440ec558ae6337ca885`。
 
 ## 当前阻塞（CURRENT_BLOCKERS）
+
+**23:42正式重绑定已完成，当前允许继续本地适配。** 创始人直接提供正式恢复回执（附件 `6e654977-2e70-4a5e-8485-365b39e33424`），明确批准精确HEAD 1d3cdaa对应候选包/锁及下列两个审计摘要。写入前逐项核对精确包/锁、证据源哈希、审计摘要和原例外；只修改 `rawAuditDigest` 与 `productionAuditDigest`。原验证函数实际返回 `PASS_WITH_EXACT_TIME_BOUNDED_EXCEPTION`，26/26安全变异测试通过。例外仍仅开发工具链，到期仍为2026-10-13T23:59:00+08:00；不是零漏洞、续期或生产例外。完整适配回归尚未运行。以下23:24及更早门禁为历史，不再覆盖当前状态。
+
+**23:24当前唯一工程阻塞：合规证据重绑定。** Wrangler精确4.149.0已安装；实际锁文件、已安装清单和npm依赖树一致：`@opennextjs/cloudflare@1.20.9 → wrangler@4.149.0 → miniflare@5.20261006.1-alpha → sharp@0.35.5 / undici@7.29.1`。sharp不再处于前次受影响的<0.35.5范围，undici不再处于<7.29.1范围。23:21新官方审计生产所有等级均0、完整仅原braces开发链5高危/0严重。与原正式获批审计相比，漏洞对象5→5且增加/删除/变化均0，唯一公告不变；依赖元数据总数476→788，两个规范摘要均改变。与升级前失败候选相比，漏洞对象9→5，移除wrangler/miniflare/sharp/undici四个传播对象和四条高危公告；原开发链未变。
+
+完整证据包：[SECURITY_EXCEPTION_REBIND_EVIDENCE_PACKET.json](../../security/evidence/2026-10-09-wrangler-4.149.0-rebind/SECURITY_EXCEPTION_REBIND_EVIDENCE_PACKET.json)。同目录保存原获批、升级前失败、升级后新审计与包/锁快照、真实依赖树和全部SHA256。当前HEAD仍1d3cdaa，候选未提交；包SHA256为`18f82182c2639f6deb238a965107dd71fd774d3488018b71c7d90f5c21d44261`，锁文件为`0f17c9572a7389c996ecddc300fdf5db1a770ad57c88ae7084b5e047b252b114`。新完整摘要`22a277bb8c66339fe0595c37b5f8632d5fbe989af9c55dcecc5210e4db062763`，新生产摘要`b95553a40d9051f3b40f9a1c72aaf6d36b814a8a361e55948898065fd785e7c7`。原验证函数实测仍失败`RAW_AUDIT_DIGEST_MISMATCH`；原例外逐字节不变，开发工具限定及2026-10-13T23:59:00+08:00到期不变。官方公告本轮仍显示无修复版。源代码扫描无braces链导入，生产依赖树无braces；不是云端打包或可利用性验证。
+
+**核心对话最小动作：** 审查并走正式治理重绑定路径，明确批准上述精确包/锁身份及两个新审计摘要，仅重绑定原braces例外、不扩大或续期。依直接授权的持续执行条款，本轮在此真实门禁停止后续适配及完整回归；未执行新Next/OpenNext构建、浏览器、安全变异、Worker预览或内存验收。生产零漏洞不等于整体安全放行或云端就绪。目标保留未完成；原生运行时当前active只是收到新用户消息后的状态，不表示工程继续运行或自动恢复。
+
+**安装恢复与范围复核：** npm两次下载本地运行时包长时间等待，只终止已核验的本轮子进程；官方端点可达但传输慢。使用同一官方包断点续传，完整SHA-512与官方dist.integrity匹配后加入本任务缓存，第三次同命令安装成功，未运行生命周期脚本。锁中10处版本变更均属Wrangler及其必要链；55个删除路径均属旧Miniflare/旧Wrangler内嵌sharp/esbuild链，合并使用已有修复版本。29处同版本元数据变化仅dev/optional标志，由必要依赖去重产生，不手工改分类。指定五包全部保留、rclone.js与workers-types均未安装，规范数据未变。创始人AGENTS.md原18行修改保留；没有新增提交、推送、合并、账户、部署或索引动作。以下22:43门禁及23:10实施状态仅保留为过程历史。
+
+**23:10整改授权已接收：** 创始人直接提供 `FORMAL_SECURITY_REMEDIATION_AUTHORIZATION`（附件 `8bdef366-d385-4d1a-8aa2-25fbbbea298d`），批准Wrangler精确4.125.0→4.149.0及必要传递依赖；五个指定现有包保持原版本。当前HEAD、包/锁和原例外哈希已核对，保留原获批与安装后失败两套原始证据。核心对话最新正式回复与直接回执相符；升级进行中，安全失败尚未解除。先新审计，若仅旧braces例外摘要漂移则立即提供完整三方对比证据并等待正式重绑定；不自行修改例外。复用本文作为唯一持续计划，不创建技能默认的平行执行账本。
+
+**22:43新安全门禁：** 两个精确批准包已安装，未执行生命周期脚本。2026-10-09T14:41:57.086Z官方完整审计为9高危/0严重，生产审计4高危/0严重；原验证函数失败 `PRODUCTION_AUDIT_NONZERO`。旧5个高危对象及braces链逐对象不变，新增高危传播对象为wrangler/miniflare/sharp/undici；新增4条高危公告，无新增严重公告。不是仅审计计数导致的摘要漂移，不能只批准旧例外重绑定即恢复。完整包：[SECURITY_EXCEPTION_REBIND_EVIDENCE_PACKET.json](../../security/evidence/2026-10-09-adapter-rebind/SECURITY_EXCEPTION_REBIND_EVIDENCE_PACKET.json)，同目录保存新旧完整/生产原始审计及依赖树、例外副本和来源哈希。
+
+确切新增生产依赖路径：`@opennextjs/cloudflare@1.20.9 → wrangler@4.125.0 → miniflare@5.20260820.0-alpha → sharp@0.35.2 / undici@7.29.0`。按[官方安装说明](https://opennext.js.org/cloudflare/get-started)将适配器放入dependencies、Wrangler放入devDependencies；适配器的必需同伴依赖使Wrangler在实际锁文件及 `npm ls --omit=dev` 中仍归入生产图。没有为获得零审计而改依赖分类。此图证明依赖可达，不证明已部署Worker的可利用性；尚未构建Worker，后者未知。Next自身sharp仍为0.35.5，不与Miniflare内嵌0.35.2混淆。
+
+本次检查点 `1d3cdaa46e182ae76d7b28f6e00b5a39f8e17c7e` 仅保存安装前文档；当前候选包/锁未提交，以证据包内SHA256绑定。既有锁路径版本变更0、移除0、新增367；Next16.3.8、React/ReactDOM19.2.4、eslint-config-next16.3.6未变，rclone.js及workers-types未安装且不在锁文件。规范地理快照哈希未变。原例外文件完全未变，仍仅开发工具链且到期2026-10-13T23:59:00+08:00；不能覆盖新增生产高危。安装后未运行Next/OpenNext构建、Worker预览或完整回归，不能沿用42/42证明当前候选就绪。未配置账户、部署、域名、索引、存储或队列。
+
+**核心对话最小动作：** 审查完整材料并明确批准修复新增高危所需的Wrangler精确替代版本及必要传递依赖；npm报告候选为4.149.0，尚未安装、未独立验证兼容性或其最终审计，不构成预先推荐通过。修复后仍需重新审计及必要治理重绑定，不创建新例外。以下22:28记录仅说明旧安装权限已解除。
 
 **22:28授权更新：** 创始人直接提供 `FORMAL_ADAPTER_DEPENDENCY_AUTHORIZATION`（附件 `7b3c1cd9-f263-4470-b0e2-371a0c8b3d57`），精确批准 `@opennextjs/cloudflare@1.20.9`、`wrangler@4.125.0` 及必要传递依赖和包/锁变更。下述第1项安装权限阻塞已解除；vinext本使命不选用，既有Next/React/ReactDOM/ESLint版本保持不变，不安装rclone.js或workers-types，不运行migrate/部署/账户操作。先保存仅状态文档检查点，再安装并立即执行完整和生产审计；若摘要漂移，生成完整新旧证据包后返回核心对话，绝不自行改例外摘要或豁免依赖链漂移。
 
@@ -84,7 +105,7 @@ NEXT_HIGHEST_VALUE_ACTION = EXACT_ADAPTER_INSTALL_THEN_IMMEDIATE_FULL_AND_PRODUC
 | B 核心功能 | FAIL | 最近本地浏览器42/42，包含键盘两地流程、错误恢复、缺失数据与代表链接 | 适配后精确提交及真实预览回归；范围明确的多区域比较验收 |
 | C 数据完整性 | FAIL | 已有23项本地测试含69,416实体、99,406关系及全字段等价；规范快照摘要未变 | 最终适配产物、精确提交与预览覆盖证明；不得以改后的构建破坏数据 |
 | D 内存与运行时 | FAIL | `DATA_SHARDING=PASS_LOCAL`；既有堆代理最高7.64 MiB、无全国全局常驻 | 完整页面渲染、并发、真实 Worker（运行隔离区）CPU/内存/资产请求验证 |
-| E 安全 | PASS_WITH_EXACT_TIME_BOUNDED_EXCEPTION | 17:19官方npm审计与获批两个摘要一致；本轮既有产物验证通过；生产0漏洞、开发链5高危，范围和到期不变 | 最终候选最新验证及适配后证据重审；不是整体零漏洞或未来依赖豁免 |
+| E 安全 | PASS_WITH_EXACT_TIME_BOUNDED_EXCEPTION | 23:21官方生产漏洞0、完整原开发链5高危；23:42正式批准后仅重绑定两摘要，原验证及26项变异测试通过 | 最终候选最新审计、打包运行时暴露及未到期/未撤销复验；不扩大/续期例外 |
 | F 技术索引与元数据 | PASS_LOCAL_ONLY | 三条件显式生产开关；误配矩阵、页面/分享图/图标/数据资产禁止索引、无结构化数据、空站点地图通过 | 最终云端产物含静态资产同等控制，真实访问保护与精确域名验收 |
 | G 性能 | FAIL | 旧本地实验脚本存在；分片搜索当前为两遍顺序读取14段 | 真实预览移动交互、页面载荷、请求瀑布、缓存、搜索与比较耗时 |
 | H 响应式与视觉 | FAIL | 桌面/手机仿真、320px小屏和768px平板的暗色、长内容、无溢出及截图检查通过 | 适配后的真实预览、跨浏览器及真实设备复核 |
@@ -201,6 +222,16 @@ NEXT_HIGHEST_VALUE_ACTION = EXACT_ADAPTER_INSTALL_THEN_IMMEDIATE_FULL_AND_PRODUC
 - 真实用户规模下的长期核心网页指标趋势、性能容量扩展：作为上线后跟踪；首发前仍需真实预览实验及可执行监测方案，不伪装已有生产流量数据。
 
 ## 本轮计划变更记录
+
+- 2026-10-09 23:42 +08:00：正式重绑定恢复回执与候选包/锁/审计精确匹配；只改现有例外两个摘要，逐字段比较确认无其他变化，原验证通过限时例外，26/26安全变异通过。继续G-03，不以安全检查点完成为停止条件。Ruling: 复用既有分片与内部ASSETS绑定，静态页使用只读静态资产缓存，不引入存储/队列/公共回源；正常Node构建仍允许本地资产，Worker缺绑定必须失败关闭。代价/限制：仍需完整Worker实际运行验证，不能从Node通过推断平台兼容。
+
+- 2026-10-09 23:25 +08:00：本次正式恢复原始回合完成精确Wrangler升级、新审计与完整重绑定证据包，随后两个目标续执行回合均只读核验同一正式重绑定缺失。上一回合没有新增工程进展，也不是等待活跃作业；安装与审计进程已正常退出。核心对话最新仍为4.149.0整改授权（更新时间1791558040.548748），并未批准新摘要。HEAD、包/锁、原例外及全部证据源哈希未变，连续三轮同一真实门禁满足；原生目标工具确认blocked。仅同步本规范计划运行时状态，目标未完成；不重复审计、测试、提交，不修改例外或调度。现有完整回执仍有效。
+
+- 2026-10-09 23:24 +08:00：执行精确Wrangler整改授权，新审计已证明生产高危清零，实际四包路径及锁/安装一致。Ruling: 生产零漏洞与合规证据放行分开；授权明确将摘要漂移保留为真实门禁，因此不运行后续适配/完整回归、不改原例外，立即生成完整三方证据并返回核心对话。代价/限制：当前候选仍无构建、浏览器、Worker或性能通过证据，不能称为可部署；待精确批准后继续原目标而非新建使命。独立只读哈希/对象/依赖范围复核通过，git diff --check通过。网络恢复只涉及同一官方包与已验证摘要，不扩大版本或外部边界。
+
+- 2026-10-09 22:46 +08:00：本次适配授权恢复回合完成安装与新安全证据包，遇到生产高危后停止；随后两个目标续执行回合只读核验均无新修复授权。上一回合没有工程进展，也无活跃安装/验证作业；已完成安装进程正常退出。核心对话仍为相同精确4.125.0授权，更新时间1791556087.051869，不能据此升级或放行新增漏洞。候选包/锁、原例外与8个证据源哈希全部保持一致，当前HEAD仍1d3cdaa；三轮同一安全阻塞条件满足，原生目标工具确认blocked。仅同步运行时状态，目标保留未完成，不修改候选依赖或例外，不重跑审计、构建或测试，不改变定时检查。
+
+- 2026-10-09 22:43 +08:00：正式精确适配依赖授权到达并执行。审查旧计划状态差异后先提交1d3cdaa，确认干净检查点；官方元数据匹配批准版本与现有框架，未选vinext。首次安装进程在持续下载时触及本地五分钟上限，明确终止后使用缓存完成第二次安装；未使用force、legacy-peer-deps、audit fix或生命周期脚本。立即完整/生产审计发现新生产高危，停止配置/构建/预览；同轮生成完整新旧证据包并核验生产依赖可达性。Ruling: 这是新增安全整改门禁，不是旧安装门禁或单纯摘要重绑定；不得通过调整依赖分类或重写例外消除失败。仅证据及本计划继续更新，不自行升级、不推送、不部署，目标未完成。
 
 - 2026-10-09 22:19 +08:00：本次用户恢复回合及其后两个目标续执行回合，连续核验同一适配依赖/锁文件授权门禁。上一回合为无进展只读检查，没有活跃验证作业；核心对话最新消息仍为相同持续授权，真实门禁第1、3项未解除，实际HEAD未变。必要候选分析、独立浏览器验证与发布文档检查已完成，余下有效实施需新增授权或真实外部证据。满足本次恢复后的三轮受阻审计，原生目标工具确认blocked；目标保留且未完成。仅同步本规范计划运行时状态，不重测、不新增提交、不调整定时检查、不改产品/依赖/例外。
 

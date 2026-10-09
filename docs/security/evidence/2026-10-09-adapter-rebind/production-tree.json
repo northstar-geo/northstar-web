@@ -1,0 +1,49 @@
+{
+  "version": "0.1.0",
+  "name": "northstar-web",
+  "dependencies": {
+    "@opennextjs/cloudflare": {
+      "version": "1.20.9",
+      "resolved": "https://registry.npmjs.org/@opennextjs/cloudflare/-/cloudflare-1.20.9.tgz",
+      "overridden": false,
+      "dependencies": {
+        "wrangler": {
+          "version": "4.125.0",
+          "resolved": "https://registry.npmjs.org/wrangler/-/wrangler-4.125.0.tgz",
+          "overridden": false,
+          "dependencies": {
+            "miniflare": {
+              "version": "5.20260820.0-alpha",
+              "resolved": "https://registry.npmjs.org/miniflare/-/miniflare-5.20260820.0-alpha.tgz",
+              "overridden": false,
+              "dependencies": {
+                "sharp": {
+                  "version": "0.35.2",
+                  "resolved": "https://registry.npmjs.org/sharp/-/sharp-0.35.2.tgz",
+                  "overridden": false
+                },
+                "undici": {
+                  "version": "7.29.0",
+                  "resolved": "https://registry.npmjs.org/undici/-/undici-7.29.0.tgz",
+                  "overridden": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "next": {
+      "version": "16.3.8",
+      "resolved": "https://registry.npmjs.org/next/-/next-16.3.8.tgz",
+      "overridden": false,
+      "dependencies": {
+        "sharp": {
+          "version": "0.35.5",
+          "resolved": "https://registry.npmjs.org/sharp/-/sharp-0.35.5.tgz",
+          "overridden": false
+        }
+      }
+    }
+  }
+}

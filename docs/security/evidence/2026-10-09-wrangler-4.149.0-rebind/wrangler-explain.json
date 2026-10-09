@@ -1,0 +1,45 @@
+[
+  {
+    "name": "wrangler",
+    "version": "4.149.0",
+    "location": "node_modules/wrangler",
+    "isWorkspace": false,
+    "dependents": [
+      {
+        "type": "dev",
+        "name": "wrangler",
+        "spec": "4.149.0",
+        "from": {
+          "location": "E:\\Projects\\northstar\\.worktrees\\northstar-release-preparation-001"
+        }
+      },
+      {
+        "type": "peer",
+        "name": "wrangler",
+        "spec": "^4.125.0",
+        "from": {
+          "name": "@opennextjs/cloudflare",
+          "version": "1.20.9",
+          "location": "node_modules/@opennextjs/cloudflare",
+          "isWorkspace": false,
+          "dependents": [
+            {
+              "type": "prod",
+              "name": "@opennextjs/cloudflare",
+              "spec": "1.20.9",
+              "from": {
+                "location": "E:\\Projects\\northstar\\.worktrees\\northstar-release-preparation-001"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "dev": false,
+    "optional": false,
+    "devOptional": false,
+    "peer": false,
+    "bundled": false,
+    "overridden": false
+  }
+]

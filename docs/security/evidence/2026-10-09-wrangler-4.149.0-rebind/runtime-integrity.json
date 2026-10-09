@@ -1,0 +1,7 @@
+{
+  "checkedAt": "2026-10-09T15:20:31.210Z",
+  "url": "https://registry.npmjs.org/@cloudflare/workerd-windows-64/-/workerd-windows-64-1.20261006.1.tgz",
+  "expected": "sha512-nWP0URNqOBN9fa/gZ7eh/w051DwjOXN8j4lDZDYVXyQPsux6sV3DfyYZT+CjR/rt9nKBSmJT9QE9/bWT18+84w==",
+  "actual": "sha512-nWP0URNqOBN9fa/gZ7eh/w051DwjOXN8j4lDZDYVXyQPsux6sV3DfyYZT+CjR/rt9nKBSmJT9QE9/bWT18+84w==",
+  "match": true
+}

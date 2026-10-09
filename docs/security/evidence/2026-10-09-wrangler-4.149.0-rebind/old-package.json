@@ -23,7 +23,6 @@
     "validate": "npm run lint && npm run typecheck && npm test && npm run build"
   },
   "dependencies": {
-    "@opennextjs/cloudflare": "1.20.9",
     "next": "16.3.8",
     "react": "19.2.4",
     "react-dom": "19.2.4"
@@ -41,7 +40,6 @@
     "prettier": "^3.9.9",
     "tailwindcss": "^4",
     "tsx": "^4.23.15",
-    "typescript": "^5",
-    "wrangler": "4.149.0"
+    "typescript": "^5"
   }
 }

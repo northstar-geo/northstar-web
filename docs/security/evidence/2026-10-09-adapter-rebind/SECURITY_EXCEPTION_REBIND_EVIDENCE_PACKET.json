@@ -1,0 +1,3072 @@
+{
+  "SCHEMA": "okelom-security-rebind-evidence.v1",
+  "GOAL_ID": "GOAL-OKELOM-LAUNCH-READINESS-001",
+  "MISSION_ID": "MISSION-OKELOM-PRODUCT-IDENTITY-PREVIEW-READINESS-001",
+  "GENERATED_AT": "2026-10-09T14:43:36.559Z",
+  "AUDIT_CHECKED_AT": "2026-10-09T14:41:57.086Z",
+  "CURRENT_HEAD_SHA": "1d3cdaa46e182ae76d7b28f6e00b5a39f8e17c7e",
+  "CANDIDATE_BINDING": "UNCOMMITTED_PACKAGE_AND_LOCK_BYTES_IDENTIFIED_BY_SHA256",
+  "PACKAGE_JSON_SHA256": "sha256:9cf4ef64171eb337896a4f07a2fe574f445f377f45f2959b4495b1540f47101f",
+  "LOCKFILE_SHA256": "sha256:a5d3943c70820c62ef578551bf3ada599427af31bccbd670a7e0d8a4ca2c744d",
+  "OLD_PACKAGE_JSON_SHA256": "sha256:c9b70fbd90f0db51501059c0505a92aac67825f1e7a6ac4960a44b22aae63909",
+  "OLD_LOCKFILE_SHA256": "sha256:ac9cfd4026e6e68edabc3719a7942e99cda84ef2892517ab1b410a2bf1c011e8",
+  "OLD_RAW_FULL_AUDIT_DIGEST": "sha256:aff258eecfa61488701a3e258d56e44a9e7a802b189316d6c8ff90eb26b718ec",
+  "NEW_RAW_FULL_AUDIT_DIGEST": "sha256:4893495321f367869874247e858c3e56c39b434819fa9690ad3a0087f6194f54",
+  "OLD_PRODUCTION_AUDIT_DIGEST": "sha256:6a813559958e16d81c2973e6a54512f0dcfa122b7dd0d440ec558ae6337ca885",
+  "NEW_PRODUCTION_AUDIT_DIGEST": "sha256:466cc568965039a2f89aa03f39200f65406a4512d16638e800b34e7ff0252068",
+  "AUDIT_OBJECT_COUNT_DEFINITION": "Number of named entries in npm audit vulnerabilities; unique direct advisory and dependency metadata counts are reported separately.",
+  "OLD_AUDIT_OBJECT_COUNT": 5,
+  "NEW_AUDIT_OBJECT_COUNT": 9,
+  "OLD_DEPENDENCY_COUNTS": {
+    "prod": 20,
+    "dev": 419,
+    "optional": 121,
+    "peer": 0,
+    "peerOptional": 0,
+    "total": 476
+  },
+  "NEW_DEPENDENCY_COUNTS": {
+    "prod": 335,
+    "dev": 380,
+    "optional": 211,
+    "peer": 0,
+    "peerOptional": 0,
+    "total": 843
+  },
+  "OLD_UNIQUE_ADVISORY_COUNT": 1,
+  "NEW_UNIQUE_ADVISORY_COUNT": 13,
+  "ADDED_AUDIT_OBJECTS": {
+    "miniflare": {
+      "name": "miniflare",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "sharp",
+        "undici"
+      ],
+      "effects": [
+        "wrangler"
+      ],
+      "range": "<=0.0.0-fec45ed61 || 4.20250508.3 - 5.20260926.0-alpha",
+      "nodes": [
+        "node_modules/miniflare"
+      ],
+      "fixAvailable": {
+        "name": "wrangler",
+        "version": "4.149.0",
+        "isSemVerMajor": false
+      }
+    },
+    "sharp": {
+      "name": "sharp",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1193725,
+          "name": "sharp",
+          "dependency": "sharp",
+          "title": "sharp: Vulnerabilities in libheif: GHSA-g89c-p67h-r497 and GHSA-2jg2-4ch7-h545",
+          "url": "https://github.com/advisories/GHSA-rgj7-g3m4-5g8c",
+          "severity": "high",
+          "cwe": [
+            "CWE-122"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<0.35.4"
+        },
+        {
+          "source": 1241331,
+          "name": "sharp",
+          "dependency": "sharp",
+          "title": "sharp : Vulnerability in librsvg dependency CVE-2026-96889",
+          "url": "https://github.com/advisories/GHSA-wq5f-xc86-pv6w",
+          "severity": "high",
+          "cwe": [
+            "CWE-416",
+            "CWE-1395"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<0.35.5"
+        }
+      ],
+      "effects": [
+        "miniflare"
+      ],
+      "range": "<=0.35.5-rc.1",
+      "nodes": [
+        "node_modules/miniflare/node_modules/sharp"
+      ],
+      "fixAvailable": {
+        "name": "wrangler",
+        "version": "4.149.0",
+        "isSemVerMajor": false
+      }
+    },
+    "undici": {
+      "name": "undici",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1239933,
+          "name": "undici",
+          "dependency": "undici",
+          "title": "undici vulnerable to Denial of Service via unhandled error in WebSocket permessage-deflate decompression",
+          "url": "https://github.com/advisories/GHSA-3wwx-pv8p-q78v",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-248"
+          ],
+          "cvss": {
+            "score": 5.9,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=7.28.0 <7.29.1"
+        },
+        {
+          "source": 1240036,
+          "name": "undici",
+          "dependency": "undici",
+          "title": "undici vulnerable to Denial of Service via orphaned RetryHandler response body",
+          "url": "https://github.com/advisories/GHSA-pmjh-fq2x-6v4x",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-772"
+          ],
+          "cvss": {
+            "score": 5.9,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=7.11.0 <7.29.1"
+        },
+        {
+          "source": 1240038,
+          "name": "undici",
+          "dependency": "undici",
+          "title": "undici vulnerable to downstream response splitting via retry interceptor",
+          "url": "https://github.com/advisories/GHSA-r53p-7pc4-xj5r",
+          "severity": "low",
+          "cwe": [
+            "CWE-444"
+          ],
+          "cvss": {
+            "score": 3.7,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N"
+          },
+          "range": ">=7.0.0 <7.29.1"
+        },
+        {
+          "source": 1240041,
+          "name": "undici",
+          "dependency": "undici",
+          "title": "undici vulnerable to Denial of Service via unrequested WebSocket subprotocol",
+          "url": "https://github.com/advisories/GHSA-rfgv-xxqx-mfg5",
+          "severity": "high",
+          "cwe": [
+            "CWE-248",
+            "CWE-252"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=7.0.0 <7.29.1"
+        },
+        {
+          "source": 1240044,
+          "name": "undici",
+          "dependency": "undici",
+          "title": "undici vulnerable to Denial of Service via unbounded decompression of compressed responses",
+          "url": "https://github.com/advisories/GHSA-3xpg-4rpp-hhhm",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-770"
+          ],
+          "cvss": {
+            "score": 5.9,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=7.15.0 <7.29.1"
+        },
+        {
+          "source": 1240046,
+          "name": "undici",
+          "dependency": "undici",
+          "title": "undici vulnerable to cross-user cookie disclosure via Set-Cookie caching in shared caches",
+          "url": "https://github.com/advisories/GHSA-2jfj-6hjv-fm6j",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-200",
+            "CWE-524"
+          ],
+          "cvss": {
+            "score": 6.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:L/A:N"
+          },
+          "range": ">=7.0.0 <7.29.1"
+        },
+        {
+          "source": 1240048,
+          "name": "undici",
+          "dependency": "undici",
+          "title": "undici vulnerable to response truncation via oversized chunked responses in the dump interceptor",
+          "url": "https://github.com/advisories/GHSA-2gqq-gqf2-x968",
+          "severity": "low",
+          "cwe": [
+            "CWE-20",
+            "CWE-248"
+          ],
+          "cvss": {
+            "score": 3.7,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N"
+          },
+          "range": ">=7.1.0 <7.29.1"
+        },
+        {
+          "source": 1240050,
+          "name": "undici",
+          "dependency": "undici",
+          "title": "undici vulnerable to TLS certificate validation bypass via dropped connect options in BalancedPool",
+          "url": "https://github.com/advisories/GHSA-w293-vg96-wgc3",
+          "severity": "high",
+          "cwe": [
+            "CWE-295"
+          ],
+          "cvss": {
+            "score": 7.4,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N"
+          },
+          "range": ">=7.24.1 <7.29.1"
+        },
+        {
+          "source": 1240052,
+          "name": "undici",
+          "dependency": "undici",
+          "title": "undici vulnerable to caching and replay of unsafe HTTP method responses",
+          "url": "https://github.com/advisories/GHSA-8436-99hf-9mmv",
+          "severity": "low",
+          "cwe": [
+            "CWE-345"
+          ],
+          "cvss": {
+            "score": 3.7,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N"
+          },
+          "range": ">=7.0.0 <7.29.1"
+        },
+        {
+          "source": 1240055,
+          "name": "undici",
+          "dependency": "undici",
+          "title": "undici vulnerable to Denial of Service via WebSocketStream unclean close",
+          "url": "https://github.com/advisories/GHSA-rx4f-c7p8-82vq",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-248",
+            "CWE-754"
+          ],
+          "cvss": {
+            "score": 5.9,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=7.0.0 <7.29.1"
+        }
+      ],
+      "effects": [
+        "miniflare"
+      ],
+      "range": "7.0.0 - 7.29.0",
+      "nodes": [
+        "node_modules/undici"
+      ],
+      "fixAvailable": {
+        "name": "wrangler",
+        "version": "4.149.0",
+        "isSemVerMajor": false
+      }
+    },
+    "wrangler": {
+      "name": "wrangler",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "miniflare"
+      ],
+      "effects": [],
+      "range": "<=0.0.0-7ae5dd357 || 4.16.0 - 4.130.0",
+      "nodes": [
+        "node_modules/wrangler"
+      ],
+      "fixAvailable": {
+        "name": "wrangler",
+        "version": "4.149.0",
+        "isSemVerMajor": false
+      }
+    }
+  },
+  "REMOVED_AUDIT_OBJECTS": {},
+  "CHANGED_AUDIT_OBJECTS": [],
+  "ADDED_HIGH_ADVISORIES": [
+    {
+      "source": 1193725,
+      "name": "sharp",
+      "dependency": "sharp",
+      "title": "sharp: Vulnerabilities in libheif: GHSA-g89c-p67h-r497 and GHSA-2jg2-4ch7-h545",
+      "url": "https://github.com/advisories/GHSA-rgj7-g3m4-5g8c",
+      "severity": "high",
+      "cwe": [
+        "CWE-122"
+      ],
+      "cvss": {
+        "score": 0,
+        "vectorString": null
+      },
+      "range": "<0.35.4"
+    },
+    {
+      "source": 1241331,
+      "name": "sharp",
+      "dependency": "sharp",
+      "title": "sharp : Vulnerability in librsvg dependency CVE-2026-96889",
+      "url": "https://github.com/advisories/GHSA-wq5f-xc86-pv6w",
+      "severity": "high",
+      "cwe": [
+        "CWE-416",
+        "CWE-1395"
+      ],
+      "cvss": {
+        "score": 0,
+        "vectorString": null
+      },
+      "range": "<0.35.5"
+    },
+    {
+      "source": 1240041,
+      "name": "undici",
+      "dependency": "undici",
+      "title": "undici vulnerable to Denial of Service via unrequested WebSocket subprotocol",
+      "url": "https://github.com/advisories/GHSA-rfgv-xxqx-mfg5",
+      "severity": "high",
+      "cwe": [
+        "CWE-248",
+        "CWE-252"
+      ],
+      "cvss": {
+        "score": 7.5,
+        "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "range": ">=7.0.0 <7.29.1"
+    },
+    {
+      "source": 1240050,
+      "name": "undici",
+      "dependency": "undici",
+      "title": "undici vulnerable to TLS certificate validation bypass via dropped connect options in BalancedPool",
+      "url": "https://github.com/advisories/GHSA-w293-vg96-wgc3",
+      "severity": "high",
+      "cwe": [
+        "CWE-295"
+      ],
+      "cvss": {
+        "score": 7.4,
+        "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N"
+      },
+      "range": ">=7.24.1 <7.29.1"
+    }
+  ],
+  "ADDED_CRITICAL_ADVISORIES": [],
+  "REMOVED_HIGH_ADVISORIES": [],
+  "CHANGED_HIGH_ADVISORIES": [],
+  "CHANGED_HIGH_PROPAGATION_OBJECTS": [],
+  "CURRENT_GHSA_vfj7_8cjw_p6xm_DEPENDENCY_PATH": [
+    [
+      "eslint-config-next@16.3.6",
+      "@next/eslint-plugin-next@16.3.6",
+      "fast-glob@3.3.1",
+      "micromatch@4.0.8",
+      "braces@3.0.3"
+    ]
+  ],
+  "OLD_GHSA_DEPENDENCY_PATH": [
+    "eslint-config-next@16.3.6",
+    "@next/eslint-plugin-next@16.3.6",
+    "fast-glob@3.3.1",
+    "micromatch@4.0.8",
+    "braces@3.0.3"
+  ],
+  "PRODUCTION_AUDIT": {
+    "auditReportVersion": 2,
+    "vulnerabilities": {
+      "miniflare": {
+        "name": "miniflare",
+        "severity": "high",
+        "isDirect": false,
+        "via": [
+          "sharp",
+          "undici"
+        ],
+        "effects": [
+          "wrangler"
+        ],
+        "range": "<=0.0.0-fec45ed61 || 4.20250508.3 - 5.20260926.0-alpha",
+        "nodes": [
+          "node_modules/miniflare"
+        ],
+        "fixAvailable": {
+          "name": "wrangler",
+          "version": "4.149.0",
+          "isSemVerMajor": false
+        }
+      },
+      "sharp": {
+        "name": "sharp",
+        "severity": "high",
+        "isDirect": false,
+        "via": [
+          {
+            "source": 1193725,
+            "name": "sharp",
+            "dependency": "sharp",
+            "title": "sharp: Vulnerabilities in libheif: GHSA-g89c-p67h-r497 and GHSA-2jg2-4ch7-h545",
+            "url": "https://github.com/advisories/GHSA-rgj7-g3m4-5g8c",
+            "severity": "high",
+            "cwe": [
+              "CWE-122"
+            ],
+            "cvss": {
+              "score": 0,
+              "vectorString": null
+            },
+            "range": "<0.35.4"
+          },
+          {
+            "source": 1241331,
+            "name": "sharp",
+            "dependency": "sharp",
+            "title": "sharp : Vulnerability in librsvg dependency CVE-2026-96889",
+            "url": "https://github.com/advisories/GHSA-wq5f-xc86-pv6w",
+            "severity": "high",
+            "cwe": [
+              "CWE-416",
+              "CWE-1395"
+            ],
+            "cvss": {
+              "score": 0,
+              "vectorString": null
+            },
+            "range": "<0.35.5"
+          }
+        ],
+        "effects": [
+          "miniflare"
+        ],
+        "range": "<=0.35.5-rc.1",
+        "nodes": [
+          "node_modules/miniflare/node_modules/sharp"
+        ],
+        "fixAvailable": {
+          "name": "wrangler",
+          "version": "4.149.0",
+          "isSemVerMajor": false
+        }
+      },
+      "undici": {
+        "name": "undici",
+        "severity": "high",
+        "isDirect": false,
+        "via": [
+          {
+            "source": 1239933,
+            "name": "undici",
+            "dependency": "undici",
+            "title": "undici vulnerable to Denial of Service via unhandled error in WebSocket permessage-deflate decompression",
+            "url": "https://github.com/advisories/GHSA-3wwx-pv8p-q78v",
+            "severity": "moderate",
+            "cwe": [
+              "CWE-248"
+            ],
+            "cvss": {
+              "score": 5.9,
+              "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H"
+            },
+            "range": ">=7.28.0 <7.29.1"
+          },
+          {
+            "source": 1240036,
+            "name": "undici",
+            "dependency": "undici",
+            "title": "undici vulnerable to Denial of Service via orphaned RetryHandler response body",
+            "url": "https://github.com/advisories/GHSA-pmjh-fq2x-6v4x",
+            "severity": "moderate",
+            "cwe": [
+              "CWE-772"
+            ],
+            "cvss": {
+              "score": 5.9,
+              "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H"
+            },
+            "range": ">=7.11.0 <7.29.1"
+          },
+          {
+            "source": 1240038,
+            "name": "undici",
+            "dependency": "undici",
+            "title": "undici vulnerable to downstream response splitting via retry interceptor",
+            "url": "https://github.com/advisories/GHSA-r53p-7pc4-xj5r",
+            "severity": "low",
+            "cwe": [
+              "CWE-444"
+            ],
+            "cvss": {
+              "score": 3.7,
+              "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N"
+            },
+            "range": ">=7.0.0 <7.29.1"
+          },
+          {
+            "source": 1240041,
+            "name": "undici",
+            "dependency": "undici",
+            "title": "undici vulnerable to Denial of Service via unrequested WebSocket subprotocol",
+            "url": "https://github.com/advisories/GHSA-rfgv-xxqx-mfg5",
+            "severity": "high",
+            "cwe": [
+              "CWE-248",
+              "CWE-252"
+            ],
+            "cvss": {
+              "score": 7.5,
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+            },
+            "range": ">=7.0.0 <7.29.1"
+          },
+          {
+            "source": 1240044,
+            "name": "undici",
+            "dependency": "undici",
+            "title": "undici vulnerable to Denial of Service via unbounded decompression of compressed responses",
+            "url": "https://github.com/advisories/GHSA-3xpg-4rpp-hhhm",
+            "severity": "moderate",
+            "cwe": [
+              "CWE-770"
+            ],
+            "cvss": {
+              "score": 5.9,
+              "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H"
+            },
+            "range": ">=7.15.0 <7.29.1"
+          },
+          {
+            "source": 1240046,
+            "name": "undici",
+            "dependency": "undici",
+            "title": "undici vulnerable to cross-user cookie disclosure via Set-Cookie caching in shared caches",
+            "url": "https://github.com/advisories/GHSA-2jfj-6hjv-fm6j",
+            "severity": "moderate",
+            "cwe": [
+              "CWE-200",
+              "CWE-524"
+            ],
+            "cvss": {
+              "score": 6.5,
+              "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:L/A:N"
+            },
+            "range": ">=7.0.0 <7.29.1"
+          },
+          {
+            "source": 1240048,
+            "name": "undici",
+            "dependency": "undici",
+            "title": "undici vulnerable to response truncation via oversized chunked responses in the dump interceptor",
+            "url": "https://github.com/advisories/GHSA-2gqq-gqf2-x968",
+            "severity": "low",
+            "cwe": [
+              "CWE-20",
+              "CWE-248"
+            ],
+            "cvss": {
+              "score": 3.7,
+              "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N"
+            },
+            "range": ">=7.1.0 <7.29.1"
+          },
+          {
+            "source": 1240050,
+            "name": "undici",
+            "dependency": "undici",
+            "title": "undici vulnerable to TLS certificate validation bypass via dropped connect options in BalancedPool",
+            "url": "https://github.com/advisories/GHSA-w293-vg96-wgc3",
+            "severity": "high",
+            "cwe": [
+              "CWE-295"
+            ],
+            "cvss": {
+              "score": 7.4,
+              "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N"
+            },
+            "range": ">=7.24.1 <7.29.1"
+          },
+          {
+            "source": 1240052,
+            "name": "undici",
+            "dependency": "undici",
+            "title": "undici vulnerable to caching and replay of unsafe HTTP method responses",
+            "url": "https://github.com/advisories/GHSA-8436-99hf-9mmv",
+            "severity": "low",
+            "cwe": [
+              "CWE-345"
+            ],
+            "cvss": {
+              "score": 3.7,
+              "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N"
+            },
+            "range": ">=7.0.0 <7.29.1"
+          },
+          {
+            "source": 1240055,
+            "name": "undici",
+            "dependency": "undici",
+            "title": "undici vulnerable to Denial of Service via WebSocketStream unclean close",
+            "url": "https://github.com/advisories/GHSA-rx4f-c7p8-82vq",
+            "severity": "moderate",
+            "cwe": [
+              "CWE-248",
+              "CWE-754"
+            ],
+            "cvss": {
+              "score": 5.9,
+              "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H"
+            },
+            "range": ">=7.0.0 <7.29.1"
+          }
+        ],
+        "effects": [
+          "miniflare"
+        ],
+        "range": "7.0.0 - 7.29.0",
+        "nodes": [
+          "node_modules/undici"
+        ],
+        "fixAvailable": {
+          "name": "wrangler",
+          "version": "4.149.0",
+          "isSemVerMajor": false
+        }
+      },
+      "wrangler": {
+        "name": "wrangler",
+        "severity": "high",
+        "isDirect": true,
+        "via": [
+          "miniflare"
+        ],
+        "effects": [],
+        "range": "<=0.0.0-7ae5dd357 || 4.16.0 - 4.130.0",
+        "nodes": [
+          "node_modules/wrangler"
+        ],
+        "fixAvailable": {
+          "name": "wrangler",
+          "version": "4.149.0",
+          "isSemVerMajor": false
+        }
+      }
+    },
+    "metadata": {
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 4,
+        "critical": 0,
+        "total": 4
+      },
+      "dependencies": {
+        "prod": 335,
+        "dev": 380,
+        "optional": 211,
+        "peer": 0,
+        "peerOptional": 0,
+        "total": 843
+      }
+    }
+  },
+  "PRODUCTION_REACHABILITY": {
+    "sourceImportFindings": [],
+    "bracesLockEntries": [
+      {
+        "path": "node_modules/braces",
+        "version": "3.0.3",
+        "dev": true
+      }
+    ],
+    "productionAuditHasBraces": false,
+    "productionDependencyTree": {
+      "version": "0.1.0",
+      "name": "northstar-web",
+      "dependencies": {
+        "@opennextjs/cloudflare": {
+          "version": "1.20.9",
+          "resolved": "https://registry.npmjs.org/@opennextjs/cloudflare/-/cloudflare-1.20.9.tgz",
+          "overridden": false,
+          "dependencies": {
+            "wrangler": {
+              "version": "4.125.0",
+              "resolved": "https://registry.npmjs.org/wrangler/-/wrangler-4.125.0.tgz",
+              "overridden": false,
+              "dependencies": {
+                "miniflare": {
+                  "version": "5.20260820.0-alpha",
+                  "resolved": "https://registry.npmjs.org/miniflare/-/miniflare-5.20260820.0-alpha.tgz",
+                  "overridden": false,
+                  "dependencies": {
+                    "sharp": {
+                      "version": "0.35.2",
+                      "resolved": "https://registry.npmjs.org/sharp/-/sharp-0.35.2.tgz",
+                      "overridden": false
+                    },
+                    "undici": {
+                      "version": "7.29.0",
+                      "resolved": "https://registry.npmjs.org/undici/-/undici-7.29.0.tgz",
+                      "overridden": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "next": {
+          "version": "16.3.8",
+          "resolved": "https://registry.npmjs.org/next/-/next-16.3.8.tgz",
+          "overridden": false,
+          "dependencies": {
+            "sharp": {
+              "version": "0.35.5",
+              "resolved": "https://registry.npmjs.org/sharp/-/sharp-0.35.5.tgz",
+              "overridden": false
+            }
+          }
+        }
+      }
+    },
+    "wranglerDependencyExplanation": [
+      {
+        "name": "wrangler",
+        "version": "4.125.0",
+        "location": "node_modules/wrangler",
+        "isWorkspace": false,
+        "dependents": [
+          {
+            "type": "dev",
+            "name": "wrangler",
+            "spec": "4.125.0",
+            "from": {
+              "location": "E:\\Projects\\northstar\\.worktrees\\northstar-release-preparation-001"
+            }
+          },
+          {
+            "type": "peer",
+            "name": "wrangler",
+            "spec": "^4.125.0",
+            "from": {
+              "name": "@opennextjs/cloudflare",
+              "version": "1.20.9",
+              "location": "node_modules/@opennextjs/cloudflare",
+              "isWorkspace": false,
+              "dependents": [
+                {
+                  "type": "prod",
+                  "name": "@opennextjs/cloudflare",
+                  "spec": "1.20.9",
+                  "from": {
+                    "location": "E:\\Projects\\northstar\\.worktrees\\northstar-release-preparation-001"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "dev": false,
+        "optional": false,
+        "devOptional": false,
+        "peer": false,
+        "bundled": false,
+        "overridden": false
+      }
+    ],
+    "workerBundleExposure": "NOT_VERIFIED_ADAPTER_NOT_BUILT",
+    "note": "The adapter is a production dependency per its official installation guide; its required Wrangler peer makes Wrangler reachable in the production dependency graph despite the direct devDependency declaration. This is not proof of deployed Worker exploitability. Source regex is supporting evidence only; it cannot disprove transitive or bundled runtime exposure."
+  },
+  "EXCEPTION_SCOPE": "DEVELOPMENT_TOOLING_ONLY",
+  "EXCEPTION_EXPIRY": "2026-10-13T23:59:00+08:00",
+  "EXCEPTION_RECORD_UNCHANGED": true,
+  "EXCEPTION_RECORD_SHA256": "sha256:1956adfc40f1e9e2c646161e6275b96cdf5969c9712bd971bafb06dcbfa88a60",
+  "EXISTING_GATE_RESULT": {
+    "status": "FAIL",
+    "code": "PRODUCTION_AUDIT_NONZERO",
+    "message": "PRODUCTION_AUDIT_NONZERO"
+  },
+  "PROTECTED_VERSIONS": {
+    "next": {
+      "old": "16.3.8",
+      "new": "16.3.8"
+    },
+    "react": {
+      "old": "19.2.4",
+      "new": "19.2.4"
+    },
+    "react-dom": {
+      "old": "19.2.4",
+      "new": "19.2.4"
+    },
+    "eslint-config-next": {
+      "old": "16.3.6",
+      "new": "16.3.6"
+    }
+  },
+  "CHANGED_EXISTING_PACKAGE_VERSIONS": [],
+  "ADDED_LOCK_PACKAGES": [
+    {
+      "path": "node_modules/@ast-grep/napi",
+      "version": "0.40.5",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@ast-grep/napi-darwin-arm64",
+      "version": "0.40.5",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@ast-grep/napi-darwin-x64",
+      "version": "0.40.5",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@ast-grep/napi-linux-arm64-gnu",
+      "version": "0.40.5",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@ast-grep/napi-linux-arm64-musl",
+      "version": "0.40.5",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@ast-grep/napi-linux-x64-gnu",
+      "version": "0.40.5",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@ast-grep/napi-linux-x64-musl",
+      "version": "0.40.5",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@ast-grep/napi-win32-arm64-msvc",
+      "version": "0.40.5",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@ast-grep/napi-win32-ia32-msvc",
+      "version": "0.40.5",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@ast-grep/napi-win32-x64-msvc",
+      "version": "0.40.5",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@aws-crypto/sha1-browser",
+      "version": "5.2.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-crypto/sha1-browser/node_modules/@smithy/util-utf8",
+      "version": "2.3.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-crypto/sha256-browser",
+      "version": "5.2.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-crypto/sha256-browser/node_modules/@smithy/util-utf8",
+      "version": "2.3.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-crypto/sha256-js",
+      "version": "5.2.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-crypto/supports-web-crypto",
+      "version": "5.2.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-crypto/util",
+      "version": "5.2.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-crypto/util/node_modules/@smithy/util-utf8",
+      "version": "2.3.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/checksums",
+      "version": "3.1001.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/client-cloudfront",
+      "version": "3.984.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/client-dynamodb",
+      "version": "3.984.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/client-lambda",
+      "version": "3.984.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/client-s3",
+      "version": "3.984.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/client-sqs",
+      "version": "3.984.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/core",
+      "version": "3.978.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/credential-provider-env",
+      "version": "3.972.72",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/credential-provider-http",
+      "version": "3.972.74",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/credential-provider-ini",
+      "version": "3.973.17",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/credential-provider-login",
+      "version": "3.972.79",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/credential-provider-node",
+      "version": "3.972.84",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/credential-provider-process",
+      "version": "3.972.72",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/credential-provider-sso",
+      "version": "3.973.16",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/credential-provider-web-identity",
+      "version": "3.972.78",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/dynamodb-codec",
+      "version": "3.973.46",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/endpoint-cache",
+      "version": "3.972.11",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/middleware-bucket-endpoint",
+      "version": "3.972.50",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/middleware-endpoint-discovery",
+      "version": "3.972.31",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/middleware-expect-continue",
+      "version": "3.972.46",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/middleware-flexible-checksums",
+      "version": "3.974.56",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/middleware-host-header",
+      "version": "3.972.47",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/middleware-location-constraint",
+      "version": "3.972.43",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/middleware-logger",
+      "version": "3.972.46",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/middleware-recursion-detection",
+      "version": "3.972.48",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/middleware-sdk-s3",
+      "version": "3.972.77",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/middleware-sdk-s3/node_modules/@aws-sdk/signature-v4-multi-region",
+      "version": "3.996.47",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/middleware-sdk-sqs",
+      "version": "3.972.43",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/middleware-ssec",
+      "version": "3.972.43",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/middleware-user-agent",
+      "version": "3.972.76",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/nested-clients",
+      "version": "3.997.46",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/nested-clients/node_modules/@aws-sdk/signature-v4-multi-region",
+      "version": "3.996.47",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/region-config-resolver",
+      "version": "3.972.50",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/signature-v4-multi-region",
+      "version": "3.984.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/token-providers",
+      "version": "3.1138.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/types",
+      "version": "3.974.6",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/util-endpoints",
+      "version": "3.984.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/util-locate-window",
+      "version": "3.965.10",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/util-user-agent-browser",
+      "version": "3.972.47",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/util-user-agent-node",
+      "version": "3.973.62",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws-sdk/xml-builder",
+      "version": "3.972.41",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@aws/lambda-invoke-store",
+      "version": "0.3.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@cloudflare/kv-asset-handler",
+      "version": "0.5.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@cloudflare/unenv-preset",
+      "version": "2.16.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@cloudflare/workerd-darwin-64",
+      "version": "1.20260820.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@cloudflare/workerd-darwin-arm64",
+      "version": "1.20260820.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@cloudflare/workerd-linux-64",
+      "version": "1.20260820.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@cloudflare/workerd-linux-arm64",
+      "version": "1.20260820.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@cloudflare/workerd-windows-64",
+      "version": "1.20260820.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@cspotcode/source-map-support",
+      "version": "0.8.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@cspotcode/source-map-support/node_modules/@jridgewell/trace-mapping",
+      "version": "0.3.9",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@dotenvx/dotenvx",
+      "version": "1.31.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@dotenvx/dotenvx/node_modules/fdir",
+      "version": "6.5.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@dotenvx/dotenvx/node_modules/isexe",
+      "version": "3.1.5",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@dotenvx/dotenvx/node_modules/picomatch",
+      "version": "4.0.7",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@dotenvx/dotenvx/node_modules/which",
+      "version": "4.0.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@ecies/ciphers",
+      "version": "0.2.6",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@isaacs/cliui",
+      "version": "9.0.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@jridgewell/source-map",
+      "version": "0.3.11",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@noble/ciphers",
+      "version": "1.3.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@noble/curves",
+      "version": "1.9.7",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@noble/hashes",
+      "version": "1.8.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@node-minify/core",
+      "version": "8.0.6",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@node-minify/core/node_modules/brace-expansion",
+      "version": "2.1.7",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@node-minify/core/node_modules/glob",
+      "version": "9.3.5",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@node-minify/core/node_modules/lru-cache",
+      "version": "10.4.3",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@node-minify/core/node_modules/minimatch",
+      "version": "8.0.7",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@node-minify/core/node_modules/minipass",
+      "version": "4.2.8",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@node-minify/core/node_modules/path-scurry",
+      "version": "1.11.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@node-minify/core/node_modules/path-scurry/node_modules/minipass",
+      "version": "7.1.3",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@node-minify/terser",
+      "version": "8.0.6",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@node-minify/utils",
+      "version": "8.0.6",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@opennextjs/aws",
+      "version": "4.1.8",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/aix-ppc64",
+      "version": "0.25.4",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/android-arm",
+      "version": "0.25.4",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/android-arm64",
+      "version": "0.25.4",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/android-x64",
+      "version": "0.25.4",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/darwin-arm64",
+      "version": "0.25.4",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/darwin-x64",
+      "version": "0.25.4",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/freebsd-arm64",
+      "version": "0.25.4",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/freebsd-x64",
+      "version": "0.25.4",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/linux-arm",
+      "version": "0.25.4",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/linux-arm64",
+      "version": "0.25.4",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/linux-ia32",
+      "version": "0.25.4",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/linux-loong64",
+      "version": "0.25.4",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/linux-mips64el",
+      "version": "0.25.4",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/linux-ppc64",
+      "version": "0.25.4",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/linux-riscv64",
+      "version": "0.25.4",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/linux-s390x",
+      "version": "0.25.4",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/linux-x64",
+      "version": "0.25.4",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/netbsd-arm64",
+      "version": "0.25.4",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/netbsd-x64",
+      "version": "0.25.4",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/openbsd-arm64",
+      "version": "0.25.4",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/openbsd-x64",
+      "version": "0.25.4",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/sunos-x64",
+      "version": "0.25.4",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/win32-arm64",
+      "version": "0.25.4",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/win32-ia32",
+      "version": "0.25.4",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/win32-x64",
+      "version": "0.25.4",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/chalk",
+      "version": "5.6.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/esbuild",
+      "version": "0.25.4",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@opennextjs/cloudflare",
+      "version": "1.20.9",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@poppinss/colors",
+      "version": "4.1.6",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@poppinss/dumper",
+      "version": "0.6.5",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@poppinss/dumper/node_modules/supports-color",
+      "version": "10.2.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@poppinss/exception",
+      "version": "1.2.3",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@sindresorhus/is",
+      "version": "7.2.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/config-resolver",
+      "version": "4.7.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/core",
+      "version": "3.35.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/credential-provider-imds",
+      "version": "4.5.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/eventstream-serde-browser",
+      "version": "4.5.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/eventstream-serde-config-resolver",
+      "version": "4.6.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/eventstream-serde-node",
+      "version": "4.5.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/fetch-http-handler",
+      "version": "5.8.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/hash-blob-browser",
+      "version": "4.5.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/hash-node",
+      "version": "4.5.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/hash-stream-node",
+      "version": "4.5.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/invalid-dependency",
+      "version": "4.5.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/is-array-buffer",
+      "version": "2.2.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/md5-js",
+      "version": "4.5.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/middleware-content-length",
+      "version": "4.5.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/middleware-endpoint",
+      "version": "4.7.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/middleware-retry",
+      "version": "4.8.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/middleware-serde",
+      "version": "4.5.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/middleware-stack",
+      "version": "4.5.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/node-config-provider",
+      "version": "4.6.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/node-http-handler",
+      "version": "4.12.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/protocol-http",
+      "version": "5.6.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/signature-v4",
+      "version": "5.7.4",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/smithy-client",
+      "version": "4.15.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/types",
+      "version": "4.19.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/url-parser",
+      "version": "4.5.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/util-base64",
+      "version": "4.6.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/util-body-length-browser",
+      "version": "4.5.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/util-body-length-node",
+      "version": "4.5.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/util-buffer-from",
+      "version": "2.2.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/util-defaults-mode-browser",
+      "version": "4.6.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/util-defaults-mode-node",
+      "version": "4.5.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/util-endpoints",
+      "version": "3.7.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/util-middleware",
+      "version": "4.5.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/util-retry",
+      "version": "4.6.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/util-stream",
+      "version": "4.8.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/util-utf8",
+      "version": "4.5.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@smithy/util-waiter",
+      "version": "4.6.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@speed-highlight/core",
+      "version": "1.2.24",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@tsconfig/node18",
+      "version": "1.0.3",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/@types/node-fetch",
+      "version": "2.6.13",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/abort-controller",
+      "version": "3.0.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/accepts",
+      "version": "2.0.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/agentkeepalive",
+      "version": "4.6.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/ansi-colors",
+      "version": "4.1.3",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/ansi-regex",
+      "version": "5.0.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/array-timsort",
+      "version": "1.0.3",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/asynckit",
+      "version": "0.4.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/aws4fetch",
+      "version": "1.0.20",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/blake3-wasm",
+      "version": "2.1.5",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/body-parser",
+      "version": "2.3.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/bowser",
+      "version": "2.14.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/buffer-from",
+      "version": "1.1.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/bytes",
+      "version": "3.1.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/ci-info",
+      "version": "4.4.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/cliui",
+      "version": "9.0.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/cliui/node_modules/ansi-regex",
+      "version": "6.4.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/cliui/node_modules/emoji-regex",
+      "version": "10.6.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/cliui/node_modules/string-width",
+      "version": "7.2.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/cliui/node_modules/strip-ansi",
+      "version": "7.2.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/cloudflare",
+      "version": "4.5.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/cloudflare/node_modules/@types/node",
+      "version": "18.19.130",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/cloudflare/node_modules/undici-types",
+      "version": "5.26.5",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/combined-stream",
+      "version": "1.0.8",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/commander",
+      "version": "11.1.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/comment-json",
+      "version": "4.6.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/content-disposition",
+      "version": "2.0.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/content-type",
+      "version": "2.1.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/cookie",
+      "version": "1.1.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/cookie-signature",
+      "version": "1.2.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/delayed-stream",
+      "version": "1.0.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/depd",
+      "version": "2.0.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/dotenv",
+      "version": "16.6.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/duplexer",
+      "version": "0.1.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/eciesjs",
+      "version": "0.4.18",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/ee-first",
+      "version": "1.1.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/encodeurl",
+      "version": "2.0.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/enquirer",
+      "version": "2.4.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/error-stack-parser-es",
+      "version": "1.0.5",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/escape-html",
+      "version": "1.0.3",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/esprima",
+      "version": "4.0.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/etag",
+      "version": "1.8.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/event-target-shim",
+      "version": "5.0.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/execa",
+      "version": "5.1.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/express",
+      "version": "5.3.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/express/node_modules/cookie",
+      "version": "0.7.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/finalhandler",
+      "version": "2.1.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/foreground-child",
+      "version": "3.3.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/foreground-child/node_modules/signal-exit",
+      "version": "4.1.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/form-data",
+      "version": "4.0.6",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/form-data-encoder",
+      "version": "1.7.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/form-data/node_modules/mime-db",
+      "version": "1.52.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/form-data/node_modules/mime-types",
+      "version": "2.1.35",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/formdata-node",
+      "version": "4.4.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/forwarded",
+      "version": "0.2.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/fresh",
+      "version": "2.0.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/fs.realpath",
+      "version": "1.0.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/get-caller-file",
+      "version": "2.0.5",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/get-east-asian-width",
+      "version": "1.7.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/get-stream",
+      "version": "6.0.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/glob",
+      "version": "12.0.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/glob/node_modules/balanced-match",
+      "version": "4.0.4",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/glob/node_modules/brace-expansion",
+      "version": "5.0.12",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/glob/node_modules/minimatch",
+      "version": "10.2.6",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/gzip-size",
+      "version": "6.0.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/http-errors",
+      "version": "2.0.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/human-signals",
+      "version": "2.1.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/humanize-ms",
+      "version": "1.2.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/iconv-lite",
+      "version": "0.7.3",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/inherits",
+      "version": "2.0.4",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/ipaddr.js",
+      "version": "1.9.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/is-promise",
+      "version": "4.0.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/is-stream",
+      "version": "2.0.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/jackspeak",
+      "version": "4.2.3",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/kleur",
+      "version": "4.1.5",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/media-typer",
+      "version": "1.1.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/merge-descriptors",
+      "version": "2.0.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/merge-stream",
+      "version": "2.0.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/mime-db",
+      "version": "1.54.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/mime-types",
+      "version": "3.0.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/mimic-fn",
+      "version": "2.1.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/miniflare",
+      "version": "5.20260820.0-alpha",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/@img/sharp-darwin-arm64",
+      "version": "0.35.2",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/@img/sharp-darwin-x64",
+      "version": "0.35.2",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/@img/sharp-freebsd-wasm32",
+      "version": "0.35.2",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/@img/sharp-libvips-darwin-arm64",
+      "version": "1.3.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/@img/sharp-libvips-darwin-x64",
+      "version": "1.3.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/@img/sharp-libvips-linux-arm",
+      "version": "1.3.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/@img/sharp-libvips-linux-arm64",
+      "version": "1.3.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/@img/sharp-libvips-linux-ppc64",
+      "version": "1.3.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/@img/sharp-libvips-linux-riscv64",
+      "version": "1.3.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/@img/sharp-libvips-linux-s390x",
+      "version": "1.3.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/@img/sharp-libvips-linux-x64",
+      "version": "1.3.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/@img/sharp-libvips-linuxmusl-arm64",
+      "version": "1.3.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/@img/sharp-libvips-linuxmusl-x64",
+      "version": "1.3.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/@img/sharp-linux-arm",
+      "version": "0.35.2",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/@img/sharp-linux-arm64",
+      "version": "0.35.2",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/@img/sharp-linux-ppc64",
+      "version": "0.35.2",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/@img/sharp-linux-riscv64",
+      "version": "0.35.2",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/@img/sharp-linux-s390x",
+      "version": "0.35.2",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/@img/sharp-linux-x64",
+      "version": "0.35.2",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/@img/sharp-linuxmusl-arm64",
+      "version": "0.35.2",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/@img/sharp-linuxmusl-x64",
+      "version": "0.35.2",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/@img/sharp-wasm32",
+      "version": "0.35.2",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/@img/sharp-webcontainers-wasm32",
+      "version": "0.35.2",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/@img/sharp-win32-arm64",
+      "version": "0.35.2",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/@img/sharp-win32-ia32",
+      "version": "0.35.2",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/@img/sharp-win32-x64",
+      "version": "0.35.2",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/semver",
+      "version": "7.8.5",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/miniflare/node_modules/sharp",
+      "version": "0.35.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/minipass",
+      "version": "7.1.3",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/mkdirp",
+      "version": "1.0.4",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/mnemonist",
+      "version": "0.38.3",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/negotiator",
+      "version": "1.1.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/node-domexception",
+      "version": "1.0.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/node-fetch",
+      "version": "2.7.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/npm-run-path",
+      "version": "4.0.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/object-treeify",
+      "version": "1.1.33",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/obliterator",
+      "version": "1.6.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/on-finished",
+      "version": "2.4.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/once",
+      "version": "1.4.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/onetime",
+      "version": "5.1.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/package-json-from-dist",
+      "version": "1.0.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/parseurl",
+      "version": "1.3.3",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/path-scurry",
+      "version": "2.0.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/path-scurry/node_modules/lru-cache",
+      "version": "11.5.3",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/path-to-regexp",
+      "version": "6.3.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/pathe",
+      "version": "2.0.3",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/proxy-addr",
+      "version": "2.0.8",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/qs",
+      "version": "6.16.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/range-parser",
+      "version": "1.3.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/raw-body",
+      "version": "3.0.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/router",
+      "version": "2.2.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/router/node_modules/path-to-regexp",
+      "version": "8.4.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/safer-buffer",
+      "version": "2.1.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/send",
+      "version": "1.2.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/serve-static",
+      "version": "2.2.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/setprototypeof",
+      "version": "1.2.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/signal-exit",
+      "version": "3.0.7",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/source-map",
+      "version": "0.6.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/source-map-support",
+      "version": "0.5.21",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/statuses",
+      "version": "2.0.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/string-width",
+      "version": "8.3.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/string-width/node_modules/ansi-regex",
+      "version": "6.4.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/string-width/node_modules/strip-ansi",
+      "version": "7.2.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/strip-ansi",
+      "version": "6.0.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/strip-final-newline",
+      "version": "2.0.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/terser",
+      "version": "5.16.9",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/terser/node_modules/commander",
+      "version": "2.20.3",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/toidentifier",
+      "version": "1.0.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/tr46",
+      "version": "0.0.3",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/ts-tqdm",
+      "version": "0.8.6",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/type-is",
+      "version": "2.1.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/undici",
+      "version": "7.29.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/unenv",
+      "version": "2.0.0-rc.24",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/unpipe",
+      "version": "1.0.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/urlpattern-polyfill",
+      "version": "10.1.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/vary",
+      "version": "1.1.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/web-streams-polyfill",
+      "version": "4.0.0-beta.3",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/webidl-conversions",
+      "version": "3.0.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/whatwg-url",
+      "version": "5.0.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/workerd",
+      "version": "1.20260820.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/wrangler",
+      "version": "4.125.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/aix-ppc64",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/android-arm",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/android-arm64",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/android-x64",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/darwin-arm64",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/darwin-x64",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/freebsd-arm64",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/freebsd-x64",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/linux-arm",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/linux-arm64",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/linux-ia32",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/linux-loong64",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/linux-mips64el",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/linux-ppc64",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/linux-riscv64",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/linux-s390x",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/linux-x64",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/netbsd-arm64",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/netbsd-x64",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/openbsd-arm64",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/openbsd-x64",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/openharmony-arm64",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/sunos-x64",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/win32-arm64",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/win32-ia32",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/win32-x64",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": true
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/esbuild",
+      "version": "0.28.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/wrap-ansi",
+      "version": "9.0.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/wrap-ansi/node_modules/ansi-regex",
+      "version": "6.4.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/wrap-ansi/node_modules/ansi-styles",
+      "version": "6.2.3",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/wrap-ansi/node_modules/emoji-regex",
+      "version": "10.6.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/wrap-ansi/node_modules/string-width",
+      "version": "7.2.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/wrap-ansi/node_modules/strip-ansi",
+      "version": "7.2.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/wrappy",
+      "version": "1.0.2",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/ws",
+      "version": "8.21.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/y18n",
+      "version": "5.0.8",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/yaml",
+      "version": "2.9.1",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/yargs",
+      "version": "18.2.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/yargs-parser",
+      "version": "22.0.0",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/youch",
+      "version": "4.1.0-beta.10",
+      "dev": false,
+      "optional": false
+    },
+    {
+      "path": "node_modules/youch-core",
+      "version": "0.3.3",
+      "dev": false,
+      "optional": false
+    }
+  ],
+  "REMOVED_LOCK_PACKAGES": [],
+  "PROHIBITED_OPTIONAL_PACKAGE_STATE": {
+    "rclone.js": {
+      "installed": false,
+      "lockPaths": []
+    },
+    "@cloudflare/workers-types": {
+      "installed": false,
+      "lockPaths": []
+    }
+  },
+  "LIFECYCLE_SCRIPTS": "NOT_EXECUTED",
+  "DEPLOYMENT": "NOT_EXECUTED",
+  "NEXTJS_BUILD": "NOT_RUN_AFTER_INSTALL",
+  "OPENNEXT_BUILD": "NOT_RUN_SECURITY_GATE",
+  "WORKER_PREVIEW": "NOT_RUN_SECURITY_GATE",
+  "REGRESSIONS": "NOT_RERUN_AFTER_INSTALL",
+  "CANONICAL_DATA_SHA256": "sha256:2e100f671f3a84997b30627ababbfc94e049f7c2d2cf8d328c42c6006a2778c5",
+  "TRUE_GATE": "NEW_PRODUCTION_HIGH_VULNERABILITIES",
+  "SECONDARY_GATE": "COMPLIANCE_EVIDENCE_REBIND_REQUIRED",
+  "NPM_REPORTED_REMEDIATION_CANDIDATE": "wrangler@4.149.0 (not installed, not authorized, compatibility and resulting audit not yet verified)",
+  "EXACT_REQUIRED_CORE_ACTION": "Authorize a reviewed replacement Wrangler version and necessary transitive lock changes to remediate the new production advisories; do not approve a digest-only rebind of this failing candidate.",
+  "SOURCE_ARTIFACT_SHA256": {
+    "old-full.json": "sha256:c0d6abcddf4f7973f6c784bffdfee8bd7dac48bc2dc9481a21fcffd88903133a",
+    "old-production.json": "sha256:98e266798a9385be0e9bd896ad7de02149f3f6cfbc9551205de5aaa5b18f7211",
+    "new-full.json": "sha256:e9617a99b201f0144cbc7bcfd1b374640d76b5819e21d83213ff6fd2911921c3",
+    "new-production.json": "sha256:34fe38c5566476b592a71b52b21d8945d225b28720d4562a0d2141196071753d",
+    "new-tree.json": "sha256:340e022c244dbeb2e9f7690bdb717658ee55669a12069463754ed77fb582a16e",
+    "production-tree.json": "sha256:95026f2222f2a09f4843720be9650d080abf4aa0caf3bfcc270b9b61e5519342",
+    "wrangler-explain.json": "sha256:580e97daea8d2d2e1b91bb8e2831ccdd3f5e7b3c6ec291d2acffe4cdb56ce307",
+    "old-exception.json": "sha256:1956adfc40f1e9e2c646161e6275b96cdf5969c9712bd971bafb06dcbfa88a60"
+  }
+}
