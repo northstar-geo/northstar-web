@@ -16,17 +16,19 @@
 GOAL_ID = GOAL-OKELOM-LAUNCH-READINESS-001
 CURRENT_GOAL = GOAL-OKELOM-LAUNCH-READINESS-001
 MISSION_ID = MISSION-OKELOM-PRODUCT-IDENTITY-PREVIEW-READINESS-001
-GOAL_STATUS = ACTIVE_BLOCKED
-EXECUTION_STATUS = WAITING_FOR_ADAPTER_DEPENDENCY_AUTHORIZATION
+GOAL_STATUS = ACTIVE
+EXECUTION_STATUS = RESUME_AUTHORIZED
 GOAL_RUNTIME_TYPE = PERSISTENT
 RUNTIME_GOAL_STATUS = active
+MISSION_STANDING_AUTHORITY = RECEIVED_FROM_FOUNDER
+ADAPTER_DEPENDENCY_WRITE_AUTHORITY = EXACT_PACKAGES_APPROVED_2026_10_09
 AUTO_RESUME_CAPABILITY = UNKNOWN
 SCHEDULE_REGISTRATION = VERIFIED
 SCHEDULE_DELIVERY = VERIFIED_SINGLE_HEARTBEAT
 LAST_OBSERVED_HEARTBEAT_AT = 2026-10-09T07:49:13.636Z
-CURRENT_STAGE = LOCAL_BROWSER_CHECKPOINT_VERIFIED_G03_AUTHORITY_GATE
-CURRENT_BLOCKER = ADAPTER_PACKAGE_AND_LOCKFILE_CHANGE_AUTHORIZATION_REQUIRED
-LAST_REVIEWED_AT = 2026-10-09 18:52 +08:00
+CURRENT_STAGE = G03_APPROVED_ADAPTER_INSTALL_AND_SECURITY_RECHECK
+CURRENT_BLOCKER = NONE_PENDING_POST_INSTALL_SECURITY_VALIDATION
+LAST_REVIEWED_AT = 2026-10-09 22:28 +08:00
 REPOSITORY = northstar-geo/northstar-web
 WORKSPACE = E:\Projects\northstar\.worktrees\northstar-release-preparation-001
 CURRENT_BRANCH = codex/okelom-identity-preview-readiness-001
@@ -43,15 +45,17 @@ SECURITY_VALIDATION_SCOPE = FRESH_OFFICIAL_NPM_AUDIT_MATCHES_APPROVED_DIGESTS
 NPM_READ_ONLY_AUDIT_AUTHORIZATION = GRANTED_FOR_THIS_MISSION
 COMPLIANCE_EVIDENCE_REBIND = APPROVED
 EVIDENCE_REBIND_DECISION = APPROVED
-NEXT_RESUME_CONDITION = EXPLICIT_ADAPTER_PACKAGE_LOCK_WRITE_AUTHORITY_AND_EVIDENCE_REVIEW_PATH
+NEXT_RESUME_CONDITION = NOT_APPLICABLE_EXECUTION_RESUMED
 EXACT_PREVIEW_URL = NOT_CREATED_OR_VERIFIED
 ROLLBACK_READY = NO_EXACT_CANDIDATE_OR_DEPLOYMENT_BINDING
-NEXT_HIGHEST_VALUE_ACTION = CORE_DECIDES_MINIMAL_G03_DEPENDENCY_WRITE_SCOPE
+NEXT_HIGHEST_VALUE_ACTION = EXACT_ADAPTER_INSTALL_THEN_IMMEDIATE_FULL_AND_PRODUCTION_AUDIT
 ```
 
 本块是本使命唯一当前门禁状态，后文历史记录和矩阵不得另行覆盖它。15:14的原生目标受阻状态属于正式恢复前历史；本轮正式回执到达后工具返回 `active`，实施恢复。`ACTIVE_BLOCKED` 表示目标保留且等待真实门禁，不是完成。实现与匹配本地验证已固定于上列检查点；后续仅记录证据的提交不能被误认作新的产品实现。运行时当前头提交始终以 `git rev-parse HEAD` 为准；最终回执另给实际头提交，不在自身文档中制造自引用哈希。当前证据不能冒充云端候选验收。
 
-18:52本次独立本地缺口已验证并保存，工程现在等待仍明确禁止的适配依赖/包锁写入权限；不是因测试或提交完成而等待“继续”。原生目标工具最近返回active；该运行时标志不表示有工程进程在后台运行，也不等于门禁解除。此轮不把目标标记完成，不调整调度或权限。后续正式权限抵达后仍须先核对当前证据，任何新依赖图不沿用旧摘要自动放行。
+18:52本次独立本地缺口已验证并保存，工程等待仍明确禁止的适配依赖/包锁写入权限；不是因测试或提交完成而等待“继续”。18:54完成本次恢复后的三轮阻塞核验，原生目标工具确认blocked。此前active运行时标志不表示工程在后台运行，也不等于门禁解除。目标未完成，不调整调度或权限。后续正式权限抵达后仍须先核对当前证据，任何新依赖图不沿用旧摘要自动放行。
+
+22:17创始人在本对话直接提供使命级持续授权回执（附件 `e6b059ab-c399-4bc1-b4de-7bed8fcdea81`）。常规源码/测试/配置写入、既有依赖本地验证、证据更新及当前使命分支提交/推送在其边界内持续获准，不再逐文件请求授权。回执的真实门禁第1、3项仍明确保留新增依赖安装及未另行授权的锁文件变更；G-03所需适配包未获批准，不能以代码适配权限推定安装权限。原生目标因本次用户消息返回active，仅表示目标运行时状态；实际工程仍等待上述外部权限，不记目标完成。当前原安全函数对既有批准对象仍通过限时例外，非本轮新在线审计；未改产品、测试、包、锁文件或例外。
 
 核心对话：`6aa2eb14-4608-83e8-ac1e-476956bb6c82`。15:34提交及15:49复核均是批准前历史。创始人随后在本对话正式提供 `FORMAL_RESUME_RECEIPT`（附件 `81dae718-7599-4393-8a13-4869fd871030`），明确批准以下两个摘要及现有范围/期限；不是请求模板中的条件示例。只改例外记录两个摘要后，原验证函数对获批对象返回 `PASS_WITH_EXACT_TIME_BOUNDED_EXCEPTION`。输入未变化：
 
@@ -61,6 +65,8 @@ NEXT_HIGHEST_VALUE_ACTION = CORE_DECIDES_MINIMAL_G03_DEPENDENCY_WRITE_SCOPE
 - 现有生产审计对象摘要：`sha256:6a813559958e16d81c2973e6a54512f0dcfa122b7dd0d440ec558ae6337ca885`。
 
 ## 当前阻塞（CURRENT_BLOCKERS）
+
+**22:28授权更新：** 创始人直接提供 `FORMAL_ADAPTER_DEPENDENCY_AUTHORIZATION`（附件 `7b3c1cd9-f263-4470-b0e2-371a0c8b3d57`），精确批准 `@opennextjs/cloudflare@1.20.9`、`wrangler@4.125.0` 及必要传递依赖和包/锁变更。下述第1项安装权限阻塞已解除；vinext本使命不选用，既有Next/React/ReactDOM/ESLint版本保持不变，不安装rclone.js或workers-types，不运行migrate/部署/账户操作。先保存仅状态文档检查点，再安装并立即执行完整和生产审计；若摘要漂移，生成完整新旧证据包后返回核心对话，绝不自行改例外摘要或豁免依赖链漂移。
 
 0. **原工具权限阻塞已解除（18:40）：** 创始人直接提供 `FORMAL_TOOL_AUTHORITY_REVALIDATION_RECEIPT`，明确授权 `tests/browser/site.spec.ts` 写入、格式化及既有依赖本地执行。工具已接受并实际完成首次6项定向测试：4通过、2失败；失败均为缺失区域的流式响应状态断言（预期404，实收200），不是权限拒绝。原生目标返回active；继续诊断与验证，不等待“继续”。包/锁/安全例外禁令仍独立有效。原拒绝保留于下方历史，不再作为当前停止原因。
 
@@ -195,6 +201,12 @@ NEXT_HIGHEST_VALUE_ACTION = CORE_DECIDES_MINIMAL_G03_DEPENDENCY_WRITE_SCOPE
 - 真实用户规模下的长期核心网页指标趋势、性能容量扩展：作为上线后跟踪；首发前仍需真实预览实验及可执行监测方案，不伪装已有生产流量数据。
 
 ## 本轮计划变更记录
+
+- 2026-10-09 22:19 +08:00：本次用户恢复回合及其后两个目标续执行回合，连续核验同一适配依赖/锁文件授权门禁。上一回合为无进展只读检查，没有活跃验证作业；核心对话最新消息仍为相同持续授权，真实门禁第1、3项未解除，实际HEAD未变。必要候选分析、独立浏览器验证与发布文档检查已完成，余下有效实施需新增授权或真实外部证据。满足本次恢复后的三轮受阻审计，原生目标工具确认blocked；目标保留且未完成。仅同步本规范计划运行时状态，不重测、不新增提交、不调整定时检查、不改产品/依赖/例外。
+
+- 2026-10-09 22:17 +08:00：完整读取创始人直接提交的使命级持续授权，核验实际仓库/分支/HEAD及包、锁、两审计摘要、依赖链、例外范围和期限未变。Ruling: 常规工程持续授权生效，但不覆盖其明确排除的新依赖与锁文件写入；因此仅在本规范计划记录授权来源及当前门禁，不重复测试或创建平行账本。剩余最小决策为适配依赖候选、必要包/锁写入范围及新证据重审路径；没有新的工具拒绝，旧浏览器写入阻塞不得复用为当前原因。未提交、推送、部署或变更调度。
+
+- 2026-10-09 18:54 +08:00：本次恢复原始回合完成浏览器与文档检查点，随后心跳及本回合核验均未见适配依赖/包锁写入授权。上一回合为无进展只读复核，不是等待活跃验证作业；现有测试进程已正常退出。核心对话最新仍为浏览器权限回执，明确依赖安装与锁文件修改不获授权；更新时间1791542283.29553未变，实际HEAD仍 `e883d8137c640b25bdb7aeb78ae716680ee1a983`，编辑前工作树干净。连续三轮同一阻塞条件满足，原生目标工具设为blocked。本次仅同步本规范计划运行时状态，不改产品/依赖/例外，不重跑昂贵验证、不新增提交或改变定时跟进；目标保留且未完成。
 
 - 2026-10-09 18:40 +08:00：正式工具权限回执被接受，格式化和6项定向浏览器测试已实际执行。键盘流程与320/768px暗色布局通过；错误恢复测试在桌面/移动均发现 `/zip/99999` 状态200但已显示真实缺失区域界面。Ruling: 已安装Next16.3.8文档及官方 `not-found`/`loading` 文档明确流式缺失页返回200并附noindex，原新增404断言对该路径前提错误；不删除错误恢复覆盖，改为验证流式缺失界面、禁索引、无虚构数据和可恢复操作，同时保留非匹配路由的严格404断言。代价/限制：不能将流式200等同于传统HTTP404，也不声称真实爬虫已验收。服务端流提前关闭日志本轮复现，继续采集请求取消证据，未静默过滤。原安全函数对既有批准审计产物仍通过限时例外，包/锁/例外未变；不是新在线审计。
 
