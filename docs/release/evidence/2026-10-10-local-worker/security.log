@@ -1,0 +1,34 @@
+✔ accepts only the exact active temporary braces exception (2.3535ms)
+✔ executes npm JSON commands on the current platform (1602.274ms)
+✔ detects a vulnerable package imported by production runtime code (3.8694ms)
+✔ detects a side-effect import of a vulnerable package (3.1146ms)
+✔ fails closed when record schema changes (0.5759ms)
+✔ fails closed when advisory ID changes (0.2087ms)
+✔ fails closed when CVE changes (0.1779ms)
+✔ fails closed when braces version changes (0.1367ms)
+✔ fails closed when compatible patch is marked available (0.1707ms)
+✔ fails closed when dependency path changes (0.2439ms)
+✔ fails closed when exception is expired (0.1779ms)
+✔ fails closed when production audit gains a high (0.2052ms)
+✔ fails closed when a second high advisory appears (0.2373ms)
+✔ fails closed when full audit severity counts drift (0.1889ms)
+✔ fails closed when a critical advisory appears (0.153ms)
+✔ fails closed when scope changes (0.1377ms)
+✔ fails closed when owner changes (0.0867ms)
+✔ fails closed when approval class changes (0.0929ms)
+✔ fails closed when review date changes (0.2528ms)
+✔ fails closed when expiry changes (0.285ms)
+✔ fails closed when audit evidence digest drifts (0.28ms)
+✔ fails closed when a compensating control is removed (0.1374ms)
+✔ fails closed when a revocation condition is removed (0.1171ms)
+✔ fails closed when runtime import is found (0.2477ms)
+✔ fails closed when untrusted pattern assessment changes (0.3002ms)
+✔ fails closed when source-map-js remediation regresses (0.1801ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1764.4514

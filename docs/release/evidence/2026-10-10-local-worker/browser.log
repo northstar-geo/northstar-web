@@ -1,0 +1,151 @@
+
+> northstar-web@0.1.0 test:e2e
+> playwright test
+
+
+Running 42 tests using 1 worker
+
+[WebServer] ⨯ Error: The destination stream closed early.
+[WebServer]     at ignore-listed frames {
+[WebServer]   digest: '978914776'
+[WebServer] }
+[WebServer] {"event":"okelom.server_error","errorName":"Error","digest":"978914776","method":"GET","routePath":"/zip/[zip]","routeType":"render"}
+[WebServer] ⨯ Error: The destination stream closed early.
+[WebServer]     at ignore-listed frames {
+[WebServer]   digest: '978914776'
+[WebServer] }
+[WebServer] {"event":"okelom.server_error","errorName":"Error","digest":"978914776","method":"GET","routePath":"/state/[state]","routeType":"render"}
+  ok  1 [desktop] › tests\browser\site.spec.ts:28:1 › keyboard-only search and compare preserve leading-zero ZIP areas (3.4s)
+  ok  2 [desktop] › tests\browser\site.spec.ts:66:1 › missing geography and invalid compare recover without fabricated data (2.4s)
+[WebServer] ⨯ Error: The destination stream closed early.
+[WebServer]     at ignore-listed frames {
+[WebServer]   digest: '978914776'
+[WebServer] }
+[WebServer] {"event":"okelom.server_error","errorName":"Error","digest":"978914776","method":"GET","routePath":"/zip/[zip]","routeType":"render"}
+  ok  3 [desktop] › tests\browser\site.spec.ts:112:1 › small-screen and tablet dark layouts keep long content and controls usable (5.6s)
+  ok  4 [desktop] › tests\browser\site.spec.ts:152:1 › search distinguishes missing population from zero (897ms)
+[WebServer] ⨯ Error: The destination stream closed early.
+[WebServer]     at ignore-listed frames {
+[WebServer]   digest: '978914776'
+[WebServer] }
+[WebServer] {"event":"okelom.server_error","errorName":"Error","digest":"978914776","method":"GET","routePath":"/zip/[zip]","routeType":"render"}
+[WebServer] ⨯ Error: The destination stream closed early.
+[WebServer]     at ignore-listed frames {
+[WebServer]   digest: '978914776'
+[WebServer] }
+[WebServer] {"event":"okelom.server_error","errorName":"Error","digest":"978914776","method":"GET","routePath":"/state/[state]","routeType":"render"}
+  ok  5 [desktop] › tests\browser\site.spec.ts:158:1 › OKELOM identity and saved legacy theme survive navigation and reload (772ms)
+  ok  6 [desktop] › tests\browser\site.spec.ts:186:1 › large related-geography lists can reach their second page (2.1s)
+  ok  7 [desktop] › tests\browser\site.spec.ts:207:1 › malformed compare input is not silently converted to a different ZIP (507ms)
+  ok  8 [desktop] › tests\browser\site.spec.ts:218:1 › home search, leading-zero ZIP, detail and compare work (2.7s)
+  ok  9 [desktop] › tests\browser\site.spec.ts:239:3 › page and accessibility: / (1.7s)
+  ok 10 [desktop] › tests\browser\site.spec.ts:239:3 › page and accessibility: /search?q=Austin+TX (1.3s)
+  ok 11 [desktop] › tests\browser\site.spec.ts:239:3 › page and accessibility: /zip/10001 (1.9s)
+  ok 12 [desktop] › tests\browser\site.spec.ts:239:3 › page and accessibility: /state/ca (1.4s)
+  ok 13 [desktop] › tests\browser\site.spec.ts:239:3 › page and accessibility: /city/tx/austin-city (1.7s)
+  ok 14 [desktop] › tests\browser\site.spec.ts:239:3 › page and accessibility: /county/ny/new-york-county (1.3s)
+  ok 15 [desktop] › tests\browser\site.spec.ts:239:3 › page and accessibility: /compare?left=10001&right=90210 (851ms)
+  ok 16 [desktop] › tests\browser\site.spec.ts:239:3 › page and accessibility: /methodology (747ms)
+  ok 17 [desktop] › tests\browser\site.spec.ts:239:3 › page and accessibility: /data-sources (823ms)
+  ok 18 [desktop] › tests\browser\site.spec.ts:239:3 › page and accessibility: /about (754ms)
+  ok 19 [desktop] › tests\browser\site.spec.ts:299:1 › representative navigation and linked destinations have no browser or asset errors (7.6s)
+  ok 20 [desktop] › tests\browser\site.spec.ts:364:1 › locator zoom, keyboard-accessible tables and dark detail page (3.0s)
+  ok 21 [desktop] › tests\browser\site.spec.ts:398:1 › empty results, 404, themes and preview indexing (1.4s)
+  ok 22 [mobile] › tests\browser\site.spec.ts:28:1 › keyboard-only search and compare preserve leading-zero ZIP areas (2.8s)
+  ok 23 [mobile] › tests\browser\site.spec.ts:66:1 › missing geography and invalid compare recover without fabricated data (1.7s)
+[WebServer] ⨯ Error: The destination stream closed early.
+[WebServer]     at ignore-listed frames {
+[WebServer]   digest: '978914776'
+[WebServer] }
+[WebServer] {"event":"okelom.server_error","errorName":"Error","digest":"978914776","method":"GET","routePath":"/state/[state]","routeType":"render"}
+[WebServer] ⨯ Error: The destination stream closed early.
+[WebServer]     at ignore-listed frames {
+[WebServer]   digest: '978914776'
+[WebServer] }
+[WebServer] {"event":"okelom.server_error","errorName":"Error","digest":"978914776","method":"GET","routePath":"/zip/[zip]","routeType":"render"}
+  ok 24 [mobile] › tests\browser\site.spec.ts:112:1 › small-screen and tablet dark layouts keep long content and controls usable (4.9s)
+  ok 25 [mobile] › tests\browser\site.spec.ts:152:1 › search distinguishes missing population from zero (456ms)
+  ok 26 [mobile] › tests\browser\site.spec.ts:158:1 › OKELOM identity and saved legacy theme survive navigation and reload (674ms)
+  ok 27 [mobile] › tests\browser\site.spec.ts:186:1 › large related-geography lists can reach their second page (775ms)
+  ok 28 [mobile] › tests\browser\site.spec.ts:207:1 › malformed compare input is not silently converted to a different ZIP (326ms)
+  ok 29 [mobile] › tests\browser\site.spec.ts:218:1 › home search, leading-zero ZIP, detail and compare work (1.9s)
+  ok 30 [mobile] › tests\browser\site.spec.ts:239:3 › page and accessibility: / (1.6s)
+  ok 31 [mobile] › tests\browser\site.spec.ts:239:3 › page and accessibility: /search?q=Austin+TX (1.5s)
+  ok 32 [mobile] › tests\browser\site.spec.ts:239:3 › page and accessibility: /zip/10001 (2.2s)
+  ok 33 [mobile] › tests\browser\site.spec.ts:239:3 › page and accessibility: /state/ca (1.4s)
+  ok 34 [mobile] › tests\browser\site.spec.ts:239:3 › page and accessibility: /city/tx/austin-city (1.4s)
+  ok 35 [mobile] › tests\browser\site.spec.ts:239:3 › page and accessibility: /county/ny/new-york-county (1.3s)
+  ok 36 [mobile] › tests\browser\site.spec.ts:239:3 › page and accessibility: /compare?left=10001&right=90210 (1.5s)
+  ok 37 [mobile] › tests\browser\site.spec.ts:239:3 › page and accessibility: /methodology (1.0s)
+  ok 38 [mobile] › tests\browser\site.spec.ts:239:3 › page and accessibility: /data-sources (1.0s)
+  ok 39 [mobile] › tests\browser\site.spec.ts:239:3 › page and accessibility: /about (912ms)
+[WebServer] ⨯ Error: The destination stream closed early.
+[WebServer]     at ignore-listed frames {
+[WebServer]   digest: '978914776'
+[WebServer] }
+[WebServer] {"event":"okelom.server_error","errorName":"Error","digest":"978914776","method":"GET","routePath":"/state/[state]","routeType":"render"}
+[WebServer] ⨯ Error: The destination stream closed early.
+[WebServer]     at ignore-listed frames {
+[WebServer]   digest: '978914776'
+[WebServer] }
+[WebServer] {"event":"okelom.server_error","errorName":"Error","digest":"978914776","method":"GET","routePath":"/state/[state]","routeType":"render"}
+[WebServer] ⨯ Error: The destination stream closed early.
+[WebServer]     at ignore-listed frames {
+[WebServer]   digest: '978914776'
+[WebServer] }
+[WebServer] {"event":"okelom.server_error","errorName":"Error","digest":"978914776","method":"GET","routePath":"/zip/[zip]","routeType":"render"}
+[WebServer] ⨯ Error: The destination stream closed early.
+[WebServer]     at ignore-listed frames {
+[WebServer]   digest: '978914776'
+[WebServer] }
+[WebServer] {"event":"okelom.server_error","errorName":"Error","digest":"978914776","method":"GET","routePath":"/zip/[zip]","routeType":"render"}
+[WebServer] ⨯ Error: The destination stream closed early.
+[WebServer]     at ignore-listed frames {
+[WebServer]   digest: '978914776'
+[WebServer] }
+[WebServer] {"event":"okelom.server_error","errorName":"Error","digest":"978914776","method":"GET","routePath":"/state/[state]","routeType":"render"}
+[WebServer] ⨯ Error: The destination stream closed early.
+[WebServer]     at ignore-listed frames {
+[WebServer]   digest: '978914776'
+[WebServer] }
+[WebServer] {"event":"okelom.server_error","errorName":"Error","digest":"978914776","method":"GET","routePath":"/county/[state]/[county]","routeType":"render"}
+[WebServer] ⨯ Error: The destination stream closed early.
+[WebServer]     at ignore-listed frames {
+[WebServer]   digest: '978914776'
+[WebServer] }
+[WebServer] {"event":"okelom.server_error","errorName":"Error","digest":"978914776","method":"GET","routePath":"/city/[state]/[city]","routeType":"render"}
+[WebServer] ⨯ Error: The destination stream closed early.
+[WebServer]     at ignore-listed frames {
+[WebServer]   digest: '978914776'
+[WebServer] }
+[WebServer] {"event":"okelom.server_error","errorName":"Error","digest":"978914776","method":"GET","routePath":"/county/[state]/[county]","routeType":"render"}
+[WebServer] ⨯ Error: The destination stream closed early.
+[WebServer]     at ignore-listed frames {
+[WebServer]   digest: '978914776'
+[WebServer] }
+[WebServer] {"event":"okelom.server_error","errorName":"Error","digest":"978914776","method":"GET","routePath":"/city/[state]/[city]","routeType":"render"}
+[WebServer] ⨯ Error: The destination stream closed early.
+[WebServer]     at ignore-listed frames {
+[WebServer]   digest: '978914776'
+[WebServer] }
+[WebServer] {"event":"okelom.server_error","errorName":"Error","digest":"978914776","method":"GET","routePath":"/state/[state]","routeType":"render"}
+[WebServer] ⨯ Error: The destination stream closed early.
+[WebServer]     at ignore-listed frames {
+[WebServer]   digest: '978914776'
+[WebServer] }
+[WebServer] {"event":"okelom.server_error","errorName":"Error","digest":"978914776","method":"GET","routePath":"/zip/[zip]","routeType":"render"}
+[WebServer] ⨯ Error: The destination stream closed early.
+[WebServer]     at ignore-listed frames {
+[WebServer]   digest: '978914776'
+[WebServer] }
+[WebServer] {"event":"okelom.server_error","errorName":"Error","digest":"978914776","method":"GET","routePath":"/state/[state]","routeType":"render"}
+[WebServer] ⨯ Error: The destination stream closed early.
+[WebServer]     at ignore-listed frames {
+[WebServer]   digest: '978914776'
+[WebServer] }
+[WebServer] {"event":"okelom.server_error","errorName":"Error","digest":"978914776","method":"GET","routePath":"/state/[state]","routeType":"render"}
+  ok 40 [mobile] › tests\browser\site.spec.ts:299:1 › representative navigation and linked destinations have no browser or asset errors (34.3s)
+  ok 41 [mobile] › tests\browser\site.spec.ts:364:1 › locator zoom, keyboard-accessible tables and dark detail page (2.7s)
+  ok 42 [mobile] › tests\browser\site.spec.ts:398:1 › empty results, 404, themes and preview indexing (1.7s)
+
+  42 passed (1.9m)

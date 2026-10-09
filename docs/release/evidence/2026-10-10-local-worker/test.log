@@ -1,0 +1,51 @@
+
+> northstar-web@0.1.0 pretest
+> npm run data:assets
+
+
+> northstar-web@0.1.0 data:assets
+> tsx scripts/generate-geo-assets.ts
+
+{"sourceSha256":"2e100f671f3a84997b30627ababbfc94e049f7c2d2cf8d328c42c6006a2778c5","counts":{"nation":1,"state":52,"county":3222,"city":32350,"zcta":33791,"relationships":99406},"files":675,"searchParts":14,"largestAssetBytes":524284,"manifestBytes":130449}
+
+> northstar-web@0.1.0 test
+> tsx --test tests/*.test.ts
+
+✔ Worker reads the internal asset binding instead of the local manifest (27.6294ms)
+✔ Worker missing ASSETS fails instead of using the Node filesystem (0.633ms)
+✔ Worker asset errors never fall back to the local manifest (0.8086ms)
+✔ Worker enforces the byte limit even without a truthful content length (3.4702ms)
+✔ Worker rejects a declared oversize body before reading it (0.6184ms)
+✔ asset transport rejects paths outside generated relative JSON assets (0.4228ms)
+✔ Census sentinels, blanks and nonnumbers never become zero (0.9463ms)
+✔ median reporting thresholds do not alter population counts (14.2685ms)
+✔ national snapshot integrity and unique identifiers/routes (71.3474ms)
+✔ ZIP and ZCTA remain distinct, preserving leading zeroes (25.2827ms)
+✔ search covers codes, names, abbreviations, pagination and hostile strings (886.88ms)
+✔ state abbreviations match the state, not substrings in ZCTA labels (265.9688ms)
+✔ place-name words like La do not become conflicting state filters (222.296ms)
+✔ all relationships resolve and preserve provenance (44.6881ms)
+✔ nearby geographies ordered by great-circle distance, excluding self (70.1544ms)
+✔ statistics retain source, vintage, MOE and historical periods (4.9705ms)
+✔ indexing gate rejects low-value profiles and preview indexing (41.6882ms)
+✔ server error events preserve route diagnostics without query, credentials, or error text (1.7428ms)
+✔ server error events use only stable diagnostics for non-Error values (0.2418ms)
+✔ shared page metadata identifies OKELOM on social shares without a synthetic origin (0.9366ms)
+✔ pre-release and misconfigured origins fail closed across every indexing surface (29.3256ms)
+✔ only explicit production opt-in on the final origin can expose indexable output (1.1361ms)
+✔ production opt-in emits qualified sitemap shards and indexable metadata (72.6878ms)
+✔ preview has no synthetic public origin and public indexing requires HTTPS (0.7317ms)
+✔ all 69416 entities and 99406 relationships survive generated projections exactly (9340.5369ms)
+✔ detail and compare read only requested buckets; missing/corrupt assets fail closed (142.3911ms)
+✔ byte transport preserves data and verifies bytes before JSON decoding (38.0945ms)
+✔ broad search retains only a page, including last-page clamp, without detail hydration (923.8725ms)
+✔ search preserves absent population rather than inventing zero (189.5153ms)
+✔ a detail lookup does not allocate the nationwide dataset (4.6013ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11239.936

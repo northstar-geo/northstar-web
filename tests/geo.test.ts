@@ -179,6 +179,12 @@ test("nearby geographies ordered by great-circle distance, excluding self", asyn
   assert.equal(points.length, 6);
   for (let i = 0; i < points.length; i++) {
     assert.notEqual(points[i].geography.id, g.id);
+    const original = data().geographies.find(
+      (candidate) => candidate.id === points[i].geography.id,
+    )!;
+    assert.equal(points[i].geography.latitude, original.latitude);
+    assert.equal(points[i].geography.longitude, original.longitude);
+    assert.equal(points[i].distance, distanceMiles(g, original));
     if (i) assert.ok(points[i].distance >= points[i - 1].distance);
   }
 });

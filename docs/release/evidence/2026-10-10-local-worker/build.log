@@ -1,0 +1,84 @@
+
+┌─────────────────────────────┐
+│ OpenNext — Cloudflare build │
+└─────────────────────────────┘
+
+WARN OpenNext is not fully compatible with Windows.
+WARN For optimal performance, it is recommended to use Windows Subsystem for Linux (WSL).
+WARN While OpenNext may function on Windows, it could encounter unpredictable failures during runtime.
+App directory: E:\Projects\northstar\.worktrees\northstar-release-preparation-001
+Next.js version : 16.3.8
+@opennextjs/cloudflare version: 1.20.9
+@opennextjs/aws version: 4.1.8
+workerd compatibility_date: 2026-10-06
+
+┌─────────────────────────────────┐
+│ OpenNext — Building Next.js app │
+└─────────────────────────────────┘
+
+
+> northstar-web@0.1.0 prebuild
+> npm run data:assets
+
+
+> northstar-web@0.1.0 data:assets
+> tsx scripts/generate-geo-assets.ts
+
+{"sourceSha256":"2e100f671f3a84997b30627ababbfc94e049f7c2d2cf8d328c42c6006a2778c5","counts":{"nation":1,"state":52,"county":3222,"city":32350,"zcta":33791,"relationships":99406},"files":675,"searchParts":14,"largestAssetBytes":524284,"manifestBytes":130449}
+
+> northstar-web@0.1.0 build
+> next build
+
+▲ Next.js 16.3.8 (Turbopack)
+✓ Running next.config.ts took 47ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 1079ms
+  Running TypeScript ...
+  Finished TypeScript in 2.8s ...
+  Collecting page data using 19 workers ...
+  Generating static pages using 19 workers (0/12) ...
+  Generating static pages using 19 workers (3/12)
+  Generating static pages using 19 workers (6/12)
+  Generating static pages using 19 workers (9/12)
+✓ Generating static pages using 19 workers (12/12) in 896ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /about
+├ ƒ /city/[state]/[city]
+├ ƒ /compare
+├ ƒ /county/[state]/[county]
+├ ○ /data-sources
+├ ○ /icon.svg
+├ ○ /methodology
+├ ○ /opengraph-image
+├ ○ /robots.txt
+├ ƒ /search
+├ ƒ /sitemap.xml
+├ ƒ /sitemaps/[id]
+├ ƒ /state/[state]
+└ ƒ /zip/[zip]
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+
+┌──────────────────────────────┐
+│ OpenNext — Generating bundle │
+└──────────────────────────────┘
+
+Bundling middleware function...
+Bundling static assets...
+Bundling cache assets...
+Building server function: default...
+Applying code patches: 11.518s
+# copyPackageTemplateFiles
+[35m⚙️ Bundling the OpenNext server...
+[0m
+[35mWorker saved in `.open-next\worker.js` 🚀
+[0m
+OpenNext build complete.

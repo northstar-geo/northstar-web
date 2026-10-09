@@ -1,0 +1,219 @@
+{
+  "recordedAt": "2026-10-09T16:30:06.738Z",
+  "validationBaseHead": "eb0b2a72bcc1f6200047ef6f25c5b81ccd2bcec1",
+  "binding": "PRE_COMMIT_SOURCE_HASHES_MUST_MATCH_FINAL_COMMIT; NOT_REMOTE_CI_OR_CLOUD_ACCEPTANCE",
+  "sourceFingerprint": "45a80067b20d4d53551b0f5acc62be655cf06748f956538d452549002f948042",
+  "sourceHashes": {
+    "app/(marketing)/page.tsx": "ba581fb9af62db30df5a0cf0f8bb5390c9f5afaf82288c3058becd40ff6b3c54",
+    "app/about/page.tsx": "89d4737150aad2e2f459d23e6b4fb931a089803cbbd158791272d7c452f6bf17",
+    "app/city/[state]/[city]/page.tsx": "63aa8ea567a988dde23ee9bf863a4e9dd39340e33179b32fe5717724e47c2e9b",
+    "app/compare/page.tsx": "2fa661c754b10e20e6adfd6f54e05e4f22dc86ec7e79145ff8181fab1a50d58a",
+    "app/county/[state]/[county]/page.tsx": "6b59ee0f9f138e6401e6a0c42aab996fb986183e06e5ff8596ab8dfc4a3f66d7",
+    "app/data-sources/page.tsx": "09208c7dc356b9bd39dbb6f4d6dca602187a23382f4ef9f20e75b3f43c3e5a30",
+    "app/error.tsx": "ac66c26a3fb6ff47b40bd71f33c902b4b1bf6494c62571300b88df08b404dae2",
+    "app/favicon.ico": "2b8ad2d33455a8f736fc3a8ebf8f0bdea8848ad4c0db48a2833bd0f9cd775932",
+    "app/globals.css": "ed623eaf0a5577166bd59d32caece2c3b57ec4baf03b6d70389cdf1ec493b051",
+    "app/icon.svg": "a4da9129fb8493b13f31f9cac03d568ffbc377297543ce40b0b74ffb7ed2b8e8",
+    "app/layout.tsx": "77f6b993d19e6aee834835d8d9825ce98b8aebc55de9c904b594199d58b3ac7f",
+    "app/loading.tsx": "7ab877013dd418567489cc0ba564bcc2c596ee621063163041ca713cbf0aad74",
+    "app/methodology/page.tsx": "385a813de8d2bfaa9b59d985a265914e8950f56044c031fc78b04d9646b0ea32",
+    "app/not-found.tsx": "1e2b0bcf0d000d7afe46e0a7a4a3a96b7eda8adb77c00034b95572d34e73da02",
+    "app/opengraph-image.tsx": "d40fb8d82f2fc7dd30fc55c9a24bb50241515278cea6a2e874159d52925861dd",
+    "app/robots.ts": "28da801487f0721285e1d5d885253e0bcb6f8f355f0afb9cb3d1970c2afa5302",
+    "app/search/page.tsx": "09920d6fef747fc01a781b79cda9455c3fb78629dc72396712a1d9c245b62b67",
+    "app/sitemap.xml/route.ts": "f6cb25312620ca893c9a789f895c45ee8861a9f6654f5b04a06f02312df296a7",
+    "app/sitemaps/[id]/route.ts": "46cccd60e32b6c8689155e9368e331dc5fe58f4f8e31681441ac495b17d9ce66",
+    "app/state/[state]/page.tsx": "eac8593198f7b1f62767a29dfa1dc263bbfd2160e2351b793891f5fba4b7aa51",
+    "app/zip/[zip]/page.tsx": "c91d99c3f0bed20816db80d91cccab893ea6fb0611de209b03f3a53e62a3f1a7",
+    "components/SearchForm.tsx": "02a4050576b13b2079853fb36f4d12e7cb1e6a664589f2cf546de4a40ce9837b",
+    "components/geo/GeographyPage.tsx": "b1e47ba85f047e5d535da0d3d8a005171f76021cf837e6602804bd58df1b76a1",
+    "components/geo/MetricCard.tsx": "fb7a0e4c8420dda909a0f0af0a480bfbd59b05a0e56bb30909d789d186744413",
+    "components/geo/PointMap.tsx": "2cbff318c2a23230b2ad0f681c507ce67470a41ce4373d9cec897e795c813830",
+    "components/home/CTA.tsx": "4c25909a6c5df15da5a3d887b84d3325848a393e715a15ae91aa65d76a32f7d4",
+    "components/home/Features.tsx": "775a374e16ea3bb922c952e8a74bb5e83fe6a65378e3cc4d0e176cea92423dae",
+    "components/home/Hero.tsx": "35f6a867cc8dafc88b3640f42928410ffa8fa0e50eff2cea6b0df4e5a03ca249",
+    "components/layout/Container.tsx": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "components/layout/Footer.tsx": "4b2a3abafa436992c390e6f53ad171793da28b8cd0b8a8231a99847eeda7c024",
+    "components/layout/Header.tsx": "03d04cab035e3d38f438e03eb0764e6657781362836279f0dc6d03258fe8801a",
+    "components/layout/ThemeControl.tsx": "cfeabbef2e4f8bb7d25272840c079b363dde2751f72411aaa8b11b9d4feac73f",
+    "data/geography.json.gz": "2e100f671f3a84997b30627ababbfc94e049f7c2d2cf8d328c42c6006a2778c5",
+    "data/import-receipt.json": "17f2bd5103c6c7c962cc14bfc8c316dae1bd41e1e3ad2f7c899b3c52c39acbbc",
+    "data/migrations/001-geography.sql": "fb1b406f090e33a17ee3e04d68a1a436eb47d068251c780b675686ff0c954e71",
+    "data/migrations/002-observation-bounds.sql": "90143170333665a46c874e9bdd1aa76582dac321754858d3f9bfb1655ffcc2a4",
+    "data/sources.json": "6be508fcaee75925ea34a045412267def9c853ceb1626b18707b07f02a243ee5",
+    "eslint.config.mjs": "be080abe210b8b05aa1aeab8e28fa6782df21bd9744ccec8946c04d6939b5da6",
+    "lib/geo/asset-loader.ts": "293974fe27c224a5f15bdb4ac14f9714f0f7d5a89ec4c389c23d7307c439083c",
+    "lib/geo/model.ts": "3e5affb143b5375bf8742b6b1e8be0a6b2eb0c7f41ec74df1ac590a757efac34",
+    "lib/geo/page.ts": "3490978c09db467432d830e09c2d25384480cbf62095c9e1b8f1723cfe0a301f",
+    "lib/geo/repository.ts": "715328fc9a2498495607c54d511f69be89721872aa0de10c4b502124b111d4c1",
+    "lib/geo/shard-format.ts": "cec6bb89c21ec2f528d38dd96927e90eabe9b0ea67e6fe2daf7a2958013895af",
+    "lib/geo/shard-repository.ts": "90b79b6187d533502c0d83350341afbed72f4ff89bdf6ce981e495ff3d683652",
+    "lib/observability.ts": "38279f8b088db930bbb81ba1c079cd458997b02e5c3b5d35ba568d662133de25",
+    "lib/seo.ts": "4742bf5de565799489271ae84fd29035bedbd45b3be58f91dab16892f2ea2388",
+    "lib/sitemap.ts": "b2f3e10ac92aaee0c2a0c69ecda58aa50ad5fc199c03fd6357081f71fde7d22e",
+    "next.config.ts": "2dd6e9c138119ec067ca0643241b8df7651aba71eacab64c215524acd2c083c8",
+    "open-next.config.ts": "861e61da91983ea25efd373c59c10ca12f016a77f52233459c00ed68d3e1b2f6",
+    "package-lock.json": "0f17c9572a7389c996ecddc300fdf5db1a770ad57c88ae7084b5e047b252b114",
+    "package.json": "18f82182c2639f6deb238a965107dd71fd774d3488018b71c7d90f5c21d44261",
+    "playwright.config.ts": "2e6025fcc72cec1131343943635857947178a36f176b747c523a6c5f5fdc0d4e",
+    "postcss.config.mjs": "7b299d3d3b16699ddda397c0b2373b3af4f25f8fc9ccc9b3d9e64ef083bc1c21",
+    "public/_headers": "1d2cd6d345c869e2c87715895d4541a32c537db1122ef2a3f12315570bdb65b7",
+    "public/file.svg": "2b67812c325c199a02536cdbeea0c593a72f707d323b72ee3e08dbab06753bd4",
+    "public/globe.svg": "b614b9bf183925957661ac851498fe1d8029fd43a62fbfed86f9e2624a57e7cf",
+    "public/next.svg": "55995dfad6ecb4945a1e856ddca03c5e16aa5bf13fd21b4df6a74ae79357bcfc",
+    "public/vercel.svg": "f081337b2fee635b455b63275406a3e7f39d6a014e25ad90dab5a67e62a12ac4",
+    "public/window.svg": "644768c4aaeb4767bce293344eeb0c125fb804a94d801440424072202d85e3a1",
+    "scripts/build-database.ts": "5bc97d7dd58750784454b048f1919fdc8a60b91890e35e61bda896daa5690536",
+    "scripts/canonical-snapshot.ts": "c576f8f5b84a54a1c331f1669ecfbf9937c283a0650a44a0d12215afc2ca7e30",
+    "scripts/fetch-data.mjs": "e5998f66cc021440209044cbf9e548f053cc14d318ec837ba9a405f00e604bb8",
+    "scripts/generate-geo-assets.ts": "23b81eb0ea737748dd773bbacbbae4eb18d0c4e6441cb109fd3fba2898c0b500",
+    "scripts/import-data.ts": "a961ae2a9961fa168cfd6ade72dbf89825d4e65e0cff31ffcd1a0d161bb7ed39",
+    "scripts/measure-geo-memory.ts": "64551856109d9c7e7925943d6163a4130d46fe943e120be88582445dcb85ee2c",
+    "scripts/release-lab.mjs": "158498fd5283283b890f450b0aac7a9fe4837cc942f72d39dfdfe5894652261d",
+    "scripts/release-web-vitals.mjs": "25a8ac0d29103b35baabd25f2cddb2cdfd7c2071b091b172c6758f66ac56c2ff",
+    "scripts/verify-security-exception.mjs": "7b1f3f2448b8c6d155ee914e35f9c36794644dd6fc4bc0758bc56450d15c650a",
+    "scripts/verify-security-exception.test.mjs": "c71efbbb429e82c2194f9e8e2206f52fa7700ae0110f0c201fc34a81ba8c3c40",
+    "tests/asset-loader.test.ts": "269b5250199dabd3f1aa6812f316a8c61a0f9660b419355a90bd3974f86a7c72",
+    "tests/browser/site.spec.ts": "d61bf63ca8be651a5bbade7bbc1464e5ee88b80b5f5f7793dbca7f6eaeafbb42",
+    "tests/geo.test.ts": "bc4cb4484039d3c3ce1b26cbd053f6fc069f2c6ee6b58f18594b07c4d6d4b745",
+    "tests/observability.test.ts": "ebfb77c4eda1ff7881ad4a8d3a5bafedf322b53da9ec28b53b1778936bc6920f",
+    "tests/release-identity.test.ts": "c8f8e2fc50776b578a9a6b1bd289d7676c461b5d16169e980bfb20d3d828d75e",
+    "tests/seo.test.ts": "aa7a491fdde1c9b5d7117661987045334f2f6c287304d38162c1e50069f60314",
+    "tests/shard-integrity.test.ts": "9317b58e2e13ec966b6e6b2d6da0b57c01d1072ccc1c09b7d894a88dd7a62832",
+    "tests/shards.test.ts": "79ffc43ac20fd7955e93fabe63690124304b33df2d5087fc1af22ec2889741fe",
+    "tsconfig.json": "8152839c62d6169bd97437c6bbc4423ed5cbea726448b7701124ddecece05543"
+  },
+  "build": {
+    "nextBuildId": "uoQNC-mVk4wz4ILhmyV9S",
+    "workerSha256": "d05223bf4d44c84108a102ab62aa3bc9c5568f0c3ac2064c37be5cc65c64bc45",
+    "bundleInputs": 419,
+    "vulnerableRuntimeInputs": []
+  },
+  "data": {
+    "sourceSha256": "2e100f671f3a84997b30627ababbfc94e049f7c2d2cf8d328c42c6006a2778c5",
+    "manifestSha256": "38eff8c4db77f218369e0d47450b7c633ba236acece84cf579f77acf213fae54",
+    "registeredAssetsVerified": 674,
+    "totalFiles": 675,
+    "geographies": 69416,
+    "relationships": 99406
+  },
+  "tests": {
+    "nodeBrowser": {
+      "sha256": "5b01486ef1bcada48a28166ea2ac3ac42ff28e2f4c8f88a06ab2cdc2987fde92",
+      "startTime": "2026-10-09T16:25:07.601Z",
+      "duration": 114506.335,
+      "expected": 42,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "workerBrowser": {
+      "sha256": "20a9d012d205ad38ef28fe801c9000e22d579872c2765526a0f2dd4be6e5d36a",
+      "startTime": "2026-10-09T16:22:13.871Z",
+      "duration": 150558.7,
+      "expected": 42,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "unitData": {
+      "passed": 30,
+      "failed": 0
+    },
+    "securityMutation": {
+      "passed": 26,
+      "failed": 0
+    }
+  },
+  "security": {
+    "auditCollectedAt": {
+      "checkedAt": "2026-10-09T16:01:41.482Z",
+      "lifecycleScripts": "NOT_EXECUTED"
+    },
+    "validatorCheckedAt": "2026-10-09T16:30:06.831Z",
+    "result": {
+      "classification": "KNOWN_HIGH_TEMPORARY_EXCEPTION",
+      "securityGate": "PASS_WITH_EXACT_TIME_BOUNDED_EXCEPTION"
+    },
+    "fullCounts": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 5,
+      "critical": 0,
+      "total": 5
+    },
+    "productionCounts": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "fullDigest": "sha256:22a277bb8c66339fe0595c37b5f8632d5fbe989af9c55dcecc5210e4db062763",
+    "productionDigest": "sha256:b95553a40d9051f3b40f9a1c72aaf6d36b814a8a361e55948898065fd785e7c7",
+    "expiresAt": "2026-10-13T23:59:00+08:00",
+    "scope": "DEV_TOOLING_ONLY",
+    "officialAdvisory": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm",
+    "patchedVersionObserved": "NONE"
+  },
+  "memory": {
+    "status": "FAIL_LOCAL_TARGET_NOT_CLOUD_FAILURE_PROOF",
+    "localTargetMiB": 96,
+    "finalDefaultFreshPeakMiB": 113.88940906524658,
+    "finalDefaultWarmPeakMiB": 113.01113319396973,
+    "bounded96PeakMiB": 101.3264331817627,
+    "bounded96Mode": "MINIFLARE_WORKERD_V8_FLAGS=--max-old-space-size=96; diagnostic only, not production configuration",
+    "postGcSingleObservation": {
+      "usedSize": 17007064,
+      "backingStorageSize": 1598418,
+      "embedderHeapUsedSize": 169952,
+      "scope": "LOCAL_SINGLE_POST_STRESS_OBSERVATION_NOT_LEAK_OR_CAPACITY_PROOF"
+    },
+    "noForcedGcDuringStress": true,
+    "fullIsolateMemoryAndCloudCpu": "UNVERIFIED"
+  },
+  "review": {
+    "scope": "ONE_FRESH_READ_ONLY_WHOLE_BRANCH_REVIEW",
+    "critical": 0,
+    "important": [
+      "MEMORY_TARGET_FAIL"
+    ],
+    "independentUnitData": "30/30_PASS",
+    "localPreviewReadiness": "NOT_ACCEPTED"
+  },
+  "cloud": {
+    "accountWrites": false,
+    "deployed": false,
+    "realPreview": false,
+    "indexingEnabled": false,
+    "productionReady": false
+  },
+  "logNormalization": "Only CRLF/LF, trailing spaces and trailing blank lines normalized; raw logs retained in .artifacts/runtime-adaptation with hashes below",
+  "rawLogHashes": {
+    "build.log": "4d2a9fe0179e01d69b35d1caefb60171eef3add88c94e940ce016326eedcf62d",
+    "test.log": "050e1ced4f2d31201814dc21298405fd91a26aba7d1d4476899f7f93ac6f534b",
+    "lint.log": "f95299f5d77cde0dc2d0ee333b3bf0096f01204e7f3445f29a9a023fe27401cc",
+    "typecheck.log": "ea7321c8aa6b5f6d65895016b67ac3c314cf2b1724d13696b55746c2f022c547",
+    "security.log": "ee65bb7d3228c6bb2405285e080a2bcacf0eea0803889cd7b9ee59fe7e859112",
+    "worker-browser.log": "6111032579d6965b80584f7c546f9fd779b092291b444ba8c2a458ed533c3ccf",
+    "browser.log": "79a8b75bdc1e6c971fc5a5c7bb0d44cf38bd64676a8944864b7ec8ac14ca291a"
+  },
+  "evidenceHashes": {
+    "worker-memory-before-nearby-allocation.json": "f3d7bcd4a691712b38cbb463db9905055bbc1c376f816bd2441630e55a7db188",
+    "worker-memory-after-point-only.json": "4665852013b537b76cd4a7986dd24d1ce2400f4e8ae93ce863ba6676ed639632",
+    "worker-memory-after-bytes.json": "5a14b015fa1def679c22726e068c6a5d181547100e0d28ea7cc13cc3a981c058",
+    "worker-memory-default-phases.json": "821c189aef1ed7e7315f9032cc6b22c55a485d45b4c18366f7cec3eb8a1af00f",
+    "worker-memory-bounded96.json": "2f50e2369779d106114bdf449d2dd70ce4884318f98aa5343328d6c16555406f",
+    "worker-memory.mjs": "d5e5d27fda78acf1b312853206369cb3b65aff933ec2869b2d309535e1f6834f",
+    "heap-profile.mjs": "c8ace63d1ce1d5d7bf22105fd0d77504413b6427227b88744abcd1669fa28fc2",
+    "build.log": "76869745e85fc4afae2d48090f190c5e10ad01c3f9ea7383d6a85eea35c8ea49",
+    "test.log": "050e1ced4f2d31201814dc21298405fd91a26aba7d1d4476899f7f93ac6f534b",
+    "lint.log": "a8b1459f0e919016fde8bf4b1c46f15029e3165d70b2af7df25e12bb156f04bf",
+    "typecheck.log": "ea7321c8aa6b5f6d65895016b67ac3c314cf2b1724d13696b55746c2f022c547",
+    "security.log": "ee65bb7d3228c6bb2405285e080a2bcacf0eea0803889cd7b9ee59fe7e859112",
+    "worker-browser.log": "6111032579d6965b80584f7c546f9fd779b092291b444ba8c2a458ed533c3ccf",
+    "browser.log": "79a8b75bdc1e6c971fc5a5c7bb0d44cf38bd64676a8944864b7ec8ac14ca291a"
+  }
+}

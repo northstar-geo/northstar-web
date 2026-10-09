@@ -1,0 +1,171 @@
+{
+  "checkedAt": "2026-10-09T16:21:30.874Z",
+  "head": "eb0b2a72bcc1f6200047ef6f25c5b81ccd2bcec1",
+  "scope": "LOCAL_WORKER_CDP_SAMPLED_NOT_CLOUD_CAPACITY",
+  "definition": "V8 used heap plus backing storage; embedder separately reported, not total isolate or RSS; sampling is a lower bound; no forced GC during stress; growth is NOT retained/leak proof",
+  "samples": 264,
+  "cold": {
+    "heapMiB": 8.544708251953125,
+    "backingMiB": 1.4873390197753906,
+    "embedderMiB": 0.491973876953125,
+    "heapAndBackingMiB": 10.032047271728516
+  },
+  "afterSteady": {
+    "heapMiB": 27.112529754638672,
+    "backingMiB": 3.2631454467773438,
+    "embedderMiB": 3.1977386474609375,
+    "heapAndBackingMiB": 30.375675201416016
+  },
+  "peakHeapAndBackingMiB": 101.3264331817627,
+  "maxEmbedderMiB": 13.8968505859375,
+  "phasePeaks": {
+    "cold": 10.032047271728516,
+    "steady:/search?q=ZCTA&page=999999": 25.505653381347656,
+    "steady:/zip/10001": 25.71855354309082,
+    "steady:/state/ca": 34.11203956604004,
+    "steady:/county/ny/new-york-county": 29.503703117370605,
+    "steady:/city/tx/austin-city": 38.863064765930176,
+    "steady:/compare?left=00601&right=10001": 38.9578275680542,
+    "steady:/_geo/manifest.json": 30.375675201416016,
+    "concurrent:2": 43.733975410461426,
+    "concurrent:4": 39.97812366485596,
+    "concurrent:8": 56.11317539215088,
+    "repeated": 101.3264331817627
+  },
+  "beforeRepeated": {
+    "heapMiB": 45.391292572021484,
+    "backingMiB": 10.721882820129395,
+    "embedderMiB": 5.164863586425781,
+    "heapAndBackingMiB": 56.11317539215088
+  },
+  "afterRepeated": {
+    "heapMiB": 65.97173690795898,
+    "backingMiB": 26.95195770263672,
+    "embedderMiB": 3.7487030029296875,
+    "heapAndBackingMiB": 92.9236946105957
+  },
+  "repeatedRequests": 50,
+  "repeatedUncollectedGrowthMiB": 36.810519218444824,
+  "steady": [
+    {
+      "route": "/",
+      "ms": 44,
+      "bytes": 37829
+    },
+    {
+      "route": "/search?q=ZCTA&page=999999",
+      "ms": 884,
+      "bytes": 23342
+    },
+    {
+      "route": "/zip/10001",
+      "ms": 341,
+      "bytes": 40245
+    },
+    {
+      "route": "/state/ca",
+      "ms": 168,
+      "bytes": 45698
+    },
+    {
+      "route": "/county/ny/new-york-county",
+      "ms": 187,
+      "bytes": 46318
+    },
+    {
+      "route": "/city/tx/austin-city",
+      "ms": 186,
+      "bytes": 46125
+    },
+    {
+      "route": "/compare?left=00601&right=10001",
+      "ms": 136,
+      "bytes": 20653
+    },
+    {
+      "route": "/_geo/manifest.json",
+      "ms": 17,
+      "bytes": 130449
+    }
+  ],
+  "concurrent": {
+    "2": [
+      {
+        "route": "/zip/10001",
+        "ms": 636,
+        "bytes": 40245
+      },
+      {
+        "route": "/search?q=Austin+TX",
+        "ms": 664,
+        "bytes": 16536
+      }
+    ],
+    "4": [
+      {
+        "route": "/zip/10001",
+        "ms": 1081,
+        "bytes": 40245
+      },
+      {
+        "route": "/search?q=Austin+TX",
+        "ms": 1099,
+        "bytes": 16536
+      },
+      {
+        "route": "/zip/10001",
+        "ms": 1141,
+        "bytes": 40245
+      },
+      {
+        "route": "/search?q=Austin+TX",
+        "ms": 1138,
+        "bytes": 16536
+      }
+    ],
+    "8": [
+      {
+        "route": "/zip/10001",
+        "ms": 2751,
+        "bytes": 40245
+      },
+      {
+        "route": "/search?q=Austin+TX",
+        "ms": 2751,
+        "bytes": 16536
+      },
+      {
+        "route": "/zip/10001",
+        "ms": 2752,
+        "bytes": 40245
+      },
+      {
+        "route": "/search?q=Austin+TX",
+        "ms": 2789,
+        "bytes": 16536
+      },
+      {
+        "route": "/zip/10001",
+        "ms": 2789,
+        "bytes": 40245
+      },
+      {
+        "route": "/search?q=Austin+TX",
+        "ms": 2810,
+        "bytes": 16536
+      },
+      {
+        "route": "/zip/10001",
+        "ms": 2806,
+        "bytes": 40245
+      },
+      {
+        "route": "/search?q=Austin+TX",
+        "ms": 2810,
+        "bytes": 16536
+      }
+    ]
+  },
+  "localTargetMiB": 96,
+  "status": "FAIL"
+}

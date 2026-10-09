@@ -1,4 +1,4 @@
-import { readAsset } from "./asset-loader";
+import { readAssetBytes } from "./asset-loader";
 import { createRepository } from "./shard-repository";
 export { createRepository } from "./shard-repository";
 export const {
@@ -11,4 +11,4 @@ export const {
   search,
   nearby,
   asset,
-} = createRepository(readAsset);
+} = createRepository(readAssetBytes);

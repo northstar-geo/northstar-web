@@ -1,0 +1,157 @@
+{
+  "checkedAt": "2026-10-09T16:07:35.114Z",
+  "head": "eb0b2a72bcc1f6200047ef6f25c5b81ccd2bcec1",
+  "scope": "LOCAL_WORKER_CDP_SAMPLED_NOT_CLOUD_CAPACITY",
+  "definition": "V8 used heap plus backing storage; embedder separately reported, not total isolate or RSS; sampling is a lower bound; forced GC unsupported, growth is NOT retained/leak proof",
+  "samples": 278,
+  "cold": {
+    "heapMiB": 8.535686492919922,
+    "backingMiB": 1.4873390197753906,
+    "embedderMiB": 0.491973876953125,
+    "heapAndBackingMiB": 10.023025512695312
+  },
+  "afterSteady": {
+    "heapMiB": 33.41641616821289,
+    "backingMiB": 5.381148338317871,
+    "embedderMiB": 3.1977386474609375,
+    "heapAndBackingMiB": 38.79756450653076
+  },
+  "peakHeapAndBackingMiB": 103.04751014709473,
+  "maxEmbedderMiB": 15.495704650878906,
+  "beforeRepeated": {
+    "heapMiB": 19.429462432861328,
+    "backingMiB": 2.533555030822754,
+    "embedderMiB": 0.16913604736328125,
+    "heapAndBackingMiB": 21.963017463684082
+  },
+  "afterRepeated": {
+    "heapMiB": 81.21017837524414,
+    "backingMiB": 19.702516555786133,
+    "embedderMiB": 11.682792663574219,
+    "heapAndBackingMiB": 100.91269493103027
+  },
+  "repeatedRequests": 50,
+  "repeatedUncollectedGrowthMiB": 78.94967746734619,
+  "steady": [
+    {
+      "route": "/",
+      "ms": 68,
+      "bytes": 37829
+    },
+    {
+      "route": "/search?q=ZCTA&page=999999",
+      "ms": 1283,
+      "bytes": 23342
+    },
+    {
+      "route": "/zip/10001",
+      "ms": 528,
+      "bytes": 40245
+    },
+    {
+      "route": "/state/ca",
+      "ms": 546,
+      "bytes": 45698
+    },
+    {
+      "route": "/county/ny/new-york-county",
+      "ms": 246,
+      "bytes": 46318
+    },
+    {
+      "route": "/city/tx/austin-city",
+      "ms": 192,
+      "bytes": 46125
+    },
+    {
+      "route": "/compare?left=00601&right=10001",
+      "ms": 187,
+      "bytes": 20653
+    },
+    {
+      "route": "/_geo/manifest.json",
+      "ms": 23,
+      "bytes": 130449
+    }
+  ],
+  "concurrent": {
+    "2": [
+      {
+        "route": "/zip/10001",
+        "ms": 904,
+        "bytes": 40245
+      },
+      {
+        "route": "/search?q=Austin+TX",
+        "ms": 933,
+        "bytes": 16536
+      }
+    ],
+    "4": [
+      {
+        "route": "/zip/10001",
+        "ms": 1368,
+        "bytes": 40245
+      },
+      {
+        "route": "/search?q=Austin+TX",
+        "ms": 1396,
+        "bytes": 16536
+      },
+      {
+        "route": "/zip/10001",
+        "ms": 1486,
+        "bytes": 40245
+      },
+      {
+        "route": "/search?q=Austin+TX",
+        "ms": 1484,
+        "bytes": 16536
+      }
+    ],
+    "8": [
+      {
+        "route": "/zip/10001",
+        "ms": 3223,
+        "bytes": 40245
+      },
+      {
+        "route": "/search?q=Austin+TX",
+        "ms": 3368,
+        "bytes": 16536
+      },
+      {
+        "route": "/zip/10001",
+        "ms": 3250,
+        "bytes": 40245
+      },
+      {
+        "route": "/search?q=Austin+TX",
+        "ms": 3249,
+        "bytes": 16536
+      },
+      {
+        "route": "/zip/10001",
+        "ms": 3370,
+        "bytes": 40245
+      },
+      {
+        "route": "/search?q=Austin+TX",
+        "ms": 3372,
+        "bytes": 16536
+      },
+      {
+        "route": "/zip/10001",
+        "ms": 3372,
+        "bytes": 40245
+      },
+      {
+        "route": "/search?q=Austin+TX",
+        "ms": 3366,
+        "bytes": 16536
+      }
+    ]
+  },
+  "localTargetMiB": 96,
+  "status": "FAIL"
+}

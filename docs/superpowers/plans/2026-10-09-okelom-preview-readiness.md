@@ -6,7 +6,7 @@
 
 **架构（Architecture）：** 保留唯一规范快照与已实现的分片读取；复用现有页面、索引函数、安全验证、测试和发布文档，补齐上线关键缺口，不并行建设第二套机制。
 
-**技术栈（Tech Stack）：** Next.js 16.3.8、React 19.2.4、TypeScript、npm、Playwright；Cloudflare 适配未完成，不能把候选框架当成已选定的可部署实现。
+**技术栈（Tech Stack）：** Next.js 16.3.8、React 19.2.4、TypeScript、npm、Playwright；已按独立授权使用OpenNext1.20.9/Wrangler4.149.0完成本地适配。内存和真实云端验收仍未通过，不是可公开发布证明。
 
 **规格（Spec）：** 用户在当前长期对话提供的工作包 `C:\Users\Henry\.codex\attachments\3b00030f-12bc-4448-9d28-f6d2eaca8f54\已粘贴的文本.txt`；使命及补丁授权沿用本对话既有工作包。机器相关附件路径仅作来源，下面保留可独立执行的产品约束和验收条件。
 
@@ -16,8 +16,8 @@
 GOAL_ID = GOAL-OKELOM-LAUNCH-READINESS-001
 CURRENT_GOAL = GOAL-OKELOM-LAUNCH-READINESS-001
 MISSION_ID = MISSION-OKELOM-PRODUCT-IDENTITY-PREVIEW-READINESS-001
-GOAL_STATUS = ACTIVE
-EXECUTION_STATUS = IMPLEMENTING_AUTHORIZED_LOCAL_RUNTIME_ADAPTATION
+GOAL_STATUS = ACTIVE_BLOCKED
+EXECUTION_STATUS = WAITING_FOR_CORE_RUNTIME_DIAGNOSTIC_PREVIEW_DECISION
 GOAL_RUNTIME_TYPE = PERSISTENT
 RUNTIME_GOAL_STATUS = active
 MISSION_STANDING_AUTHORITY = RECEIVED_FROM_FOUNDER
@@ -26,17 +26,18 @@ AUTO_RESUME_CAPABILITY = UNKNOWN
 SCHEDULE_REGISTRATION = VERIFIED
 SCHEDULE_DELIVERY = VERIFIED_SINGLE_HEARTBEAT
 LAST_OBSERVED_HEARTBEAT_AT = 2026-10-09T07:49:13.636Z
-CURRENT_STAGE = G03_LOCAL_CLOUDFLARE_RUNTIME_ADAPTATION
-CURRENT_BLOCKER = NONE_FOR_AUTHORIZED_LOCAL_IMPLEMENTATION
-LAST_REVIEWED_AT = 2026-10-09 23:42 +08:00
+CURRENT_STAGE = G04_RUNTIME_CAPACITY_VALIDATION
+CURRENT_BLOCKER = LOCAL_MEMORY_TARGET_FAIL_AND_AUTHORIZED_REAL_PREVIEW_REQUIRED
+TRUE_GATE = EXTERNAL_ACCOUNT_WRITE_AND_REAL_CLOUDFLARE_PROJECT_CREATE_NOT_AUTHORIZED
+LAST_REVIEWED_AT = 2026-10-10 00:27 +08:00
 REPOSITORY = northstar-geo/northstar-web
 WORKSPACE = E:\Projects\northstar\.worktrees\northstar-release-preparation-001
 CURRENT_BRANCH = codex/okelom-identity-preview-readiness-001
-IMPLEMENTATION_HEAD = 307cb06a5e918fef5763e72fb7b8ee7ff000a689
-LAST_VALIDATED_HEAD = e9fc1b9756755193ce81c25a272a105fb96d972c
-LAST_VALIDATED_HEAD_SCOPE = LOCAL_CHECKPOINT_ONLY_NOT_CLOUDFLARE_OR_RELEASE
-WORKTREE_STATUS = UNCOMMITTED_APPROVED_PACKAGE_LOCK_CHANGES_AND_SECURITY_EVIDENCE
-CURRENT_EVIDENCE_BINDING = POST_INSTALL_PACKAGE_AND_LOCK_SHA256_NOT_VALIDATED_CANDIDATE_COMMIT
+IMPLEMENTATION_HEAD = LOCAL_RUNTIME_CHECKPOINT_IDENTIFIED_BY_SOURCE_HASH_MANIFEST_AND_FINAL_RECEIPT
+LAST_VALIDATED_HEAD = eb0b2a72bcc1f6200047ef6f25c5b81ccd2bcec1
+LAST_VALIDATED_HEAD_SCOPE = EXACT_SECURITY_CHECKPOINT; NEW_RUNTIME_PATCH_BOUND_BY_VALIDATION_JSON_SOURCE_HASHES
+WORKTREE_STATUS = LOCAL_RUNTIME_CHECKPOINT; VERIFY_GIT_STATUS_AT_RESUME
+CURRENT_EVIDENCE_BINDING = docs/release/evidence/2026-10-10-local-worker/VALIDATION.json
 BROWSER_TEST_CHECKPOINT = e9fc1b9756755193ce81c25a272a105fb96d972c
 FINAL_REQUIRED_VALIDATION_BINDING = EXACT_HEAD_COMMIT
 LAUNCH_READINESS = NOT_READY
@@ -46,10 +47,10 @@ SECURITY_VALIDATION_SCOPE = APPROVED_EXACT_AUDITS_AND_GRAPH_ORIGINAL_VALIDATOR_P
 NPM_READ_ONLY_AUDIT_AUTHORIZATION = GRANTED_FOR_THIS_MISSION
 COMPLIANCE_EVIDENCE_REBIND = APPROVED_AND_APPLIED_TWO_DIGEST_FIELDS_ONLY
 EVIDENCE_REBIND_DECISION = APPROVED_FOR_EXACT_4_149_0_CANDIDATE
-NEXT_RESUME_CONDITION = SATISFIED_CONTINUE_WITHIN_EXISTING_AUTHORITY
+NEXT_RESUME_CONDITION = CORE_APPROVES_PROTECTED_DIAGNOSTIC_PREVIEW_AND_AUTHORIZED_EXECUTOR_RETURNS_REAL_EVIDENCE_OR_CORE_DIRECTS_BOUNDED_LOCAL_REMEDIATION
 EXACT_PREVIEW_URL = NOT_CREATED_OR_VERIFIED
 ROLLBACK_READY = NO_EXACT_CANDIDATE_OR_DEPLOYMENT_BINDING
-NEXT_HIGHEST_VALUE_ACTION = G03_INTERNAL_ASSET_BINDING_AND_LOCAL_WORKER_VALIDATION
+NEXT_HIGHEST_VALUE_ACTION = CORE_DECISION_ON_G04_MEMORY_FAILURE_AND_PROTECTED_DIAGNOSTIC_PREVIEW
 ```
 
 本块是本使命唯一当前门禁状态，后文历史记录和矩阵不得另行覆盖它。15:14的原生目标受阻状态属于正式恢复前历史；本轮正式回执到达后工具返回 `active`，实施恢复。`ACTIVE_BLOCKED` 表示目标保留且等待真实门禁，不是完成。实现与匹配本地验证已固定于上列检查点；后续仅记录证据的提交不能被误认作新的产品实现。运行时当前头提交始终以 `git rev-parse HEAD` 为准；最终回执另给实际头提交，不在自身文档中制造自引用哈希。当前证据不能冒充云端候选验收。
@@ -66,6 +67,12 @@ NEXT_HIGHEST_VALUE_ACTION = G03_INTERNAL_ASSET_BINDING_AND_LOCAL_WORKER_VALIDATI
 - 现有生产审计对象摘要：`sha256:6a813559958e16d81c2973e6a54512f0dcfa122b7dd0d440ec558ae6337ca885`。
 
 ## 当前阻塞（CURRENT_BLOCKERS）
+
+**2026-10-10 00:27当前阻塞：完整运行时内存目标未通过，真实受保护诊断预览尚无权限/证据。** 本地适配构建及真实Worker功能可运行，但最终字节传输候选的默认运行时采样峰值113.89 MiB、暖态复测113.01 MiB，均超过既定96 MiB目标。仅为对照而限制老生代96 MiB后仍达101.33 MiB；这些失败全部保留。8路并发在暖态测量中约75.99 MiB，最大值发生于50次连续请求，单次回收后堆+缓冲区约17.74 MiB。该结果能区分临时分配与一次保留量，不能证明无泄漏、真实云端容量通过或128 MiB平台必然失败。
+
+**工程裁决与权限分界：** 已完成邻近扫描对象分配、字节直传两项最小优化；完整数据语义不变，仍未消除压力峰值。分配剖析显示主要成本仍为分片解析，传输层采样分配由约56.2MB降至11.35MB，但不能以总分配减少替代峰值通过。本地运行时支持独立V8参数，对照改变收集节奏而非实际生产配额；未把这些参数写入产品配置。停止猜测性优化，不降低并发、缩短请求序列、调高阈值、强制回收后冒充峰值，也不重写已通过分片架构。G-04本来要求真实平台CPU/内存证据；下一有效跨环境诊断须核心对话明确决定是否允许专属工作建立唯一、受保护、禁止索引的诊断预览，**不是接受预览就绪或发布**。若核心对话要求先继续本地整改，应给出有界方案裁决；本执行器未宣布本地优化不可能。
+
+**核心对话最小动作：** 审查本地内存失败证据，决定上述诊断预览路径或进一步有界本地整改。未收到真实部署/权限证据前不操作云平台账户、不创建项目、不上传、不绑定域名、不推送作为发布候选。当前目标未完成；原生目标仍active不表示后台持续实施。真实设备、跨浏览器、支持渠道、日志政策及3+区域比较范围仍是独立待验收事实。下方23:42及更早文字为历史过程。
 
 **23:42正式重绑定已完成，当前允许继续本地适配。** 创始人直接提供正式恢复回执（附件 `6e654977-2e70-4a5e-8485-365b39e33424`），明确批准精确HEAD 1d3cdaa对应候选包/锁及下列两个审计摘要。写入前逐项核对精确包/锁、证据源哈希、审计摘要和原例外；只修改 `rawAuditDigest` 与 `productionAuditDigest`。原验证函数实际返回 `PASS_WITH_EXACT_TIME_BOUNDED_EXCEPTION`，26/26安全变异测试通过。例外仍仅开发工具链，到期仍为2026-10-13T23:59:00+08:00；不是零漏洞、续期或生产例外。完整适配回归尚未运行。以下23:24及更早门禁为历史，不再覆盖当前状态。
 
@@ -103,8 +110,8 @@ NEXT_HIGHEST_VALUE_ACTION = G03_INTERNAL_ASSET_BINDING_AND_LOCAL_WORKER_VALIDATI
 | --- | --- | --- | --- |
 | A 产品身份 | PASS_LOCAL_ONLY | 当前页面/社交元数据/来源说明均已迁移；旧主题偏好兼容；10类页面无旧品牌断言通过 | 最终精确提交及真实预览复验，历史标识保留 |
 | B 核心功能 | FAIL | 最近本地浏览器42/42，包含键盘两地流程、错误恢复、缺失数据与代表链接 | 适配后精确提交及真实预览回归；范围明确的多区域比较验收 |
-| C 数据完整性 | FAIL | 已有23项本地测试含69,416实体、99,406关系及全字段等价；规范快照摘要未变 | 最终适配产物、精确提交与预览覆盖证明；不得以改后的构建破坏数据 |
-| D 内存与运行时 | FAIL | `DATA_SHARDING=PASS_LOCAL`；既有堆代理最高7.64 MiB、无全国全局常驻 | 完整页面渲染、并发、真实 Worker（运行隔离区）CPU/内存/资产请求验证 |
+| C 数据完整性 | PASS_LOCAL_ONLY | 当前30项单位/完整数据测试通过；69,416实体、99,406关系等价，规范快照未变；适配资产逐项大小/摘要复核 | 精确提交绑定及真实预览覆盖证明，不将本地等价当云端验收 |
+| D 内存与运行时 | FAIL | 本地Worker可运行；最终默认压力峰值113.89 MiB超过96 MiB目标；无全国全局缓存，但不据此声称容量安全 | 核心对话决定受保护诊断预览或有界整改；真实CPU/内存/资产请求验收 |
 | E 安全 | PASS_WITH_EXACT_TIME_BOUNDED_EXCEPTION | 23:21官方生产漏洞0、完整原开发链5高危；23:42正式批准后仅重绑定两摘要，原验证及26项变异测试通过 | 最终候选最新审计、打包运行时暴露及未到期/未撤销复验；不扩大/续期例外 |
 | F 技术索引与元数据 | PASS_LOCAL_ONLY | 三条件显式生产开关；误配矩阵、页面/分享图/图标/数据资产禁止索引、无结构化数据、空站点地图通过 | 最终云端产物含静态资产同等控制，真实访问保护与精确域名验收 |
 | G 性能 | FAIL | 旧本地实验脚本存在；分片搜索当前为两遍顺序读取14段 | 真实预览移动交互、页面载荷、请求瀑布、缓存、搜索与比较耗时 |
@@ -112,7 +119,7 @@ NEXT_HIGHEST_VALUE_ACTION = G03_INTERNAL_ASSET_BINDING_AND_LOCAL_WORKER_VALIDATI
 | I 无障碍 | FAIL | 10类页面自动检查、地图/表格焦点、键盘从跳过导航到搜索/详情/比较及错误恢复通过 | 真实预览及设备辅助技术复核，不将自动检查视为全面认证 |
 | J 内容与信任 | FAIL | 数据源、方法和关于页已有说明；关于页含隐私内容 | 去除发布前内部待办文案、确认支持/日志事实及日期；不凭空编造法律条款 |
 | K 链接与错误质量 | FAIL | 10类页面与21个抽样站内目标分别通过桌面/移动实访；控制台/页面/HTTP失败为0；仅预取取消另存证据 | 最终适配及真实预览复核；本地已证明主动取消可触发流日志，但不泛化为所有流错误无害 |
-| L 云平台预览 | FAIL | 无已验证预览；仅既有适配候选静态检查 | 核心对话评审、专属执行工作创建、访问保护含直达资产、精确部署证据及回归 |
+| L 云平台预览 | FAIL | 已完成本地OpenNext构建及内部ASSETS运行测试；没有真实预览；内存失败未豁免 | 核心对话明确诊断授权、专属工作创建及访问保护、精确部署证据和容量/应用复验 |
 | M 域名/证书/跳转 | FAIL | 目标明确为okelom.com；本轮未访问或配置真实域名 | 授权执行者完成后验证四种协议/主机入口、HTTPS与www到根域跳转、规范网址 |
 | N 发布安全 | FAIL | 环境契约、回滚、日志、设备、上线清单等原文档已存在 | 更新同一文档体系为当前适配方式、精确提交/快照/构建、冒烟与回滚演练及监测责任 |
 
@@ -151,6 +158,14 @@ NEXT_HIGHEST_VALUE_ACTION = G03_INTERNAL_ASSET_BINDING_AND_LOCAL_WORKER_VALIDATI
 2026-10-09 14:57 +08:00，再次只读核验核心对话、工作树、已有测试/构建证据、部署配置和安全验证函数：正式批准仍未出现，摘要漂移失败仍存在。自本目标建立起连续三个目标回合遇到同一治理阻塞；前两回合完成了计划与非敏感差距证据，本回合无新的可授权实施动作。原生目标状态设为 `blocked`；目标仍保留，实际工程执行已停止并等待外部门禁，不是完成。此前“每小时跟进”的表述只能证明调度配置已登记，不能证明后台实际执行或受阻目标会被自动唤醒；以以下本轮修正为准。不再进行重复无变化的工程循环。
 
 ## 已完成差距（COMPLETED_GAPS）与验证证据（VALIDATION_EVIDENCE）
+
+### 本地适配检查点（2026-10-10）
+
+- 本轮范围匹配验证：规范/格式、类型、30/30单位与数据完整性、26/26安全变异、Next/OpenNext构建通过；最终标准Node与本地Worker各42/42浏览器通过，0跳过/失败/不稳定。分别开始于2026-10-09T16:25:07.601Z和16:22:13.871Z；两份摘要及78个源码/配置/测试/规范数据文件的SHA256绑定于[验证包](../../release/evidence/2026-10-10-local-worker/VALIDATION.json)。测试在检查点提交前执行，提交后必须核对每个源文件与提交对象一致；没有新的远端持续集成或云端验收。
+- 适配后675个地理资产（含清单）没有缺失或清单外残留，674个注册文件大小/摘要逐一匹配。规范快照SHA256仍为`2e100f671f3a84997b30627ababbfc94e049f7c2d2cf8d328c42c6006a2778c5`，69,416实体/99,406关系全字段投影等价不变。打包输入419项中未检出braces/micromatch/fast-glob，不把源码与包元数据检查当作绝对不可利用性证明。
+- 00:01官方在线审计完整仍为5高危/0严重、生产全部等级0；00:28原验证函数再次对该精确证据通过限时例外。仅开发链例外期限2026-10-13T23:59:00+08:00未变，官方公告仍无修复版；核心对话最新正式回执未撤销。没有新安装、升级、例外、范围扩大或续期。
+- 内存失败及一次独立评审完整保留，不能签发代码预览就绪。标准Node浏览器服务端再次记录流提前关闭警告，原日志保留；浏览器断言包含非预取失败/页面/控制台检查并通过。先前受控诊断证明主动取消可以触发同类日志，**不是本次每条警告均已逐一归因**，真实预览仍需对照完整响应和取消行为，不全局屏蔽。
+- 本地检查点不推送、不合并、不部署；原主工作树AGENTS.md的18行创始人修改及空暂存区仍保留。本使命工作树保留所有实现与证据。下一步是核心对话对容量失败/受保护诊断预览的决策，而不是等待无条件“继续”。
 
 ### 本轮浏览器与发布文档增量（2026-10-09 18:47 +08:00）
 
@@ -222,6 +237,11 @@ NEXT_HIGHEST_VALUE_ACTION = G03_INTERNAL_ASSET_BINDING_AND_LOCAL_WORKER_VALIDATI
 - 真实用户规模下的长期核心网页指标趋势、性能容量扩展：作为上线后跟踪；首发前仍需真实预览实验及可执行监测方案，不伪装已有生产流量数据。
 
 ## 本轮计划变更记录
+
+- 2026-10-10 00:27 +08:00：G-03本地适配已工作，但G-04内存仍失败。保留五份原始测量及复现脚本；本地Worker42/42、30项单位/数据及26项安全变异通过，最终标准Node浏览器仍在收尾，最终结果以同目录VALIDATION.json和回执为准。独立整分支评审实际重跑30项全通过，无严重项，唯一重要项是内存目标失败；不以评审替代产品批准。当前未新增依赖变更，未修改安全验证器、例外范围/期限或工作流。两项最小分配优化没有达到容量门槛，停止猜测性第三项修复；真实平台诊断需要明确外部执行权限，不自行部署。更正00:04记录：检查器GC并非不支持，后续通过触发本机请求事件使命令完成；压力测量仍全程自然GC，事后单次回收不覆盖失败结果。参考[官方内存诊断](https://developers.cloudflare.com/workers/observability/dev-tools/memory-usage/)及[已合并本地V8参数支持](https://github.com/cloudflare/workers-sdk/pull/14702)；没有据公开问题推定本产品同因或已修复。
+
+- 2026-10-10 00:04 +08:00：安全检查点 `eb0b2a72bcc1f6200047ef6f25c5b81ccd2bcec1` 已保存批准的依赖、两摘要及不可变历史证据包。G-03新增内部ASSETS有界流读取、只读静态页面缓存、静态资产禁止索引配置及本地Worker测试入口；包/锁哈希仍匹配正式批准。6项传输测试先失败后通过；首次真实Worker回归发现redirect:error不受平台支持，改为manual并显式拒绝非200后，42/42完整Worker浏览器通过。原失败运行中止用于定位，未称其为通过。Next/OpenNext构建、类型及规范检查通过；29项单位/完整数据等价、26项安全变异通过。最新官方审计00:01仍精确匹配批准，原验证通过限时例外。构建元数据419个输入不含braces/micromatch/fast-glob运行输入；不是绝对不可利用性证明。
+- 同轮G-04真实本地Worker堆采样：8并发及50次重复请求无页面错误，但采样heap+backing峰值107.37MiB超过96MiB目标，故内存不通过；不是云端容量或泄漏结论。检查器强制GC接口未响应，报告明确仅自然GC采样、不是保留堆。Ruling: 邻近扫描仅为有界入选记录创建完整展示对象，拒绝候选复用两坐标临时对象；不改变数据/排序/功能或分片结构。以同一失败基准复测，不降低并发、放宽阈值或删除测试；29项回归已通过，内存复测待完成。
 
 - 2026-10-09 23:42 +08:00：正式重绑定恢复回执与候选包/锁/审计精确匹配；只改现有例外两个摘要，逐字段比较确认无其他变化，原验证通过限时例外，26/26安全变异通过。继续G-03，不以安全检查点完成为停止条件。Ruling: 复用既有分片与内部ASSETS绑定，静态页使用只读静态资产缓存，不引入存储/队列/公共回源；正常Node构建仍允许本地资产，Worker缺绑定必须失败关闭。代价/限制：仍需完整Worker实际运行验证，不能从Node通过推断平台兼容。
 

@@ -50,7 +50,7 @@ npm run data:database
 
 默认全站禁止索引和跟随链接。预览固定 `RELEASE_STAGE=preview`、`INDEXING_ENABLED=false`；`SITE_URL` 使用获授权的真实预览源站。只有未来取得创始人正式索引授权后，才可同时配置 `RELEASE_STAGE=production`、`SITE_URL=https://okelom.com`、`INDEXING_ENABLED=true` 并重新构建。任何条件缺失、异常或非正式域名均不开放索引；此说明不授权部署、域名操作或索引启用。
 
-当前支持本地标准服务器验证；构建前从 `data/geography.json.gz` 生成 `public/_geo/`，运行时仅读取这些分片，不加载完整快照。派生资产不提交，部署构建必须运行数据生成步骤并随产物携带完整资产集。Cloudflare（云平台）适配和实际运行验证尚未完成。`/sitemap.xml` 为索引，`/sitemaps/0.xml` 等为每片最多 10,000 条的有价值地理页面；搜索和比较查询页不进入索引。
+当前支持本地标准服务器及Cloudflare Worker（云平台运行隔离区）验证；构建前从 `data/geography.json.gz` 生成 `public/_geo/`，运行时仅读取这些分片，不加载完整快照。派生资产不提交，适配构建必须运行数据生成步骤并随产物携带完整资产集。Worker通过内部ASSETS绑定读取，不从公开网址绕过访问保护。适配命令、只读缓存、输出目录及本地/真实预览分界见下方环境契约；实际云端部署尚未执行。`/sitemap.xml` 为索引，`/sitemaps/0.xml` 等为每片最多 10,000 条的有价值地理页面；搜索和比较查询页不进入索引。
 
 生产域名、托管、隐私日志保留策略、支持联系方式及发布审批见 `docs/LAUNCH_CHECKLIST.md`。本项目没有开启账号、分析、广告或支付。
 

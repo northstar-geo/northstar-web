@@ -1,6 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
 
 const firefoxValidationEnabled = process.env.PLAYWRIGHT_FIREFOX === "true";
+const workerValidationEnabled = process.env.PLAYWRIGHT_RUNTIME === "worker";
 
 export default defineConfig({
   testDir: "./tests/browser",
@@ -8,7 +9,20 @@ export default defineConfig({
   workers: 1,
   retries: 0,
   timeout: 60000,
-  reporter: [["list"], ["json", { outputFile: "test-results/results.json" }]],
+  outputDir: workerValidationEnabled
+    ? "test-results/worker"
+    : "test-results/next",
+  reporter: [
+    ["list"],
+    [
+      "json",
+      {
+        outputFile: workerValidationEnabled
+          ? "test-results/worker-results.json"
+          : "test-results/results.json",
+      },
+    ],
+  ],
   use: { baseURL: "http://127.0.0.1:43177", trace: "retain-on-failure" },
   projects: [
     {
@@ -32,8 +46,9 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command:
-      "node node_modules/next/dist/bin/next start --hostname 127.0.0.1 --port 43177",
+    command: workerValidationEnabled
+      ? "node node_modules/@opennextjs/cloudflare/dist/cli/index.js preview --ip 127.0.0.1 --port 43177 --inspector-port 43178"
+      : "node node_modules/next/dist/bin/next start --hostname 127.0.0.1 --port 43177",
     url: "http://127.0.0.1:43177",
     reuseExistingServer: false,
     env: { INDEXING_ENABLED: "false", SITE_URL: "http://localhost:43177" },

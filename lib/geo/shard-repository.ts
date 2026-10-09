@@ -10,17 +10,23 @@ import {
   type SearchRow,
 } from "./shard-format";
 
-export type AssetReader = (name: string) => Promise<string>;
+export type AssetReader = (
+  name: string,
+) => Promise<string | Uint8Array<ArrayBuffer>>;
 export function createRepository(read: AssetReader) {
+  const decoder = new TextDecoder("utf-8", { fatal: true });
+  const encoder = new TextEncoder();
   // Only the bounded manifest survives a request. Never cache shards or indexes.
   let manifestPromise: Promise<Manifest> | undefined;
   async function data(): Promise<Manifest> {
     if (!manifestPromise)
       manifestPromise = (async () => {
-        const text = await read("manifest.json");
-        if (new TextEncoder().encode(text).length > 256 * 1024)
-          throw new Error("Oversize manifest");
-        const m = JSON.parse(text) as Manifest;
+        const raw = await read("manifest.json");
+        const bytes = typeof raw === "string" ? encoder.encode(raw) : raw;
+        if (bytes.byteLength > 256 * 1024) throw new Error("Oversize manifest");
+        const m = JSON.parse(
+          typeof raw === "string" ? raw : decoder.decode(bytes),
+        ) as Manifest;
         if (m.schemaVersion !== 1 || !m.files || !m.states || !m.searchParts)
           throw new Error("Invalid geography manifest");
         return m;
@@ -34,8 +40,8 @@ export function createRepository(read: AssetReader) {
     const descriptor = (await data()).files[name];
     if (!descriptor || descriptor.bytes > MAX_ASSET_BYTES)
       throw new Error("Unregistered geography asset");
-    const text = await read(name),
-      bytes = new TextEncoder().encode(text);
+    const raw = await read(name),
+      bytes = typeof raw === "string" ? encoder.encode(raw) : raw;
     if (bytes.length !== descriptor.bytes)
       throw new Error("Geography asset size mismatch");
     const digest = Array.from(
@@ -44,7 +50,9 @@ export function createRepository(read: AssetReader) {
     ).join("");
     if (digest !== descriptor.sha256)
       throw new Error("Geography asset digest mismatch");
-    return JSON.parse(text) as T;
+    return JSON.parse(
+      typeof raw === "string" ? raw : decoder.decode(bytes),
+    ) as T;
   }
   async function detail(id: string) {
     if (!/^(zcta|city|county|state|nation):[A-Za-z0-9-]+$/.test(id))
@@ -175,13 +183,17 @@ export function createRepository(read: AssetReader) {
       geography: GeoLink & { latitude: number; longitude: number };
       distance: number;
     }> = [];
+    // Scan coordinates without allocating a display object for every rejected
+    // candidate. Only the bounded winners receive their own immutable copy.
+    const point = { latitude: 0, longitude: 0 };
     for (const name of (await data()).searchParts)
       for (const row of await asset<SearchRow[]>(name)) {
         if (row[1] !== "zcta" || row[0] === g.id) continue;
-        const point = { ...rowLink(row), latitude: row[7], longitude: row[8] },
-          distance = distanceMiles(g, point);
+        point.latitude = row[7];
+        point.longitude = row[8];
+        const distance = distanceMiles(g, point);
         if (best.length < count || distance < best[best.length - 1].distance) {
-          best.push({ geography: point, distance });
+          best.push({ geography: { ...rowLink(row), ...point }, distance });
           best.sort((a, b) => a.distance - b.distance);
           if (best.length > count) best.pop();
         }

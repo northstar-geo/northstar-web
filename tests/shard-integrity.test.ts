@@ -121,6 +121,23 @@ test("detail and compare read only requested buckets; missing/corrupt assets fai
   await assert.rejects(missing.geography("zcta:10001"), /missing/);
 });
 
+test("byte transport preserves data and verifies bytes before JSON decoding", async () => {
+  const repo = createRepository(
+    async (name) => new Uint8Array(await readFile(`public/_geo/${name}`)),
+  );
+  assert.equal((await repo.data()).counts.zcta, 33791);
+  assert.deepEqual(
+    await repo.geography("zcta:10001"),
+    await createRepository(readAsset).geography("zcta:10001"),
+  );
+  const corrupt = createRepository(async (name) => {
+    const bytes = new Uint8Array(await readFile(`public/_geo/${name}`));
+    if (name !== "manifest.json") bytes[bytes.length - 3] ^= 1;
+    return bytes;
+  });
+  await assert.rejects(corrupt.geography("zcta:10001"), /digest mismatch/);
+});
+
 test("broad search retains only a page, including last-page clamp, without detail hydration", async () => {
   const names: string[] = [];
   const repo = createRepository(async (name) => {

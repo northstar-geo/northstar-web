@@ -1,0 +1,172 @@
+{
+  "checkedAt": "2026-10-09T16:19:07.842Z",
+  "head": "eb0b2a72bcc1f6200047ef6f25c5b81ccd2bcec1",
+  "scope": "LOCAL_WORKER_CDP_SAMPLED_NOT_CLOUD_CAPACITY",
+  "definition": "V8 used heap plus backing storage; embedder separately reported, not total isolate or RSS; sampling is a lower bound; no forced GC during stress; growth is NOT retained/leak proof",
+  "samples": 253,
+  "cold": {
+    "heapMiB": 50.777862548828125,
+    "backingMiB": 20.37252426147461,
+    "embedderMiB": 2.246612548828125,
+    "heapAndBackingMiB": 71.15038681030273
+  },
+  "afterSteady": {
+    "heapMiB": 37.24863052368164,
+    "backingMiB": 5.026251792907715,
+    "embedderMiB": 4.975563049316406,
+    "heapAndBackingMiB": 42.274882316589355
+  },
+  "peakHeapAndBackingMiB": 113.01113319396973,
+  "maxEmbedderMiB": 15.495658874511719,
+  "phasePeaks": {
+    "cold": 71.15038681030273,
+    "steady:/": 71.73909378051758,
+    "steady:/search?q=ZCTA&page=999999": 37.657288551330566,
+    "steady:/zip/10001": 37.74086666107178,
+    "steady:/state/ca": 45.55026817321777,
+    "steady:/county/ny/new-york-county": 43.81356906890869,
+    "steady:/city/tx/austin-city": 43.26459217071533,
+    "steady:/compare?left=00601&right=10001": 42.27412700653076,
+    "steady:/_geo/manifest.json": 42.274882316589355,
+    "concurrent:2": 56.35787105560303,
+    "concurrent:4": 63.6726655960083,
+    "concurrent:8": 75.99277210235596,
+    "repeated": 113.01113319396973
+  },
+  "beforeRepeated": {
+    "heapMiB": 40.00403594970703,
+    "backingMiB": 6.056768417358398,
+    "embedderMiB": 7.1197509765625,
+    "heapAndBackingMiB": 46.06080436706543
+  },
+  "afterRepeated": {
+    "heapMiB": 44.40095138549805,
+    "backingMiB": 16.1026029586792,
+    "embedderMiB": 2.0423736572265625,
+    "heapAndBackingMiB": 60.503554344177246
+  },
+  "repeatedRequests": 50,
+  "repeatedUncollectedGrowthMiB": 14.442749977111816,
+  "steady": [
+    {
+      "route": "/",
+      "ms": 13,
+      "bytes": 37829
+    },
+    {
+      "route": "/search?q=ZCTA&page=999999",
+      "ms": 347,
+      "bytes": 23342
+    },
+    {
+      "route": "/zip/10001",
+      "ms": 416,
+      "bytes": 40245
+    },
+    {
+      "route": "/state/ca",
+      "ms": 173,
+      "bytes": 45698
+    },
+    {
+      "route": "/county/ny/new-york-county",
+      "ms": 141,
+      "bytes": 46318
+    },
+    {
+      "route": "/city/tx/austin-city",
+      "ms": 140,
+      "bytes": 46125
+    },
+    {
+      "route": "/compare?left=00601&right=10001",
+      "ms": 123,
+      "bytes": 20653
+    },
+    {
+      "route": "/_geo/manifest.json",
+      "ms": 19,
+      "bytes": 130449
+    }
+  ],
+  "concurrent": {
+    "2": [
+      {
+        "route": "/zip/10001",
+        "ms": 419,
+        "bytes": 40245
+      },
+      {
+        "route": "/search?q=Austin+TX",
+        "ms": 447,
+        "bytes": 16536
+      }
+    ],
+    "4": [
+      {
+        "route": "/zip/10001",
+        "ms": 851,
+        "bytes": 40245
+      },
+      {
+        "route": "/search?q=Austin+TX",
+        "ms": 865,
+        "bytes": 16536
+      },
+      {
+        "route": "/zip/10001",
+        "ms": 899,
+        "bytes": 40245
+      },
+      {
+        "route": "/search?q=Austin+TX",
+        "ms": 899,
+        "bytes": 16536
+      }
+    ],
+    "8": [
+      {
+        "route": "/zip/10001",
+        "ms": 1480,
+        "bytes": 40245
+      },
+      {
+        "route": "/search?q=Austin+TX",
+        "ms": 1513,
+        "bytes": 16536
+      },
+      {
+        "route": "/zip/10001",
+        "ms": 1513,
+        "bytes": 40245
+      },
+      {
+        "route": "/search?q=Austin+TX",
+        "ms": 1510,
+        "bytes": 16536
+      },
+      {
+        "route": "/zip/10001",
+        "ms": 1526,
+        "bytes": 40245
+      },
+      {
+        "route": "/search?q=Austin+TX",
+        "ms": 1525,
+        "bytes": 16536
+      },
+      {
+        "route": "/zip/10001",
+        "ms": 1525,
+        "bytes": 40245
+      },
+      {
+        "route": "/search?q=Austin+TX",
+        "ms": 1525,
+        "bytes": 16536
+      }
+    ]
+  },
+  "localTargetMiB": 96,
+  "status": "FAIL"
+}

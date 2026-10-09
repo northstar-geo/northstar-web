@@ -27,18 +27,18 @@
 
 未来生产索引必须同时满足 `RELEASE_STAGE=production`、`INDEXING_ENABLED=true`、`SITE_URL=https://okelom.com`，且先获创始人明确授权。变量满足条件只说明技术开关，不代表批准。预览页面不输出结构化数据，站点地图索引不列出公开条目。
 
-## 云平台交接状态（2026-10-09）
+## 云平台交接状态（2026-10-10）
 
-`PROJECT_NAME=okelom-web`；`DEPLOYMENT_HANDOFF_READY=NO`。当前 Node.js（运行时）构建成功不等于云平台运行时通过。当前 Node 文件读取适配层仍需改为内部资产绑定，不能通过公开回源绕过访问保护。
+`PROJECT_NAME=okelom-web`；当前交接门禁只在[持续计划](../superpowers/plans/2026-10-09-okelom-preview-readiness.md)维护。本地适配已生成入口 `.open-next/worker.js` 和资产 `.open-next/assets`，动态地理读取使用内部 `ASSETS` 绑定，无公开回源或全国快照回退。构建/标准Node本地运行仍使用同源派生文件。缺失绑定、错误响应、非法路径和超限流失败关闭。
 
-官方路径及发布元数据已只读核对：[Cloudflare Next.js 指南](https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/)、[OpenNext 指南](https://developers.cloudflare.com/workers/framework-guides/web-apps/opennext/)。注册表发布包 `vinext@1.1.0` 要求 `react/react-dom ^19.2.6`、`vite ^8.0.0`，与当前 `19.2.4` 不满足；`@opennextjs/cloudflare@1.20.9` 的 Next 要求 `>=15.5.27 <16 || >=16.3.8` 包含当前版本，同时需要 `wrangler ^4.125.0`。这只是候选兼容性，不是安装、选型完成或部署验证。增加任何适配依赖都会改变当前安全证据；新审计须有数据传输授权，证据漂移须按原契约处理。
+官方路径及发布元数据已只读核对：[Cloudflare Next.js 指南](https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/)、[OpenNext 指南](https://developers.cloudflare.com/workers/framework-guides/web-apps/opennext/)。本使命明确选择已获授权的 `@opennextjs/cloudflare@1.20.9`、`wrangler@4.149.0`，保留 Next16.3.8 / React19.2.4；不选择需要改变React版本的vinext。只读静态资产缓存服务预渲染页，无ISR（增量静态再生成）、R2/D1/KV或队列资源。不得运行可能创建资源的自动迁移命令。新依赖或审计摘要漂移仍按原安全契约重新核验，不自动继承本次批准。
 
 | 交接字段 | 当前可交付事实 / 剩余要求 |
 | --- | --- |
-| `INSTALL_COMMAND` | 当前锁文件为 `npm ci`；适配依赖未锁定，不可作为最终云端安装指令。 |
-| `BUILD_COMMAND` | 当前为 `npm run build`（含生成分片）；云平台构建命令未验证。 |
+| `INSTALL_COMMAND` | 由获授权的执行者对精确提交执行 `npm ci`；适配依赖已精确锁定。本执行器不代为创建构建服务或安装新的平台依赖。 |
+| `BUILD_COMMAND` | `node node_modules/@opennextjs/cloudflare/dist/cli/index.js build`；内部执行现有build及prebuild分片生成。先注入同一预览源站及两个禁止索引变量。 |
 | `NODE_VERSION / PACKAGE_MANAGER` | 本地使用 Node 24 / npm；最终执行环境须固定实际版本及锁文件。 |
-| `DEPLOYMENT_MODE / OUTPUT_MODE` | 服务端渲染及静态资产；不是纯静态导出。Worker 入口和产物未生成，不提供虚假输出目录。 |
+| `DEPLOYMENT_MODE / OUTPUT_MODE` | OpenNext服务端渲染+只读静态缓存；入口 `.open-next/worker.js`，资产 `.open-next/assets`。不是纯静态导出。本地构建通过不代表云端部署验收。 |
 | `ENVIRONMENT_VARIABLES` | 上表三个变量在构建/运行一致；不需要应用业务密钥。 |
 | `CLOUDFLARE_ACCESS_REQUIREMENT` | 核心对话授权专属工作后建立保护；未登录直达页面及资产均不得获取内容。 |
 | `NOINDEX_VERIFICATION_METHOD` | 受保护会话检查响应头、robots元数据、robots.txt、空站点地图、无结构化数据。 |
@@ -49,3 +49,28 @@
 | `SSL_EXPECTATION` | 有效证书覆盖根域/www，HTTP单跳到最终HTTPS，TLS验证成功；当前未绑定或核验。 |
 
 本契约不授权创建托管账户、部署、域名或 DNS（域名系统）变更。
+
+本次适配不等于预览就绪验收：本地完整渲染压力采样仍超过既定96 MiB目标，详见[验证证据](evidence/2026-10-10-local-worker/VALIDATION.json)。下一步若需真实运行时诊断，须核心对话明确授权专属工作建立受保护、禁止索引的诊断预览；该决定不豁免本地失败、不授权付费或公开流量，也不把诊断部署当成容量通过。缺少授权时，本执行器不能自行创建账户、项目或上传产物。实际预览必须以固定提交重新构建并回传环境与部署证据。
+
+## 本地验证与真实预览的分界
+
+仓库 `wrangler.jsonc` 是失败关闭的本地验证配置：地址为 `http://localhost:43177`，`workers_dev=false`、`preview_urls=false`、遥测及运行观测上传关闭，无账户编号、凭据、远程绑定或部署脚本。它不是已经授权的公开预览配置。核心对话先评审精确候选，再授权专属工作建立唯一项目及访问保护；执行者必须提供获准的真实HTTPS源站，并在构建和运行一致替换本地来源，重新构建，不能复用含localhost规范网址的资产。任何开放预览路由的配置变化仍须独立授权。
+
+仅本地验证命令（已有依赖，无安装、上传或部署）：
+
+```powershell
+$env:NEXT_TELEMETRY_DISABLED = '1'
+$env:WRANGLER_SEND_METRICS = 'false'
+$env:CLOUDFLARE_LOAD_DEV_VARS_FROM_DOT_ENV = 'false'
+$env:RELEASE_STAGE = 'preview'
+$env:INDEXING_ENABLED = 'false'
+$env:SITE_URL = 'http://localhost:43177'
+node node_modules/@opennextjs/cloudflare/dist/cli/index.js build
+$env:PLAYWRIGHT_RUNTIME = 'worker'
+npm run test:e2e
+Remove-Item Env:PLAYWRIGHT_RUNTIME
+```
+
+浏览器运行器会独立启动并关闭回环Worker，不复用未知服务器；标准Node与Worker的报告分别保存于 `test-results/results.json`、`test-results/worker-results.json`。两者相同核心断言，不以超时放宽或跳过取得通过。OpenNext官方仍提示Windows兼容性限制；精确云端构建环境必须另行验证。
+
+平台资产绕过Next响应头，因此 `public/_headers` 单独强制 `noindex, nofollow` 等安全头。真实访问保护还须覆盖直接 `/_geo/`、框架JS/CSS、图标/分享图及错误路径；禁止索引不等于访问保护。预览撤回/回滚须绑定实际部署标识与同一候选产物，不使用旧PR合并作为当前回滚目标。
