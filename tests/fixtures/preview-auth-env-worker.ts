@@ -10,6 +10,7 @@ const probe = {
     return Response.json({
       applicationStatus: response.status,
       runtimeSecretVisible: Object.hasOwn(process.env, "PREVIEW_AUTH_PASSWORD"),
+      runtimeBuildIdVisible: Object.hasOwn(process.env, "PREVIEW_BUILD_ID"),
       previewStage: process.env.RELEASE_STAGE,
     });
   },

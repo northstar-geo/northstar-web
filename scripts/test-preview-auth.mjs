@@ -43,6 +43,7 @@ const routes = [
   `/_geo/${shard}`,
   ...[js, css].map((p) => `/${p.replaceAll("\\", "/")}`),
 ];
+const buildId = "b".repeat(64);
 let checks = 0;
 const checkHeaders = (response) => {
   assert.equal(response.headers.get("cache-control"), "no-store");
@@ -50,6 +51,7 @@ const checkHeaders = (response) => {
     response.headers.get("x-robots-tag"),
     "noindex, nofollow, noarchive",
   );
+  assert.equal(response.headers.get("x-okelom-build-id"), buildId);
 };
 async function start(secret, entry = config.main) {
   return unstable_dev(entry, {
@@ -60,7 +62,10 @@ async function start(secret, entry = config.main) {
     local: true,
     persist: false,
     logLevel: "error",
-    vars: secret === undefined ? {} : { PREVIEW_AUTH_PASSWORD: secret },
+    vars: {
+      ...(secret === undefined ? {} : { PREVIEW_AUTH_PASSWORD: secret }),
+      PREVIEW_BUILD_ID: buildId,
+    },
     experimental: {
       forceLocal: true,
       disableExperimentalWarning: true,
@@ -197,6 +202,11 @@ for (const configured of [false, true]) {
       result.runtimeSecretVisible,
       false,
       "OpenNext must never receive the secret via process.env",
+    );
+    assert.equal(
+      result.runtimeBuildIdVisible,
+      false,
+      "OpenNext must never receive the diagnostic build id via process.env",
     );
     assert.equal(
       result.previewStage,

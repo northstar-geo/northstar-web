@@ -1,12 +1,11 @@
 // Generated only by the approved OpenNext build; never patched in place.
-import handler from "./.open-next/worker.js";
-import { protectedPreview } from "./lib/preview-auth";
+import { createProtectedWorker } from "./lib/preview-worker";
 
-const worker = {
-  fetch(request: Request, env: Record<string, unknown>, ctx: unknown) {
-    return protectedPreview(request, env, (safeRequest, safeEnv) =>
-      handler.fetch(safeRequest, safeEnv, ctx),
-    );
-  },
-};
+// Keep the authentication layer executable even when the generated application
+// module cannot initialize in a target runtime. The loader is cached by the
+// module system after the first successful import.
+const worker = createProtectedWorker(async () => {
+  const applicationModule = await import("./.open-next/worker.js");
+  return applicationModule.default;
+});
 export default worker;
