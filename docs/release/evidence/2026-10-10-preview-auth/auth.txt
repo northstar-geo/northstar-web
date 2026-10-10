@@ -1,0 +1,13 @@
+
+┌──────────────────────────────────────────────┐
+│ OpenNext — Cloudflare populate cache - local │
+└──────────────────────────────────────────────┘
+
+WARN OpenNext is not fully compatible with Windows.
+WARN For optimal performance, it is recommended to use Windows Subsystem for Linux (WSL).
+WARN While OpenNext may function on Windows, it could encounter unpredictable failures during runtime.
+
+Populating Workers static assets...
+Successfully populated static assets cache
+Tag cache does not need populating
+{"checks":41,"result":"PASS","scope":"LOCAL_WRANGLER_REAL_ROUTING","remoteDeployment":false}

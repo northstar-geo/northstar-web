@@ -1,6 +1,11 @@
 import { test, expect, type Locator, type Page } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
+const expectedRobotsHeader =
+  process.env.PLAYWRIGHT_RUNTIME === "worker"
+    ? "noindex, nofollow, noarchive"
+    : "noindex, nofollow";
+
 const representativeRoutes = [
   "/",
   "/search?q=Austin+TX",
@@ -72,7 +77,7 @@ test("missing geography and invalid compare recover without fabricated data", as
   expect((await request.get("/not-a-real-route")).status()).toBe(404);
   const response = await page.goto("/zip/99999");
   expect(response?.status()).toBe(200);
-  expect(response?.headers()["x-robots-tag"]).toBe("noindex, nofollow");
+  expect(response?.headers()["x-robots-tag"]).toBe(expectedRobotsHeader);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
     "Let's find another place.",
   );
@@ -239,7 +244,7 @@ for (const route of representativeRoutes) {
   test(`page and accessibility: ${route}`, async ({ page }, testInfo) => {
     const response = await page.goto(route);
     expect(response?.status()).toBe(200);
-    expect(response?.headers()["x-robots-tag"]).toBe("noindex, nofollow");
+    expect(response?.headers()["x-robots-tag"]).toBe(expectedRobotsHeader);
     await expect(page).toHaveTitle(/OKELOM/);
     await expect(page.locator("body")).not.toContainText(/zipora|northstar/i);
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
@@ -428,7 +433,7 @@ test("empty results, 404, themes and preview indexing", async ({
   ]) {
     const response = await request.get(asset);
     expect(response.status()).toBe(200);
-    expect(response.headers()["x-robots-tag"]).toBe("noindex, nofollow");
+    expect(response.headers()["x-robots-tag"]).toBe(expectedRobotsHeader);
   }
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
     "content",

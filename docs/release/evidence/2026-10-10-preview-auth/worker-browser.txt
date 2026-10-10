@@ -1,0 +1,63 @@
+
+┌──────────────────────────────────────────────┐
+│ OpenNext — Cloudflare populate cache - local │
+└──────────────────────────────────────────────┘
+
+WARN OpenNext is not fully compatible with Windows.
+WARN For optimal performance, it is recommended to use Windows Subsystem for Linux (WSL).
+WARN While OpenNext may function on Windows, it could encounter unpredictable failures during runtime.
+
+Populating Workers static assets...
+Successfully populated static assets cache
+Tag cache does not need populating
+
+> northstar-web@0.1.0 test:e2e
+> playwright test
+
+
+Running 42 tests using 1 worker
+
+  ok  1 [desktop] › tests\browser\site.spec.ts:33:1 › keyboard-only search and compare preserve leading-zero ZIP areas (3.3s)
+  ok  2 [desktop] › tests\browser\site.spec.ts:71:1 › missing geography and invalid compare recover without fabricated data (2.8s)
+  ok  3 [desktop] › tests\browser\site.spec.ts:117:1 › small-screen and tablet dark layouts keep long content and controls usable (6.5s)
+  ok  4 [desktop] › tests\browser\site.spec.ts:157:1 › search distinguishes missing population from zero (755ms)
+  ok  5 [desktop] › tests\browser\site.spec.ts:163:1 › OKELOM identity and saved legacy theme survive navigation and reload (813ms)
+  ok  6 [desktop] › tests\browser\site.spec.ts:191:1 › large related-geography lists can reach their second page (1.1s)
+  ok  7 [desktop] › tests\browser\site.spec.ts:212:1 › malformed compare input is not silently converted to a different ZIP (517ms)
+  ok  8 [desktop] › tests\browser\site.spec.ts:223:1 › home search, leading-zero ZIP, detail and compare work (3.0s)
+  ok  9 [desktop] › tests\browser\site.spec.ts:244:3 › page and accessibility: / (1.2s)
+  ok 10 [desktop] › tests\browser\site.spec.ts:244:3 › page and accessibility: /search?q=Austin+TX (1.2s)
+  ok 11 [desktop] › tests\browser\site.spec.ts:244:3 › page and accessibility: /zip/10001 (1.4s)
+  ok 12 [desktop] › tests\browser\site.spec.ts:244:3 › page and accessibility: /state/ca (1.1s)
+  ok 13 [desktop] › tests\browser\site.spec.ts:244:3 › page and accessibility: /city/tx/austin-city (1.1s)
+  ok 14 [desktop] › tests\browser\site.spec.ts:244:3 › page and accessibility: /county/ny/new-york-county (1.3s)
+  ok 15 [desktop] › tests\browser\site.spec.ts:244:3 › page and accessibility: /compare?left=10001&right=90210 (944ms)
+  ok 16 [desktop] › tests\browser\site.spec.ts:244:3 › page and accessibility: /methodology (708ms)
+  ok 17 [desktop] › tests\browser\site.spec.ts:244:3 › page and accessibility: /data-sources (744ms)
+  ok 18 [desktop] › tests\browser\site.spec.ts:244:3 › page and accessibility: /about (702ms)
+  ok 19 [desktop] › tests\browser\site.spec.ts:304:1 › representative navigation and linked destinations have no browser or asset errors (10.5s)
+  ok 20 [desktop] › tests\browser\site.spec.ts:369:1 › locator zoom, keyboard-accessible tables and dark detail page (3.0s)
+  ok 21 [desktop] › tests\browser\site.spec.ts:403:1 › empty results, 404, themes and preview indexing (1.9s)
+  ok 22 [mobile] › tests\browser\site.spec.ts:33:1 › keyboard-only search and compare preserve leading-zero ZIP areas (2.9s)
+  ok 23 [mobile] › tests\browser\site.spec.ts:71:1 › missing geography and invalid compare recover without fabricated data (2.5s)
+  ok 24 [mobile] › tests\browser\site.spec.ts:117:1 › small-screen and tablet dark layouts keep long content and controls usable (6.4s)
+  ok 25 [mobile] › tests\browser\site.spec.ts:157:1 › search distinguishes missing population from zero (770ms)
+  ok 26 [mobile] › tests\browser\site.spec.ts:163:1 › OKELOM identity and saved legacy theme survive navigation and reload (768ms)
+  ok 27 [mobile] › tests\browser\site.spec.ts:191:1 › large related-geography lists can reach their second page (1.0s)
+  ok 28 [mobile] › tests\browser\site.spec.ts:212:1 › malformed compare input is not silently converted to a different ZIP (513ms)
+  ok 29 [mobile] › tests\browser\site.spec.ts:223:1 › home search, leading-zero ZIP, detail and compare work (3.1s)
+  ok 30 [mobile] › tests\browser\site.spec.ts:244:3 › page and accessibility: / (1.4s)
+  ok 31 [mobile] › tests\browser\site.spec.ts:244:3 › page and accessibility: /search?q=Austin+TX (1.1s)
+  ok 32 [mobile] › tests\browser\site.spec.ts:244:3 › page and accessibility: /zip/10001 (1.9s)
+  ok 33 [mobile] › tests\browser\site.spec.ts:244:3 › page and accessibility: /state/ca (1.8s)
+  ok 34 [mobile] › tests\browser\site.spec.ts:244:3 › page and accessibility: /city/tx/austin-city (1.4s)
+  ok 35 [mobile] › tests\browser\site.spec.ts:244:3 › page and accessibility: /county/ny/new-york-county (1.1s)
+  ok 36 [mobile] › tests\browser\site.spec.ts:244:3 › page and accessibility: /compare?left=10001&right=90210 (964ms)
+  ok 37 [mobile] › tests\browser\site.spec.ts:244:3 › page and accessibility: /methodology (757ms)
+  ok 38 [mobile] › tests\browser\site.spec.ts:244:3 › page and accessibility: /data-sources (755ms)
+  ok 39 [mobile] › tests\browser\site.spec.ts:244:3 › page and accessibility: /about (881ms)
+  ok 40 [mobile] › tests\browser\site.spec.ts:304:1 › representative navigation and linked destinations have no browser or asset errors (10.9s)
+  ok 41 [mobile] › tests\browser\site.spec.ts:369:1 › locator zoom, keyboard-accessible tables and dark detail page (2.7s)
+  ok 42 [mobile] › tests\browser\site.spec.ts:403:1 › empty results, 404, themes and preview indexing (1.8s)
+
+  42 passed (1.6m)

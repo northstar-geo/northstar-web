@@ -17,7 +17,7 @@ GOAL_ID = GOAL-OKELOM-LAUNCH-READINESS-001
 CURRENT_GOAL = GOAL-OKELOM-LAUNCH-READINESS-001
 MISSION_ID = MISSION-OKELOM-PRODUCT-IDENTITY-PREVIEW-READINESS-001
 GOAL_STATUS = ACTIVE_BLOCKED
-EXECUTION_STATUS = WAITING_FOR_CORE_RUNTIME_DIAGNOSTIC_PREVIEW_DECISION
+EXECUTION_STATUS = WAITING_FOR_AUTHORIZED_EXTERNAL_DIAGNOSTIC_PREVIEW
 GOAL_RUNTIME_TYPE = PERSISTENT
 RUNTIME_GOAL_STATUS = active
 MISSION_STANDING_AUTHORITY = RECEIVED_FROM_FOUNDER
@@ -26,18 +26,18 @@ AUTO_RESUME_CAPABILITY = UNKNOWN
 SCHEDULE_REGISTRATION = VERIFIED
 SCHEDULE_DELIVERY = VERIFIED_SINGLE_HEARTBEAT
 LAST_OBSERVED_HEARTBEAT_AT = 2026-10-09T07:49:13.636Z
-CURRENT_STAGE = G04_RUNTIME_CAPACITY_VALIDATION
-CURRENT_BLOCKER = LOCAL_MEMORY_TARGET_FAIL_AND_AUTHORIZED_REAL_PREVIEW_REQUIRED
-TRUE_GATE = EXTERNAL_ACCOUNT_WRITE_AND_REAL_CLOUDFLARE_PROJECT_CREATE_NOT_AUTHORIZED
-LAST_REVIEWED_AT = 2026-10-10 00:27 +08:00
+CURRENT_STAGE = G08_LOCAL_AUTH_READY_DIAGNOSTIC_HANDOFF
+CURRENT_BLOCKER = REAL_PROTECTED_PREVIEW_AND_CLOUD_RUNTIME_EVIDENCE_REQUIRED; LOCAL_MEMORY_TARGET_FAIL_RETAINED
+TRUE_GATE = EXTERNAL_EXECUTOR_REQUIRED; THIS_CODEX_HAS_NO_CLOUD_ACCOUNT_OR_DEPLOYMENT_AUTHORITY
+LAST_REVIEWED_AT = 2026-10-10 09:09 +08:00
 REPOSITORY = northstar-geo/northstar-web
 WORKSPACE = E:\Projects\northstar\.worktrees\northstar-release-preparation-001
 CURRENT_BRANCH = codex/okelom-identity-preview-readiness-001
-IMPLEMENTATION_HEAD = LOCAL_RUNTIME_CHECKPOINT_IDENTIFIED_BY_SOURCE_HASH_MANIFEST_AND_FINAL_RECEIPT
-LAST_VALIDATED_HEAD = eb0b2a72bcc1f6200047ef6f25c5b81ccd2bcec1
-LAST_VALIDATED_HEAD_SCOPE = EXACT_SECURITY_CHECKPOINT; NEW_RUNTIME_PATCH_BOUND_BY_VALIDATION_JSON_SOURCE_HASHES
-WORKTREE_STATUS = LOCAL_RUNTIME_CHECKPOINT; VERIFY_GIT_STATUS_AT_RESUME
-CURRENT_EVIDENCE_BINDING = docs/release/evidence/2026-10-10-local-worker/VALIDATION.json
+IMPLEMENTATION_HEAD = 93c56847517a89a916696095bb8be5f898674896
+LAST_VALIDATED_HEAD = 93c56847517a89a916696095bb8be5f898674896
+LAST_VALIDATED_HEAD_SCOPE = PRIOR_RUNTIME_CHECKPOINT; CURRENT_AUTH_SOURCE_BLOBS_BOUND_IN_NEW_VALIDATION_PACKET
+WORKTREE_STATUS = LOCAL_AUTH_CHECKPOINT_AND_EVIDENCE_BEING_COMMITTED
+CURRENT_EVIDENCE_BINDING = docs/release/evidence/2026-10-10-preview-auth/VALIDATION.json
 BROWSER_TEST_CHECKPOINT = e9fc1b9756755193ce81c25a272a105fb96d972c
 FINAL_REQUIRED_VALIDATION_BINDING = EXACT_HEAD_COMMIT
 LAUNCH_READINESS = NOT_READY
@@ -47,10 +47,17 @@ SECURITY_VALIDATION_SCOPE = APPROVED_EXACT_AUDITS_AND_GRAPH_ORIGINAL_VALIDATOR_P
 NPM_READ_ONLY_AUDIT_AUTHORIZATION = GRANTED_FOR_THIS_MISSION
 COMPLIANCE_EVIDENCE_REBIND = APPROVED_AND_APPLIED_TWO_DIGEST_FIELDS_ONLY
 EVIDENCE_REBIND_DECISION = APPROVED_FOR_EXACT_4_149_0_CANDIDATE
-NEXT_RESUME_CONDITION = CORE_APPROVES_PROTECTED_DIAGNOSTIC_PREVIEW_AND_AUTHORIZED_EXECUTOR_RETURNS_REAL_EVIDENCE_OR_CORE_DIRECTS_BOUNDED_LOCAL_REMEDIATION
+NEXT_RESUME_CONDITION = AUTHORIZED_DEDICATED_WORK_RETURNS_EXACT_HEAD_PROTECTED_DIAGNOSTIC_PREVIEW_EVIDENCE_WITH_NO_CARD_OR_BILLING
 EXACT_PREVIEW_URL = NOT_CREATED_OR_VERIFIED
 ROLLBACK_READY = NO_EXACT_CANDIDATE_OR_DEPLOYMENT_BINDING
-NEXT_HIGHEST_VALUE_ACTION = CORE_DECISION_ON_G04_MEMORY_FAILURE_AND_PROTECTED_DIAGNOSTIC_PREVIEW
+NEXT_HIGHEST_VALUE_ACTION = CORE_ARRANGES_EXISTING_DEDICATED_WORK_DIAGNOSTIC_PREVIEW_THEN_APPLICATION_AND_CAPACITY_VERIFICATION
+PREVIEW_AUTH_CODE_READY = YES
+WORK_HANDOFF_READY = YES
+WORK_HANDOFF_SCOPE = AUTH_PROTECTED_DIAGNOSTIC_ONLY_NOT_CAPACITY_OR_LAUNCH_ACCEPTANCE
+PAYMENT_METHOD = NOT_AUTHORIZED
+BILLING_IDENTITY = NOT_AUTHORIZED
+ZERO_TRUST_ACTIVATION = NOT_AUTHORIZED
+OVERAGE_AUTHORIZATION = NOT_AUTHORIZED
 ```
 
 本块是本使命唯一当前门禁状态，后文历史记录和矩阵不得另行覆盖它。15:14的原生目标受阻状态属于正式恢复前历史；本轮正式回执到达后工具返回 `active`，实施恢复。`ACTIVE_BLOCKED` 表示目标保留且等待真实门禁，不是完成。实现与匹配本地验证已固定于上列检查点；后续仅记录证据的提交不能被误认作新的产品实现。运行时当前头提交始终以 `git rev-parse HEAD` 为准；最终回执另给实际头提交，不在自身文档中制造自引用哈希。当前证据不能冒充云端候选验收。
@@ -67,6 +74,12 @@ NEXT_HIGHEST_VALUE_ACTION = CORE_DECISION_ON_G04_MEMORY_FAILURE_AND_PROTECTED_DI
 - 现有生产审计对象摘要：`sha256:6a813559958e16d81c2973e6a54512f0dcfa122b7dd0d440ec558ae6337ca885`。
 
 ## 当前阻塞（CURRENT_BLOCKERS）
+
+**2026-10-10 09:09当前门禁：无银行卡认证代码及本地验证已完成，等待授权专属工作返回真实受保护诊断预览。** 本轮缺密钥503、缺/错凭据401、认证应用与静态资源正常、全局密钥隔离及禁止缓存/索引共41项真实本地运行时检查通过；单位/数据35、变异26、标准Node浏览器42和Worker浏览器42全部通过，规范/格式/类型/Next及OpenNext构建通过。一次独立审查的重要项已实测红绿修复；最终源码对象及日志绑定见上列验证包。包、锁、例外、规范数据、工作流均未改变，安全仍为原精确限时开发工具例外，不称零漏洞。
+
+此处`WORK_HANDOFF_READY=YES`只允许核心对话安排现有`@Polaris｜Dedicated Work`恢复`MISSION-OKELOM-PROTECTED-DIAGNOSTIC-PREVIEW-001`；本执行器未操作账户、创建项目、设置真实密码、上传、推送、合并、部署或启用索引。只复验原批准审计，不制造新的审计摘要；官方公告仍无修复版、期限2026-10-13 23:59 +08:00未变。银行卡/账单/超额费用明确不授权，若平台要求则停止并返回核心对话。
+
+本地原113.89 MiB超过96 MiB目标继续失败；新认证开销也未获云端容量证明。收到真实HTTPS地址、部署标识、精确候选及产物、访问保护/直达资产/禁止索引证据后，才能继续同一目标的应用与CPU/内存核验。标准Node回归保留流提前关闭日志，未逐条归因；真实设备、跨浏览器、支持与日志事实、比较范围和回滚仍待验收。目标未完成；原生状态active不代表外部等待期间有工程进程。以下00:27及更早记录为历史。
 
 **2026-10-10 00:27当前阻塞：完整运行时内存目标未通过，真实受保护诊断预览尚无权限/证据。** 本地适配构建及真实Worker功能可运行，但最终字节传输候选的默认运行时采样峰值113.89 MiB、暖态复测113.01 MiB，均超过既定96 MiB目标。仅为对照而限制老生代96 MiB后仍达101.33 MiB；这些失败全部保留。8路并发在暖态测量中约75.99 MiB，最大值发生于50次连续请求，单次回收后堆+缓冲区约17.74 MiB。该结果能区分临时分配与一次保留量，不能证明无泄漏、真实云端容量通过或128 MiB平台必然失败。
 
@@ -237,6 +250,13 @@ NEXT_HIGHEST_VALUE_ACTION = CORE_DECISION_ON_G04_MEMORY_FAILURE_AND_PROTECTED_DI
 - 真实用户规模下的长期核心网页指标趋势、性能容量扩展：作为上线后跟踪；首发前仍需真实预览实验及可执行监测方案，不伪装已有生产流量数据。
 
 ## 本轮计划变更记录
+
+- 2026-10-10：认证包装层的真实边界由原未保护入口200复现失败后改为缺密钥503、未认证401；当前真实运行41项通过，覆盖HTML、真实JS/CSS、图标/分享图、清单及注册地理分片、异常凭据/方法和认证后再次匿名访问。5项认证单元测试先失败后通过，完整单位/数据35项和安全变异26项通过。初次Worker浏览器24失败均为新增更严格`noarchive`与旧精确响应头断言不一致；只将Worker断言同步为完整三指令，标准Node及元数据断言原样保留，没有删除/跳过/放宽测试。测试启动直接Wrangler时缺少官方预览自动准备的只读缓存，产生真实缓存写入错误；源码核对后复用官方`populateCache local`，错误消失；不改生成源码/适配器、不静默过滤。Ruling: 保持官方本地预览缓存生命周期，避免把测试启动缺步误认为产品缓存设计问题；代价是每次真实本地运行多一次缓存准备。
+- 同轮一次独立整分支评审发现1项重要问题、0严重、0次要：兼容日期使平台自动把密钥绑定放入`process.env`。真实workerd探针复现`runtimeSecretVisible=true`；加入`nodejs_compat_do_not_populate_process_env`后同探针为false，同时真实OpenNext返回200且脱敏应用变量仍正确。只输出布尔值，不输出密钥；全回归正在对最终重建产物执行。Final: fixed 平台全局密钥暴露 — 真实探针RED→GREEN，最终全套结果以本轮验证包为准。Final: Ruling: 独立审查未执行成功的探针不作为证据，使用主执行器已授权运行时实测补足；实际云端/HTTPS/日志/免费额度仍未验证，内存失败保留，例外/远端CI/合并/公开发布不属于本轮授权。代价是不能仅凭本地认证就签发上线就绪。当前原生目标查询为active，表示本轮执行恢复，不能推断持续后台进程。
+
+- 2026-10-10：创始人直接提供附件 `63e8efc4-18a0-420b-8c3a-9f0e08cb4fc9` 的预览保护架构授权，并明确“不授权银行卡，改用不用银行卡方案”。本轮执行其已完整指定的设计与验证步骤，不再要求重复设计批准。复用本计划作为唯一账本；原生目标查询仍为blocked，实际本轮本地工程已获授权运行，二者不混同。基线93c5684，仅原计划状态修改保留；30/30基线测试及既有精确安全证据验证通过。任务顺序：1）真实Wrangler边界失败测试；2）稳定源码包装层、全资产先认证、默认拒绝和响应禁止缓存/索引；3）缺密钥/错凭据/正确凭据与真实资产回归、完整本地验证；4）一次独立评审、精确提交及诊断预览交接。接口：包装层先认证再调用生成处理器，配置必须指向包装层且所有静态资源先运行Worker；测试必须使用该真实配置，不能只测模拟处理器。Ruling: 认证无生产旁路，凭据及密钥不传给内部应用；全部预览响应禁止缓存。代价是静态资源请求也消耗Worker计算且不使用浏览器缓存，真实免费配额/容量仍需外部验证。Ruling: 不新增平行技能账本或治理文件；附件作为本轮设计规格，现有计划、环境契约和证据目录承载实现及回执。不开通Zero Trust、不提交账单/银行卡、不允许超额付费；不创建账户、项目或部署。历史内存失败未解除。
+
+- 2026-10-10 00:32 +08:00：本次正式恢复回合已完成本地适配、完整回归、两项最小内存优化、分阶段诊断、独立评审及检查点93c5684，随后两个目标续执行回合均核验到相同外部诊断权限缺失。上一回合是无新事实复核，不是等待活跃作业。核心对话更新时间仍为1791560398.184637，最新仅为已执行的安全重绑定批准，无真实预览决定；仓库、分支、HEAD、干净工作树及包/锁身份保持一致。内存96 MiB目标仍失败，真实平台容量与访问保护未验证；不能自行创建项目/部署，也不以重复测试或重写分片制造进展。连续三轮同一外部门禁审计满足，原生目标工具已返回blocked；目标未完成，不调整调度、依赖、例外或产品。仅同步本规范计划的运行时状态及已核对检查点，后续收到正式决定再核验证据恢复。
 
 - 2026-10-10 00:27 +08:00：G-03本地适配已工作，但G-04内存仍失败。保留五份原始测量及复现脚本；本地Worker42/42、30项单位/数据及26项安全变异通过，最终标准Node浏览器仍在收尾，最终结果以同目录VALIDATION.json和回执为准。独立整分支评审实际重跑30项全通过，无严重项，唯一重要项是内存目标失败；不以评审替代产品批准。当前未新增依赖变更，未修改安全验证器、例外范围/期限或工作流。两项最小分配优化没有达到容量门槛，停止猜测性第三项修复；真实平台诊断需要明确外部执行权限，不自行部署。更正00:04记录：检查器GC并非不支持，后续通过触发本机请求事件使命令完成；压力测量仍全程自然GC，事后单次回收不覆盖失败结果。参考[官方内存诊断](https://developers.cloudflare.com/workers/observability/dev-tools/memory-usage/)及[已合并本地V8参数支持](https://github.com/cloudflare/workers-sdk/pull/14702)；没有据公开问题推定本产品同因或已修复。
 

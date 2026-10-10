@@ -1,0 +1,56 @@
+
+> northstar-web@0.1.0 pretest
+> npm run data:assets
+
+
+> northstar-web@0.1.0 data:assets
+> tsx scripts/generate-geo-assets.ts
+
+{"sourceSha256":"2e100f671f3a84997b30627ababbfc94e049f7c2d2cf8d328c42c6006a2778c5","counts":{"nation":1,"state":52,"county":3222,"city":32350,"zcta":33791,"relationships":99406},"files":675,"searchParts":14,"largestAssetBytes":524284,"manifestBytes":130449}
+
+> northstar-web@0.1.0 test
+> tsx --test tests/*.test.ts
+
+✔ Worker reads the internal asset binding instead of the local manifest (18.5398ms)
+✔ Worker missing ASSETS fails instead of using the Node filesystem (0.5462ms)
+✔ Worker asset errors never fall back to the local manifest (0.6957ms)
+✔ Worker enforces the byte limit even without a truthful content length (2.8331ms)
+✔ Worker rejects a declared oversize body before reading it (0.4715ms)
+✔ asset transport rejects paths outside generated relative JSON assets (0.2772ms)
+✔ Census sentinels, blanks and nonnumbers never become zero (1.1726ms)
+✔ median reporting thresholds do not alter population counts (12.4044ms)
+✔ national snapshot integrity and unique identifiers/routes (69.2749ms)
+✔ ZIP and ZCTA remain distinct, preserving leading zeroes (17.5786ms)
+✔ search covers codes, names, abbreviations, pagination and hostile strings (888.3435ms)
+✔ state abbreviations match the state, not substrings in ZCTA labels (281.656ms)
+✔ place-name words like La do not become conflicting state filters (254.9498ms)
+✔ all relationships resolve and preserve provenance (42.7281ms)
+✔ nearby geographies ordered by great-circle distance, excluding self (101.206ms)
+✔ statistics retain source, vintage, MOE and historical periods (7.4927ms)
+✔ indexing gate rejects low-value profiles and preview indexing (29.1671ms)
+✔ server error events preserve route diagnostics without query, credentials, or error text (1.1286ms)
+✔ server error events use only stable diagnostics for non-Error values (0.1545ms)
+✔ missing or blank preview secret denies even a supplied credential before forwarding (19.2685ms)
+✔ invalid credentials deny without forwarding and never reflect input (10.6497ms)
+✔ correct credentials forward the request without credentials or secret and protect returned headers (2.4161ms)
+✔ stage and false flags cannot turn this diagnostic wrapper into public production (0.6514ms)
+✔ downstream failures produce a generic protected response without leaking error details (1.0549ms)
+✔ shared page metadata identifies OKELOM on social shares without a synthetic origin (1.4786ms)
+✔ pre-release and misconfigured origins fail closed across every indexing surface (31.7685ms)
+✔ only explicit production opt-in on the final origin can expose indexable output (1.3394ms)
+✔ production opt-in emits qualified sitemap shards and indexable metadata (57.3605ms)
+✔ preview has no synthetic public origin and public indexing requires HTTPS (0.7019ms)
+✔ all 69416 entities and 99406 relationships survive generated projections exactly (4500.1582ms)
+✔ detail and compare read only requested buckets; missing/corrupt assets fail closed (18.5091ms)
+✔ byte transport preserves data and verifies bytes before JSON decoding (11.3068ms)
+✔ broad search retains only a page, including last-page clamp, without detail hydration (201.5807ms)
+✔ search preserves absent population rather than inventing zero (185.2698ms)
+✔ a detail lookup does not allocate the nationwide dataset (3.6721ms)
+ℹ tests 35
+ℹ suites 0
+ℹ pass 35
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5535.9016

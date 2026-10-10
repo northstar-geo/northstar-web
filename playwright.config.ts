@@ -2,6 +2,12 @@ import { defineConfig, devices } from "@playwright/test";
 
 const firefoxValidationEnabled = process.env.PLAYWRIGHT_FIREFOX === "true";
 const workerValidationEnabled = process.env.PLAYWRIGHT_RUNTIME === "worker";
+const localTestPassword = process.env.OKELOM_LOCAL_TEST_PASSWORD;
+if (workerValidationEnabled && !localTestPassword) {
+  throw new Error(
+    "Use node scripts/validate-preview.mjs worker-browser for an ephemeral local credential",
+  );
+}
 
 export default defineConfig({
   testDir: "./tests/browser",
@@ -23,7 +29,14 @@ export default defineConfig({
       },
     ],
   ],
-  use: { baseURL: "http://127.0.0.1:43177", trace: "retain-on-failure" },
+  use: {
+    baseURL: "http://127.0.0.1:43177",
+    // Authenticated traces can retain Authorization headers; never record them.
+    trace: workerValidationEnabled ? "off" : "retain-on-failure",
+    httpCredentials: workerValidationEnabled
+      ? { username: "founder", password: localTestPassword!, send: "always" }
+      : undefined,
+  },
   projects: [
     {
       name: "desktop",
@@ -47,7 +60,7 @@ export default defineConfig({
   ],
   webServer: {
     command: workerValidationEnabled
-      ? "node node_modules/@opennextjs/cloudflare/dist/cli/index.js preview --ip 127.0.0.1 --port 43177 --inspector-port 43178"
+      ? "node scripts/local-worker-preview.mjs"
       : "node node_modules/next/dist/bin/next start --hostname 127.0.0.1 --port 43177",
     url: "http://127.0.0.1:43177",
     reuseExistingServer: false,

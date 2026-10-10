@@ -1,0 +1,514 @@
+{
+  "recordedAt": "2026-10-10T01:10:16.405Z",
+  "baseHead": "93c56847517a89a916696095bb8be5f898674896",
+  "scope": "LOCAL_AUTH_PROTECTED_DIAGNOSTIC_HANDOFF_ONLY",
+  "binding": "SOURCE_GIT_BLOBS_MUST_MATCH_FINAL_HEAD; FINAL_HEAD_IN_COMPLETION_RECEIPT",
+  "source": {
+    "app/(marketing)/page.tsx": {
+      "sha256": "ba581fb9af62db30df5a0cf0f8bb5390c9f5afaf82288c3058becd40ff6b3c54",
+      "gitBlob": "d1d822f0a0f7e7fb5faf452fdfa828d45d6263fe"
+    },
+    "app/about/page.tsx": {
+      "sha256": "89d4737150aad2e2f459d23e6b4fb931a089803cbbd158791272d7c452f6bf17",
+      "gitBlob": "2e491417cee01d95f0c85ed15cd1c8c82f9cfa05"
+    },
+    "app/city/[state]/[city]/page.tsx": {
+      "sha256": "63aa8ea567a988dde23ee9bf863a4e9dd39340e33179b32fe5717724e47c2e9b",
+      "gitBlob": "b9354422fef8819bf208e5c3d4ee7f62c2f641f2"
+    },
+    "app/compare/page.tsx": {
+      "sha256": "2fa661c754b10e20e6adfd6f54e05e4f22dc86ec7e79145ff8181fab1a50d58a",
+      "gitBlob": "b778594d66310b0c8ace0eb714e5872ebfa2145a"
+    },
+    "app/county/[state]/[county]/page.tsx": {
+      "sha256": "6b59ee0f9f138e6401e6a0c42aab996fb986183e06e5ff8596ab8dfc4a3f66d7",
+      "gitBlob": "c2e85b4831f7cc4e7b80830d4f8b693dccf3b309"
+    },
+    "app/data-sources/page.tsx": {
+      "sha256": "09208c7dc356b9bd39dbb6f4d6dca602187a23382f4ef9f20e75b3f43c3e5a30",
+      "gitBlob": "de44af618f5d75b560e8d0da2df6675167484b43"
+    },
+    "app/error.tsx": {
+      "sha256": "ac66c26a3fb6ff47b40bd71f33c902b4b1bf6494c62571300b88df08b404dae2",
+      "gitBlob": "366f9e9e04fc376523b06fe32a1493b46b04668a"
+    },
+    "app/favicon.ico": {
+      "sha256": "2b8ad2d33455a8f736fc3a8ebf8f0bdea8848ad4c0db48a2833bd0f9cd775932",
+      "gitBlob": "718d6fea4835ec2d246af9800eddb7ffb276240c"
+    },
+    "app/globals.css": {
+      "sha256": "ed623eaf0a5577166bd59d32caece2c3b57ec4baf03b6d70389cdf1ec493b051",
+      "gitBlob": "3f551d4fc6330d441e12eca1ba415ce445adb316"
+    },
+    "app/icon.svg": {
+      "sha256": "a4da9129fb8493b13f31f9cac03d568ffbc377297543ce40b0b74ffb7ed2b8e8",
+      "gitBlob": "8b5598ada028fce9135e59a039f948b1f500b318"
+    },
+    "app/layout.tsx": {
+      "sha256": "77f6b993d19e6aee834835d8d9825ce98b8aebc55de9c904b594199d58b3ac7f",
+      "gitBlob": "c094c045dd58649cc39ccab4236772f7a6423619"
+    },
+    "app/loading.tsx": {
+      "sha256": "7ab877013dd418567489cc0ba564bcc2c596ee621063163041ca713cbf0aad74",
+      "gitBlob": "16d33c72b3781a84d1ef45f02842f3f2c62f6b00"
+    },
+    "app/methodology/page.tsx": {
+      "sha256": "385a813de8d2bfaa9b59d985a265914e8950f56044c031fc78b04d9646b0ea32",
+      "gitBlob": "0ffb1a0d3bf1989e1643184307517efbee3cfce4"
+    },
+    "app/not-found.tsx": {
+      "sha256": "1e2b0bcf0d000d7afe46e0a7a4a3a96b7eda8adb77c00034b95572d34e73da02",
+      "gitBlob": "b7936c46e8720a35574b11bd409d125228371d56"
+    },
+    "app/opengraph-image.tsx": {
+      "sha256": "d40fb8d82f2fc7dd30fc55c9a24bb50241515278cea6a2e874159d52925861dd",
+      "gitBlob": "c441de7d871c1046e46246f77a454dad46f1f8ae"
+    },
+    "app/robots.ts": {
+      "sha256": "28da801487f0721285e1d5d885253e0bcb6f8f355f0afb9cb3d1970c2afa5302",
+      "gitBlob": "b853fe065fbf67653c727ee3651b2c810d2ff363"
+    },
+    "app/search/page.tsx": {
+      "sha256": "09920d6fef747fc01a781b79cda9455c3fb78629dc72396712a1d9c245b62b67",
+      "gitBlob": "cdb28a1640508b19f9b2839b3b0f1a008bc66416"
+    },
+    "app/sitemap.xml/route.ts": {
+      "sha256": "f6cb25312620ca893c9a789f895c45ee8861a9f6654f5b04a06f02312df296a7",
+      "gitBlob": "0aa1bd45fcaf9869d77515d1e8b06abfcd56d58c"
+    },
+    "app/sitemaps/[id]/route.ts": {
+      "sha256": "46cccd60e32b6c8689155e9368e331dc5fe58f4f8e31681441ac495b17d9ce66",
+      "gitBlob": "2fce937e4f4bdd0d0ebf5a7f48ada052bd06e809"
+    },
+    "app/state/[state]/page.tsx": {
+      "sha256": "eac8593198f7b1f62767a29dfa1dc263bbfd2160e2351b793891f5fba4b7aa51",
+      "gitBlob": "00cde3d4071f3c978fe92148962e1f474e61892c"
+    },
+    "app/zip/[zip]/page.tsx": {
+      "sha256": "c91d99c3f0bed20816db80d91cccab893ea6fb0611de209b03f3a53e62a3f1a7",
+      "gitBlob": "40a790b0dd0b9a443e926e6af39a5da46004cd42"
+    },
+    "components/SearchForm.tsx": {
+      "sha256": "02a4050576b13b2079853fb36f4d12e7cb1e6a664589f2cf546de4a40ce9837b",
+      "gitBlob": "2c072209cd675eb75f525699c9f96a96644c60a1"
+    },
+    "components/geo/GeographyPage.tsx": {
+      "sha256": "b1e47ba85f047e5d535da0d3d8a005171f76021cf837e6602804bd58df1b76a1",
+      "gitBlob": "5eda179db78e7577a320a59b1ddbd74845075962"
+    },
+    "components/geo/MetricCard.tsx": {
+      "sha256": "fb7a0e4c8420dda909a0f0af0a480bfbd59b05a0e56bb30909d789d186744413",
+      "gitBlob": "9f5dbb3842632316544d941e50c9fdd3af91a7e5"
+    },
+    "components/geo/PointMap.tsx": {
+      "sha256": "2cbff318c2a23230b2ad0f681c507ce67470a41ce4373d9cec897e795c813830",
+      "gitBlob": "0d9a36a93ed341901579bfdc34534429246535d8"
+    },
+    "components/home/CTA.tsx": {
+      "sha256": "4c25909a6c5df15da5a3d887b84d3325848a393e715a15ae91aa65d76a32f7d4",
+      "gitBlob": "70881a4a68442908904417fda8e4bb379372bc5b"
+    },
+    "components/home/Features.tsx": {
+      "sha256": "775a374e16ea3bb922c952e8a74bb5e83fe6a65378e3cc4d0e176cea92423dae",
+      "gitBlob": "fb96d80c340533536a7bdf88eb245270265c0b1f"
+    },
+    "components/home/Hero.tsx": {
+      "sha256": "35f6a867cc8dafc88b3640f42928410ffa8fa0e50eff2cea6b0df4e5a03ca249",
+      "gitBlob": "0b2fadee49ffd8c6bf7c322624ed3f6aa36f031f"
+    },
+    "components/layout/Container.tsx": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "gitBlob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    "components/layout/Footer.tsx": {
+      "sha256": "4b2a3abafa436992c390e6f53ad171793da28b8cd0b8a8231a99847eeda7c024",
+      "gitBlob": "ae3ce8871f24bb51cda54181499e3a83f5a2a72e"
+    },
+    "components/layout/Header.tsx": {
+      "sha256": "03d04cab035e3d38f438e03eb0764e6657781362836279f0dc6d03258fe8801a",
+      "gitBlob": "8f19d41d0f63d52d6aeda5a4b33fc67a6a0ca423"
+    },
+    "components/layout/ThemeControl.tsx": {
+      "sha256": "cfeabbef2e4f8bb7d25272840c079b363dde2751f72411aaa8b11b9d4feac73f",
+      "gitBlob": "263079a27a779712479f1cedc60accbb3e043b61"
+    },
+    "custom-worker.ts": {
+      "sha256": "91b24ab052be890cb10d770bff848d2073b1568c9d875be6ec22c308abddf5ff",
+      "gitBlob": "f88cf1f036b883876de00bff8da61cbb2df4ac64"
+    },
+    "data/geography.json.gz": {
+      "sha256": "2e100f671f3a84997b30627ababbfc94e049f7c2d2cf8d328c42c6006a2778c5",
+      "gitBlob": "64c534fff482bc45afc3b519150cee51a0a3aa0d"
+    },
+    "data/import-receipt.json": {
+      "sha256": "17f2bd5103c6c7c962cc14bfc8c316dae1bd41e1e3ad2f7c899b3c52c39acbbc",
+      "gitBlob": "ef8fa4cc79de169aa1111479bc23bc0b5cf6c27e"
+    },
+    "data/migrations/001-geography.sql": {
+      "sha256": "fb1b406f090e33a17ee3e04d68a1a436eb47d068251c780b675686ff0c954e71",
+      "gitBlob": "89b889d8ae0d9cc12fcae0e8be46d72f811ea075"
+    },
+    "data/migrations/002-observation-bounds.sql": {
+      "sha256": "90143170333665a46c874e9bdd1aa76582dac321754858d3f9bfb1655ffcc2a4",
+      "gitBlob": "5d9d300b29fbdeec597046f06ac1da0723908c80"
+    },
+    "data/sources.json": {
+      "sha256": "6be508fcaee75925ea34a045412267def9c853ceb1626b18707b07f02a243ee5",
+      "gitBlob": "a38bed8da3d7611c535e22c67b12ba615472eadf"
+    },
+    "eslint.config.mjs": {
+      "sha256": "be080abe210b8b05aa1aeab8e28fa6782df21bd9744ccec8946c04d6939b5da6",
+      "gitBlob": "e0168301beb5acb4a1f2762159287c331ae7bd36"
+    },
+    "lib/geo/asset-loader.ts": {
+      "sha256": "293974fe27c224a5f15bdb4ac14f9714f0f7d5a89ec4c389c23d7307c439083c",
+      "gitBlob": "9699990988d969b0c76d8ec9f57dcf374a6d3cb2"
+    },
+    "lib/geo/model.ts": {
+      "sha256": "3e5affb143b5375bf8742b6b1e8be0a6b2eb0c7f41ec74df1ac590a757efac34",
+      "gitBlob": "eb00752ee35b78f75c57f0990156e60b14cbd26e"
+    },
+    "lib/geo/page.ts": {
+      "sha256": "3490978c09db467432d830e09c2d25384480cbf62095c9e1b8f1723cfe0a301f",
+      "gitBlob": "ae61288ec54cd203a21b6c3713072620ef144566"
+    },
+    "lib/geo/repository.ts": {
+      "sha256": "715328fc9a2498495607c54d511f69be89721872aa0de10c4b502124b111d4c1",
+      "gitBlob": "4f21b051b756c6550246beba855a1e8da13e4dfd"
+    },
+    "lib/geo/shard-format.ts": {
+      "sha256": "cec6bb89c21ec2f528d38dd96927e90eabe9b0ea67e6fe2daf7a2958013895af",
+      "gitBlob": "1193cf5ffa8fb833b3dc0b0bc8db132b3a3fcef5"
+    },
+    "lib/geo/shard-repository.ts": {
+      "sha256": "90b79b6187d533502c0d83350341afbed72f4ff89bdf6ce981e495ff3d683652",
+      "gitBlob": "630e2859bcf2b77401e334e5965ec9e96829a73c"
+    },
+    "lib/observability.ts": {
+      "sha256": "38279f8b088db930bbb81ba1c079cd458997b02e5c3b5d35ba568d662133de25",
+      "gitBlob": "66450615518227a3ef958ba7165ca8ac91bbb584"
+    },
+    "lib/preview-auth.ts": {
+      "sha256": "b82194623cfa334415351f2399b4e2750955278f1d30265d815af8a512fa5f38",
+      "gitBlob": "b7e243f7c10b18efb3f64f7f1ddd2d8ba6f198b6"
+    },
+    "lib/seo.ts": {
+      "sha256": "4742bf5de565799489271ae84fd29035bedbd45b3be58f91dab16892f2ea2388",
+      "gitBlob": "b30a34023082d623482dca57f86dafaed42736ed"
+    },
+    "lib/sitemap.ts": {
+      "sha256": "b2f3e10ac92aaee0c2a0c69ecda58aa50ad5fc199c03fd6357081f71fde7d22e",
+      "gitBlob": "a43526f9b1d98e37f40be5498d5832b51d4c5c6e"
+    },
+    "next.config.ts": {
+      "sha256": "2dd6e9c138119ec067ca0643241b8df7651aba71eacab64c215524acd2c083c8",
+      "gitBlob": "f897de3fb52f69b42862c04203ab3cef3a33e71b"
+    },
+    "open-next.config.ts": {
+      "sha256": "861e61da91983ea25efd373c59c10ca12f016a77f52233459c00ed68d3e1b2f6",
+      "gitBlob": "9eeed0662ac1707423d8eb3f8bbc45825ab9c447"
+    },
+    "package-lock.json": {
+      "sha256": "0f17c9572a7389c996ecddc300fdf5db1a770ad57c88ae7084b5e047b252b114",
+      "gitBlob": "04ddf499024cd72fd565a26243e98933e3879af6"
+    },
+    "package.json": {
+      "sha256": "18f82182c2639f6deb238a965107dd71fd774d3488018b71c7d90f5c21d44261",
+      "gitBlob": "0e1403100b7a4d454beb1e28dd79b20db9ee57f9"
+    },
+    "playwright.config.ts": {
+      "sha256": "361961b9873e440f4f10ca5098bbdb889307b4cd4b9acabc2baabd767bc21f58",
+      "gitBlob": "5faa0a2088ae753b354b18df571ac03d989383e3"
+    },
+    "postcss.config.mjs": {
+      "sha256": "7b299d3d3b16699ddda397c0b2373b3af4f25f8fc9ccc9b3d9e64ef083bc1c21",
+      "gitBlob": "61e36849cf7cfa9f1f71b4a3964a4953e3e243d3"
+    },
+    "public/_headers": {
+      "sha256": "1d2cd6d345c869e2c87715895d4541a32c537db1122ef2a3f12315570bdb65b7",
+      "gitBlob": "c84b5e7f86af8881f8b9e73b5acede47348a9512"
+    },
+    "public/file.svg": {
+      "sha256": "2b67812c325c199a02536cdbeea0c593a72f707d323b72ee3e08dbab06753bd4",
+      "gitBlob": "004145cddf3f9db91b57b9cb596683c8eb420862"
+    },
+    "public/globe.svg": {
+      "sha256": "b614b9bf183925957661ac851498fe1d8029fd43a62fbfed86f9e2624a57e7cf",
+      "gitBlob": "567f17b0d7c7fb662c16d4357dd74830caf2dccb"
+    },
+    "public/next.svg": {
+      "sha256": "55995dfad6ecb4945a1e856ddca03c5e16aa5bf13fd21b4df6a74ae79357bcfc",
+      "gitBlob": "5174b28c565c285e3e312ec5178be64fbeca8398"
+    },
+    "public/vercel.svg": {
+      "sha256": "f081337b2fee635b455b63275406a3e7f39d6a014e25ad90dab5a67e62a12ac4",
+      "gitBlob": "77053960334e2e34dc584dea8019925c3b4ccca9"
+    },
+    "public/window.svg": {
+      "sha256": "644768c4aaeb4767bce293344eeb0c125fb804a94d801440424072202d85e3a1",
+      "gitBlob": "b2b2a44f6ebc70c450043c05a002e7a93ba5d651"
+    },
+    "scripts/build-database.ts": {
+      "sha256": "5bc97d7dd58750784454b048f1919fdc8a60b91890e35e61bda896daa5690536",
+      "gitBlob": "e1c5066fd93a336f32397a51ca740afcf32dd7cc"
+    },
+    "scripts/canonical-snapshot.ts": {
+      "sha256": "c576f8f5b84a54a1c331f1669ecfbf9937c283a0650a44a0d12215afc2ca7e30",
+      "gitBlob": "d553eba93c4609a3bf322c26e778fc7ab4e3b086"
+    },
+    "scripts/fetch-data.mjs": {
+      "sha256": "e5998f66cc021440209044cbf9e548f053cc14d318ec837ba9a405f00e604bb8",
+      "gitBlob": "241d5933194312fc2c97418b581686d74a89a351"
+    },
+    "scripts/generate-geo-assets.ts": {
+      "sha256": "23b81eb0ea737748dd773bbacbbae4eb18d0c4e6441cb109fd3fba2898c0b500",
+      "gitBlob": "03e7c5907d1077188eb3a617f5ab5b0805ea3f06"
+    },
+    "scripts/import-data.ts": {
+      "sha256": "a961ae2a9961fa168cfd6ade72dbf89825d4e65e0cff31ffcd1a0d161bb7ed39",
+      "gitBlob": "61c8141a2ea07794fc5b4a5f7e5263459078d06b"
+    },
+    "scripts/local-worker-preview.mjs": {
+      "sha256": "a1a4849e01f2f26326a4cd2c2333c0fd988d5632f62d6e8c1401ba81723aa693",
+      "gitBlob": "a07a142163b9f6a8cbf4f1e85f8e917dfd6a38c6"
+    },
+    "scripts/measure-geo-memory.ts": {
+      "sha256": "64551856109d9c7e7925943d6163a4130d46fe943e120be88582445dcb85ee2c",
+      "gitBlob": "1fb3583873450587be384407aa1279573f95d7fe"
+    },
+    "scripts/release-lab.mjs": {
+      "sha256": "158498fd5283283b890f450b0aac7a9fe4837cc942f72d39dfdfe5894652261d",
+      "gitBlob": "34119cbbd45b73f4965daea1f5f00ecdc0d4c2da"
+    },
+    "scripts/release-web-vitals.mjs": {
+      "sha256": "25a8ac0d29103b35baabd25f2cddb2cdfd7c2071b091b172c6758f66ac56c2ff",
+      "gitBlob": "16b58b380d91b4b63d5fd25179b9997efd0e69e6"
+    },
+    "scripts/test-preview-auth.mjs": {
+      "sha256": "84e44ab03d2249006bdb7429a691d204df8eda2099af2c14ba2e73f8b4f0dc58",
+      "gitBlob": "106726622ee7fe7f029737c524bc59c9df6d8b05"
+    },
+    "scripts/validate-preview.mjs": {
+      "sha256": "620275b6e99540668d02f59e8424c1c5302309b0718ccb92efe51e506d21b648",
+      "gitBlob": "a7d654523eee7155001d6739f24590bac24455f1"
+    },
+    "scripts/verify-security-exception.mjs": {
+      "sha256": "7b1f3f2448b8c6d155ee914e35f9c36794644dd6fc4bc0758bc56450d15c650a",
+      "gitBlob": "937d8fe2d40a9c531e71eb95738356af7702e40c"
+    },
+    "scripts/verify-security-exception.test.mjs": {
+      "sha256": "c71efbbb429e82c2194f9e8e2206f52fa7700ae0110f0c201fc34a81ba8c3c40",
+      "gitBlob": "886928a5ad4dbd5eb63dc6e66d849bd55a2139d1"
+    },
+    "tests/asset-loader.test.ts": {
+      "sha256": "269b5250199dabd3f1aa6812f316a8c61a0f9660b419355a90bd3974f86a7c72",
+      "gitBlob": "1f6e2c11e37b71760f929fb5122dfce4e06155eb"
+    },
+    "tests/browser/site.spec.ts": {
+      "sha256": "0c3b4c5ec0118e2620f0466c2c7ec5580bb7dea3ae423dc0c0d90fe9c8b81291",
+      "gitBlob": "f7accd7663dfda7e42644577e0992cfbeda2f8d2"
+    },
+    "tests/fixtures/preview-auth-env-worker.ts": {
+      "sha256": "bfed35b2348102f4b1a65827ccbcbe8c17b26bc56a1be404997a445dfc880dcc",
+      "gitBlob": "cde6d3e73f5ea9ac51b53488f9cc391187ba29fe"
+    },
+    "tests/geo.test.ts": {
+      "sha256": "bc4cb4484039d3c3ce1b26cbd053f6fc069f2c6ee6b58f18594b07c4d6d4b745",
+      "gitBlob": "19e1fc2b59ad50be0aedf8a6a2536c81e17525df"
+    },
+    "tests/observability.test.ts": {
+      "sha256": "ebfb77c4eda1ff7881ad4a8d3a5bafedf322b53da9ec28b53b1778936bc6920f",
+      "gitBlob": "2b2dd1c07818bdf75a031f0cdce75d2c4635bb40"
+    },
+    "tests/preview-auth.test.ts": {
+      "sha256": "9efbdce4c017fd844d2ca2aed90858655ddfe4d878353d4a001d52376bc13220",
+      "gitBlob": "c6fb584786d204b70d2a18b4f2c3791c76a30eb1"
+    },
+    "tests/release-identity.test.ts": {
+      "sha256": "c8f8e2fc50776b578a9a6b1bd289d7676c461b5d16169e980bfb20d3d828d75e",
+      "gitBlob": "dc724549fd61d919f49734a0d04dcc794c1f49e2"
+    },
+    "tests/seo.test.ts": {
+      "sha256": "aa7a491fdde1c9b5d7117661987045334f2f6c287304d38162c1e50069f60314",
+      "gitBlob": "12cbb91b749afd521e5fce4b838a5652513f86f6"
+    },
+    "tests/shard-integrity.test.ts": {
+      "sha256": "9317b58e2e13ec966b6e6b2d6da0b57c01d1072ccc1c09b7d894a88dd7a62832",
+      "gitBlob": "f025b17253026dc91aa9ee7814f05ae53cb9cce6"
+    },
+    "tests/shards.test.ts": {
+      "sha256": "79ffc43ac20fd7955e93fabe63690124304b33df2d5087fc1af22ec2889741fe",
+      "gitBlob": "b060b94cb4f690f41a2bbe7e833deda0d46a745b"
+    },
+    "tsconfig.json": {
+      "sha256": "8152839c62d6169bd97437c6bbc4423ed5cbea726448b7701124ddecece05543",
+      "gitBlob": "20d318de492304ec8e9b6464b6b14e68b62d3f52"
+    },
+    "types/open-next-worker.d.ts": {
+      "sha256": "fef3d67eb98826c7a72d3d9850dc9f1b443ad399688c05db742196281f93f9ad",
+      "gitBlob": "4958934eee7f0f7d64a479ca72f22fc644bcc3cf"
+    }
+  },
+  "evidence": {
+    "build.txt": {
+      "sha256": "558f7444642a7cfc86142e9881ff8b207b02c3ed338a295189b20a89256adb8b",
+      "rawSha256": "89781ba3ca2170c5cc50a70f895e1eecc699024f79be6558361d67243145fb61"
+    },
+    "lint.txt": {
+      "sha256": "a8b1459f0e919016fde8bf4b1c46f15029e3165d70b2af7df25e12bb156f04bf",
+      "rawSha256": "f95299f5d77cde0dc2d0ee333b3bf0096f01204e7f3445f29a9a023fe27401cc"
+    },
+    "typecheck.txt": {
+      "sha256": "ea7321c8aa6b5f6d65895016b67ac3c314cf2b1724d13696b55746c2f022c547",
+      "rawSha256": "ea7321c8aa6b5f6d65895016b67ac3c314cf2b1724d13696b55746c2f022c547"
+    },
+    "test.txt": {
+      "sha256": "ab8db17ce7cc9f4f2afc585ad70f69caaa5838855bbe7a8fb55b6fb67d7cba24",
+      "rawSha256": "ab8db17ce7cc9f4f2afc585ad70f69caaa5838855bbe7a8fb55b6fb67d7cba24"
+    },
+    "security.txt": {
+      "sha256": "2363c73aa718be05484c44c22fec9d313e5219e267cc4ab0c2a223a817d42e2f",
+      "rawSha256": "2363c73aa718be05484c44c22fec9d313e5219e267cc4ab0c2a223a817d42e2f"
+    },
+    "auth.txt": {
+      "sha256": "4d621fe6179701fb03025b2fccb8a4753d3ac32c3483e0533baa1f8dfd718e31",
+      "rawSha256": "4d621fe6179701fb03025b2fccb8a4753d3ac32c3483e0533baa1f8dfd718e31"
+    },
+    "worker-browser.txt": {
+      "sha256": "14653029f4efcd508d6bb81171984b8b24d77b09e386f3b35d4c228f171ebf3c",
+      "rawSha256": "14653029f4efcd508d6bb81171984b8b24d77b09e386f3b35d4c228f171ebf3c"
+    },
+    "browser.txt": {
+      "sha256": "d5da1669ab8fca906b1d32317b6ddad5cb4d6150428e3ca0516839c64ad7a975",
+      "rawSha256": "d5da1669ab8fca906b1d32317b6ddad5cb4d6150428e3ca0516839c64ad7a975"
+    },
+    "auth-process-env-red.txt": {
+      "sha256": "26f7931231d271136786de9a9fcff1e404a8190a8a92d12770104299964f7d15",
+      "rawSha256": "3ace7fab5e4d1f104d84ba4dcce05b70f93ff9920c32fe7c4e87ecb6bafd97cf"
+    }
+  },
+  "logNormalization": "Only line endings, trailing whitespace and trailing blank lines normalized; raw hashes retained",
+  "build": {
+    "nextBuildId": "Q8b6cPVn22x-5ejnMq0Zq",
+    "generatedWorkerSha256": "d05223bf4d44c84108a102ab62aa3bc9c5568f0c3ac2064c37be5cc65c64bc45",
+    "authenticatedEntry": "custom-worker.ts",
+    "next": "PASS",
+    "openNext": "PASS",
+    "bundleInputs": 419,
+    "knownVulnerableRuntimeInputs": 0
+  },
+  "validation": {
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "unit": {
+      "passed": 35,
+      "failed": 0
+    },
+    "securityMutation": {
+      "passed": 26,
+      "failed": 0
+    },
+    "realWorkerAuth": {
+      "checks": 41,
+      "result": "PASS",
+      "scope": "LOCAL_WRANGLER_REAL_ROUTING",
+      "remoteDeployment": false
+    },
+    "browser": {
+      "node": {
+        "startTime": "2026-10-10T01:07:41.587Z",
+        "duration": 78058.053,
+        "expected": 42,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0,
+        "reportSha256": "36fa25d748578575ba3117ecf0c715b6571ffcb6c8427b220356514935875505"
+      },
+      "worker": {
+        "startTime": "2026-10-10T01:06:03.385Z",
+        "duration": 97175.434,
+        "expected": 42,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0,
+        "reportSha256": "a7a9ffa3216fb527ac43da31204e528c4e710064e54c45d0e670c584507f42ec"
+      }
+    }
+  },
+  "security": {
+    "classification": "KNOWN_HIGH_TEMPORARY_EXCEPTION",
+    "securityGate": "PASS_WITH_EXACT_TIME_BOUNDED_EXCEPTION",
+    "checkedAt": "2026-10-10T01:10:16.464Z",
+    "auditCollectedAt": "2026-10-09T16:01:41.482Z",
+    "freshNpmAuditThisIncrement": false,
+    "fullDigest": "sha256:22a277bb8c66339fe0595c37b5f8632d5fbe989af9c55dcecc5210e4db062763",
+    "productionDigest": "sha256:b95553a40d9051f3b40f9a1c72aaf6d36b814a8a361e55948898065fd785e7c7",
+    "fullCounts": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 5,
+      "critical": 0,
+      "total": 5
+    },
+    "productionCounts": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "scope": "DEV_TOOLING_ONLY",
+    "expiresAt": "2026-10-13T23:59:00+08:00",
+    "officialAdvisoryRecheckedAt": "2026-10-10T01:01:42Z",
+    "patchedVersionObserved": "NONE",
+    "advisoryUrl": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm",
+    "packageLockChanges": "NONE",
+    "exceptionChanges": "NONE"
+  },
+  "data": {
+    "sourceSha256": "2e100f671f3a84997b30627ababbfc94e049f7c2d2cf8d328c42c6006a2778c5",
+    "registeredAssetsVerified": 674,
+    "totalFiles": 675,
+    "geographies": 69416,
+    "relationships": 99406
+  },
+  "review": {
+    "reviewer": "preview_auth_final_review",
+    "type": "ONE_FRESH_READ_ONLY_WHOLE_BRANCH_REVIEW",
+    "critical": 0,
+    "important": 1,
+    "fixed": "Workerd process.env secret exposure: actual runtime RED true then GREEN false with nodejs_compat_do_not_populate_process_env; sanitized preview variables preserved",
+    "deferredMinors": []
+  },
+  "unresolved": {
+    "memory": "FAIL_RETAINED_NOT_REMEASURED_BY_AUTH_TASK",
+    "defaultLocalPeakMiB": 113.88940906524658,
+    "localTargetMiB": 96,
+    "cloudCapacity": "UNVERIFIED",
+    "realPreview": "NOT_CREATED_OR_VERIFIED",
+    "freeAccountEligibility": "UNVERIFIED",
+    "realDevicesCrossBrowser": "NOT_ACCEPTED",
+    "supportAndPlatformLogs": "PENDING"
+  },
+  "authority": {
+    "card": false,
+    "billingIdentity": false,
+    "overage": false,
+    "zeroTrust": false,
+    "paidAddon": false,
+    "accountWrites": false,
+    "deployed": false,
+    "publicRelease": false,
+    "productionIndexing": false,
+    "merge": false,
+    "push": false
+  },
+  "caveats": [
+    "Local workerd and Edge desktop/mobile emulation, not a real cloud preview or real device certification.",
+    "Standard Node browser log retains stream-closed diagnostics; not all occurrences individually attributed. Browser assertions passed without hiding logs.",
+    "Authenticated responses disable browser/CDN caching. Free-tier quota, HTTPS, platform logs and capacity require authorized external verification.",
+    "Report file hashes refer to retained local artifacts; no secret values stored in evidence."
+  ]
+}
