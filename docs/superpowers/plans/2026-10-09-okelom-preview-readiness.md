@@ -33,10 +33,10 @@ LAST_REVIEWED_AT = 2026-10-10 09:09 +08:00
 REPOSITORY = northstar-geo/northstar-web
 WORKSPACE = E:\Projects\northstar\.worktrees\northstar-release-preparation-001
 CURRENT_BRANCH = codex/okelom-identity-preview-readiness-001
-IMPLEMENTATION_HEAD = 93c56847517a89a916696095bb8be5f898674896
-LAST_VALIDATED_HEAD = 93c56847517a89a916696095bb8be5f898674896
-LAST_VALIDATED_HEAD_SCOPE = PRIOR_RUNTIME_CHECKPOINT; CURRENT_AUTH_SOURCE_BLOBS_BOUND_IN_NEW_VALIDATION_PACKET
-WORKTREE_STATUS = LOCAL_AUTH_CHECKPOINT_AND_EVIDENCE_BEING_COMMITTED
+IMPLEMENTATION_HEAD = 7add488cdc2c34c5d572e3115e5cab5f04d0b15d
+LAST_VALIDATED_HEAD = 7add488cdc2c34c5d572e3115e5cab5f04d0b15d
+LAST_VALIDATED_HEAD_SCOPE = 86_SOURCE_BLOBS_MATCH_AUTH_VALIDATION_PACKET; LOCAL_AUTH_ONLY; MEMORY_FAIL; CLOUD_UNVERIFIED
+WORKTREE_STATUS = AUTH_CHECKPOINT_COMMITTED; THIS_BINDING_UPDATE_IS_DOCUMENTATION_ONLY
 CURRENT_EVIDENCE_BINDING = docs/release/evidence/2026-10-10-preview-auth/VALIDATION.json
 BROWSER_TEST_CHECKPOINT = e9fc1b9756755193ce81c25a272a105fb96d972c
 FINAL_REQUIRED_VALIDATION_BINDING = EXACT_HEAD_COMMIT
@@ -250,6 +250,8 @@ OVERAGE_AUTHORIZATION = NOT_AUTHORIZED
 - 真实用户规模下的长期核心网页指标趋势、性能容量扩展：作为上线后跟踪；首发前仍需真实预览实验及可执行监测方案，不伪装已有生产流量数据。
 
 ## 本轮计划变更记录
+
+- 2026-10-10 09:09 +08:00：最终重建与完整回归完成；Next/OpenNext、规范/格式/类型通过，35/35单位/数据、26/26安全变异、41项真实认证边界、标准Node42/42及Worker42/42浏览器全部通过，0跳过/不稳定。86个源码/配置/测试/规范数据文件与检查点`7add488cdc2c34c5d572e3115e5cab5f04d0b15d`的Git对象逐项核对，日志摘要与验证包匹配；本条是纯文档绑定，不改已测试源码。原创始人AGENTS.md18行保留、其暂存区空。无推送/合并/部署/支付动作。Final: fixed 全局密钥暴露 — 真实探针RED→GREEN，完整套件全部通过；无延后次要项。[独立审查与裁决](../../release/evidence/2026-10-10-preview-auth/REVIEW.md)保留范围、代价和未裁决事项。当前有效下一步依赖专属工作真实预览，不是因一个小任务完成等待“继续”；全目标仍未达到最终创始人门禁。
 
 - 2026-10-10：认证包装层的真实边界由原未保护入口200复现失败后改为缺密钥503、未认证401；当前真实运行41项通过，覆盖HTML、真实JS/CSS、图标/分享图、清单及注册地理分片、异常凭据/方法和认证后再次匿名访问。5项认证单元测试先失败后通过，完整单位/数据35项和安全变异26项通过。初次Worker浏览器24失败均为新增更严格`noarchive`与旧精确响应头断言不一致；只将Worker断言同步为完整三指令，标准Node及元数据断言原样保留，没有删除/跳过/放宽测试。测试启动直接Wrangler时缺少官方预览自动准备的只读缓存，产生真实缓存写入错误；源码核对后复用官方`populateCache local`，错误消失；不改生成源码/适配器、不静默过滤。Ruling: 保持官方本地预览缓存生命周期，避免把测试启动缺步误认为产品缓存设计问题；代价是每次真实本地运行多一次缓存准备。
 - 同轮一次独立整分支评审发现1项重要问题、0严重、0次要：兼容日期使平台自动把密钥绑定放入`process.env`。真实workerd探针复现`runtimeSecretVisible=true`；加入`nodejs_compat_do_not_populate_process_env`后同探针为false，同时真实OpenNext返回200且脱敏应用变量仍正确。只输出布尔值，不输出密钥；全回归正在对最终重建产物执行。Final: fixed 平台全局密钥暴露 — 真实探针RED→GREEN，最终全套结果以本轮验证包为准。Final: Ruling: 独立审查未执行成功的探针不作为证据，使用主执行器已授权运行时实测补足；实际云端/HTTPS/日志/免费额度仍未验证，内存失败保留，例外/远端CI/合并/公开发布不属于本轮授权。代价是不能仅凭本地认证就签发上线就绪。当前原生目标查询为active，表示本轮执行恢复，不能推断持续后台进程。
